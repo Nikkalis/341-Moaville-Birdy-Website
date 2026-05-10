@@ -68,5 +68,25 @@ h5 {
 #defaultCanvas0 {
     position: absolute;
     top: 0;
+    mix-blend-mode: overlay;
+}
+
+#heroimg {
+    position: absolute;
+    top: 0;
+    width: 100vw;
+    height: 720px;
+    background-image: url(images/texture.png);
+    background-size: cover;
+}
+
+#titleimg {
+    position: absolute;
+    z-index: 720px;
+    top: 0;
+    width: 100vw;
+    height: fit-content;
+    background-image: url(images/SVG/Recognisetitle.svg);
+    background-size: contain;
 }
 
