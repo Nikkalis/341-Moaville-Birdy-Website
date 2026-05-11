@@ -70,7 +70,7 @@ h5 {
 }
 .p5Canvas {
     position: absolute;
-    top: 0;  
+    top: -550px;  
     mix-blend-mode:hard-light;
 }
 
@@ -80,7 +80,6 @@ h5 {
     top: 0;
 }
 #herodiv {
-    position: absolute;
     top: 0;
     width: 100vw;
     height: var(--heroheight);
@@ -92,7 +91,7 @@ h5 {
     display: block;
     margin: auto;
     z-index: 3;
-    margin-top: 100px;
+    padding-top: 80px;
     width: 80vw;
     height: 80%;
 
