@@ -16,7 +16,7 @@ let windowWidth = this.innerWidth;
 let _diff_line;
 
 function setup() {
-  var myCanvas = createCanvas(2000,900);
+  var myCanvas = createCanvas(2000,2000);
     myCanvas.parent("herodiv");
  myCanvas.style("left", "50%");
  myCanvas.style("transform", "translateX(-50%)");
