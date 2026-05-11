@@ -65,28 +65,36 @@ h5 {
 
 /* Linework growth ----------------------------------------------------------------- */
 
-#defaultCanvas0 {
+:root {
+    --heroheight: 900px;
+}
+.p5Canvas {
     position: absolute;
-    top: 0;
-    mix-blend-mode: overlay;
+    top: 0;  
+    mix-blend-mode:hard-light;
 }
 
-#heroimg {
+#squiggleinstance {
+    position: absolute;
+    z-index: 1;
+    top: 0;
+}
+#herodiv {
     position: absolute;
     top: 0;
     width: 100vw;
-    height: 720px;
+    height: var(--heroheight);
     background-image: url(images/texture.png);
     background-size: cover;
 }
 
 #titleimg {
-    position: absolute;
-    z-index: 720px;
-    top: 0;
-    width: 100vw;
-    height: fit-content;
-    background-image: url(images/SVG/Recognisetitle.svg);
-    background-size: contain;
+    display: block;
+    margin: auto;
+    z-index: 3;
+    margin-top: 100px;
+    width: 80vw;
+    height: 80%;
+
 }
 

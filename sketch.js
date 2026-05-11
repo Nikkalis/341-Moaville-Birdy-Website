@@ -16,14 +16,19 @@ let windowWidth = this.innerWidth;
 let _diff_line;
 
 function setup() {
-  createCanvas(windowWidth, 720);
+  var myCanvas = createCanvas(2000,900);
+    myCanvas.parent("herodiv");
+ myCanvas.style("left", "50%");
+ myCanvas.style("transform", "translateX(-50%)");
+ 
   noFill();
+  stroke(106, 189, 69);
   noSmooth(); // disables antialiasing — meaningful fps gain on canvas 2D
   strokeWeight(2);
   _diff_line = new DifferentialLine(_maxForce, _maxSpeed, _desiredSeparation, _separationCohesionRation, _maxEdgeLen);
   let nodesStart = 6;
   let angInc = TWO_PI / nodesStart;
-  let rayStart = 30;
+  let rayStart = 300;
   for (let a = 0; a < TWO_PI; a += angInc) {
     let x = width / 2 + cos(a) * rayStart;
     let y = height / 2 + sin(a) * rayStart;
@@ -36,7 +41,7 @@ function draw() {
   
   clear();
   //background(0);
-  stroke(0);
+  
   _diff_line.run();
   _diff_line.renderLine();
 }
@@ -247,8 +252,8 @@ class DifferentialLine {
     for (let i = 0; i < this.nodes.length - 1; i++) {
       let p1 = this.nodes[i].position;
       let p2 = this.nodes[i + 1].position;
-      if (doesFreeze) {if (this.nodes[i].sleeping) {stroke(106, 189, 69);}
-      else {stroke(106, 189, 69);}}
+      //if (doesFreeze) {if (this.nodes[i].sleeping) {stroke(106, 189, 69);}
+      //else {stroke(106, 189, 69);}}
       line(p1.x, p1.y, p2.x, p2.y);
     }
     // Close the loop
