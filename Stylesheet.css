@@ -137,7 +137,7 @@ body {
     top: 0;
     width: 100%;
     
-    z-index: 2;
+    z-index: 3;
 }
 
 #topnavdiv {
@@ -188,7 +188,7 @@ body {
     position: absolute;
     top: -550px;
     mix-blend-mode: hard-light;
-    z-index: 3;
+    z-index: 2;
 }
 
 /*
