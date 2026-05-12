@@ -3,6 +3,8 @@
 :root {
     /* section heights */
     --heroheight: 900px;
+    --navmargin: 40px;
+    --navheight: 100px;
     
     /* colours */
     --bggreen: #0e3325;
@@ -55,6 +57,7 @@ body {
     font-size: 16px;
     scroll-behavior: smooth;
     background-image: url("");
+    /*overflow:clip;*/
 }
 
 /* Typography ---------------------------------------------------------------------- */
@@ -96,8 +99,18 @@ h5 {
 }
 
 a {
-    color: var(--accent)
+    color: var(--accent);
 }
+
+#topnavdiv a {
+    color: white;
+    font-size: 1.6rem;
+    font-style: normal;
+    text-decoration: none;
+}
+
+
+    
 
 /* Full body stuff ----------------------------------------------------------------- */
 
@@ -111,13 +124,71 @@ body {
     margin: auto;
 }
 
+/* Navigation bar  ----------------------------------------------------------------- */
+
+.upperdownerwrapper, #topnavspacer {
+    height: var(--navheight);
+    max-width: 800px;
+    margin: auto;
+}
+
+#headerwrapper {
+    position:fixed;
+    top: 0;
+    width: 100%;
+    
+    z-index: 2;
+}
+
+#topnavdiv {
+    position: relative;
+    top: -70px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    
+}
+
+
+#navhexred {
+    background-image: url(images/SVG/vhexred.svg);
+}
+#navhexpink {
+    background-image: url(images/SVG/vhexpink.svg);
+}
+#navhexpurple {
+    background-image: url(images/SVG/vhexpurple.svg);
+}
+#navhexorange {
+    background-image: url(images/SVG/vhexorange.svg);
+}
+
+#topnavdiv div {
+    background-size: cover;
+    background-position: bottom;
+    background-repeat: no-repeat;
+    width: 200px;
+    height:200px;
+}
+#topnavdiv div a {
+    display: flex;
+    justify-content: center;
+    margin: auto;
+    margin-top: 100px;
+    
+}
+
+
+
 /* Linework growth ----------------------------------------------------------------- */
 
 
 .p5Canvas {
+    overflow-y: visible;
     position: absolute;
-    top: -550px;  
-    mix-blend-mode:hard-light;
+    top: -550px;
+    mix-blend-mode: hard-light;
+    z-index: 3;
 }
 
 /*
@@ -131,22 +202,61 @@ body {
 /* Landing page section ----------------------------------------------------------------- */
 
 #herodiv {
-    top: 0;
-    width: 100vw;
+    /*top: var(--navheight);*/
+    width: 100%;
     height: var(--heroheight);
     background-image: url(images/texture.png);
     background-size: cover;
+    overflow: hidden;
+    position: absolute;
 }
 
+#herospacer{
+    top: var(--navheight);
+    height: var(--heroheight)
+}
+
+#titlewrapper {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
 #titleimg {
     display: block;
     margin: auto;
-    z-index: 3;
+    position: relative;
+    padding-right: 40px;
+    z-index: 4;
     padding-top: 80px;
     width: 80vw;
     height: 80%;
+    max-height: 700px;
 
 }
 
+/* Media queries for size responsiveness ----------------------------------------------------------------- */
+@media screen and (max-width: 860px) {
+    .upperdownerwrapper {
+        margin-left: 30px;
+        margin-right: 30px;
+    }
+}
 
+@media screen and (max-width: 940px) {
+    .content-container {
+        margin-left: 70px;
+        margin-right: 70px;
+    }
+    #topnavdiv a {
+        font-size: 1.4rem;
+    }
+}
 
+@media screen and (max-width: 600px) {
+
+    .content-container, .upperdownerwrapper {
+        margin-left: 30px;
+        margin-right: 30px;
+    }
+    
+}

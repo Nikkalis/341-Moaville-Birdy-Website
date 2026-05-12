@@ -1,5 +1,5 @@
 // PARAMETERS
-const animationLength = 2000;
+const animationLength = 1500;
 
 const doesFreeze = true;
 const HOW_LONG_UNTIL_I_COME_FOR_YOU = 10;  // frames before you're killed
@@ -17,9 +17,9 @@ let _diff_line;
 
 function setup() {
   var myCanvas = createCanvas(2000,2000);
-    myCanvas.parent("herodiv");
- myCanvas.style("left", "50%");
- myCanvas.style("transform", "translateX(-50%)");
+   myCanvas.parent("herodiv");
+   myCanvas.style("left", "50%");
+   myCanvas.style("transform", "translateX(-50%)");
  
   noFill();
   stroke(106, 189, 69);

@@ -12,7 +12,8 @@
 
  <!-- Javascript for whatever tf we decided to use js for -->
     <script src="main.js"></script>
-    
+    <script src="lichenhome.js"></script>
+    <script src="lichennav.js"></script>
     <style>
     .flex-student a::before {
         background-image: var(--alt-image);
@@ -21,36 +22,38 @@
 </head>
 <body data-page="index">
     
-        <!--toplinework test heyyyy ugly-->
-    
-    
-    
-    
-<div class="topnav" id="myTopnav">
-    <div class="navbar-titles">
-        <span class="navbar-title-fixed">Recognise</span>
-        <span class="navbar-title-section" id="navbarTitle"></span>
+        
+<!--<div id="topnavspacer"></div>-->
+<div id="headerwrapper">
+    <div class="upperdownerwrapper" id="topnavwrapper">
+        <div id="topnavdiv">
+
+            <div id="navhexred"><a href="#home">Recognise</a></div>
+            <div id="navhexpink"><a href="#students">Students</a></div>
+            <div id="navhexpurple"><a href="#projects">Projects</a></div>
+            <div id="navhexorange"><a href="#contact">Contact</a></div>
+
+            <!--Hamburger menu for mobile-->
+
+        </div>
+
+        
+        <a href="javascript:void(0);" class="icon" onclick="toggleNav()">
+                <i class="fa fa-bars"></i>
+        </a>
     </div>
-    
-    <a href="#home">Recognise</a>
-    <a href="#students">Students</a>
-    <a href="#projects">Projects</a>
-    <a href="#contact">Contact</a>
-    
-    <!--Hamburger menu for mobile-->
-    <a href="javascript:void(0);" class="icon" onclick="toggleNav()">
-        <i class="fa fa-bars"></i>
-    </a>
 </div>
-    
 <!--HERO SECTION LANDING PAGE EEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE-->
     
 <div id="herodiv"> 
+    <div id="titlewrapper">
+        <img src="images/SVG/Recognisetitle.svg" id="titleimg">
+    </div>
     
-    <img src="images/SVG/Recognisetitle.svg" id="titleimg">
     
 </div>    
-<script src="sketch.js"></script>
+<div id="herospacer"></div>
+
 <div id = "heroimg">
         
 </div>
@@ -63,7 +66,7 @@
            
             <div class="content-wrapper">
                 <div class="copy">
-                    <h2>placholder heading tee hee</h2>
+                    <h2>Design is Everywhere</h2>
                     <p>This site showcases in a virtual exhibition the projects created by the final year Bachelor of Design (BDes) students at the University of Waikato. Here you will find information about the students and the work they created for their final projects.</p>
 
                     <p>The projects cover a wide range of media including web design & production, mobile design, interactive design, brand development, interactive installation, motion graphics, 3D animation, and more!</p>
@@ -131,6 +134,7 @@
         </div>
     </section>
 
+<div class="upperdownerwrapper" id="footerwrapper">
      <div class="footer_img"> 
        
        <footer>
@@ -144,5 +148,6 @@
     <img src="Images/2025.svg" class="year">
 </footer>
     </div>
+</div>
 </body>
 </html>
