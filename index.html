@@ -1,152 +1,176 @@
-
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>University of Waikato Design Showcase</title>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>University of Waikato Design Showcase</title>
 
-    <link rel="stylesheet" href="Stylesheet.css">
-    <!--p5.js file needed to load the linework growths-->
-    <script src="https://cdn.jsdelivr.net/npm/p5@1.11.13/lib/p5.js"></script>
+        <link rel="stylesheet" href="Stylesheet.css" />
+        <!--p5.js file needed to load the linework growths-->
+        <script src="https://cdn.jsdelivr.net/npm/p5@1.11.13/lib/p5.js"></script>
 
- <!-- Javascript for whatever tf we decided to use js for -->
-    <script src="main.js"></script>
-    <script src="lichenhome.js"></script>
-    <style>
-    .flex-student a::before {
-        background-image: var(--alt-image);
-    }
-    </style>
-</head>
-<body data-page="index">
-    
-        
-<!--<div id="topnavspacer"></div>-->
-<div id="headerwrapper">
-    <div class="upperdownerwrapper" id="topnavwrapper">
-        <div id="topnavdiv">
+        <!-- Javascript for whatever tf we decided to use js for -->
+        <script src="main.js"></script>
 
-            <div id="navhexred"><a href="#home">Recognise</a></div>
-            <div id="navhexpink"><a href="#students">Students</a></div>
-            <div id="navhexpurple"><a href="#projects">Projects</a></div>
-            <div id="navhexorange"><a href="#contact">Contact</a></div>
+        <style>
+            .flex-student a::before {
+                background-image: var(--alt-image);
+            }
+        </style>
+    </head>
+    <body data-page="index">
+        <!--<div id="topnavspacer"></div>-->
+        <div id="headerwrapper">
+            <div class="upperdownerwrapper" id="topnavwrapper">
+                <div id="topnavdiv">
+                    <div id="navhexred"><a href="#home">Recognise</a></div>
+                    <div id="navhexpink"><a href="#students">Students</a></div>
+                    <div id="navhexpurple"><a href="#projects">Projects</a></div>
+                    <div id="navhexorange"><a href="#contact">Contact</a></div>
 
-            <!--Hamburger menu for mobile-->
+                    <!--Hamburger menu for mobile-->
+                </div>
 
+                <a href="javascript:void(0);" class="icon" onclick="toggleNav()">
+                    <i class="fa fa-bars"></i>
+                </a>
+            </div>
         </div>
 
-        
-        <a href="javascript:void(0);" class="icon" onclick="toggleNav()">
-                <i class="fa fa-bars"></i>
-        </a>
-    </div>
-</div>
-<!--HERO SECTION LANDING PAGE EEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE-->
-    
-<div id="herodiv"> 
-    <div id="titlewrapper">
-        <img src="images/SVG/Recognisetitle.svg" id="titleimg">
-    </div>
-    
-    
-</div>    
-<div id="herospacer"></div>
+        <div id="headerwrapperHighlight">
+            <div class="upperdownerwrapper" id="topnavwrapperHighlight">
+                <div id="topnavdivHighlight">
+                    <div id="lichenred"></div>
+                    <div id="lichenpink"></div>
+                    <div id="lichenpurple"></div>
+                    <div id="lichenorange"></div>
 
-<div id = "heroimg">
-        
-</div>
-<!--<canvas id="squiggleinstance" width="2000" height="720"></canvas>-->
+                    <!--Hamburger menu for mobile-->
+                </div>
 
-    
-    <section id="home">
-         
-        <div class="content-container">
-           
-            <div class="content-wrapper">
-                <div class="copy">
-                    <h2>Design is Everywhere</h2>
-                    <p>This site showcases in a virtual exhibition the projects created by the final year Bachelor of Design (BDes) students at the University of Waikato. Here you will find information about the students and the work they created for their final projects.</p>
+                <a href="javascript:void(0);" class="icon" onclick="toggleNav()">
+                    <i class="fa fa-bars"></i>
+                </a>
+            </div>
+        </div>
 
-                    <p>The projects cover a wide range of media including web design & production, mobile design, interactive design, brand development, interactive installation, motion graphics, 3D animation, and more!</p>
+        <!--HERO SECTION LANDING PAGE EEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE-->
 
-                    <p>The final year of the BDes provides an opportunity for students to plan, develop, and carry out a small scale design project with relative independence. Students are encouraged to collaborate with peers in the learning environment and with members of the professional design industry and/or academic community. Advisors and mentors work closely with students throughout the process to develop their ideas through the design process to a successful solution.</p>
+        <div id="herodiv">
+            <div id="titlewrapper">
+                <img src="images/SVG/Recognisetitle.svg" id="titleimg" />
+            </div>
+        </div>
+        <div id="herospacer"></div>
 
-                    <p>For more information about the degree you can visit <strong>www.waikato.ac.nz/go/bdes</strong></p>
+        <div id="heroimg"></div>
+        <!--<canvas id="squiggleinstance" width="2000" height="720"></canvas>-->
+
+        <section id="home">
+            <div class="content-container">
+                <div class="content-wrapper">
+                    <div class="copy">
+                        <h2>Design is Everywhere</h2>
+                        <p>
+                            This site showcases in a virtual exhibition the projects created by the final year Bachelor
+                            of Design (BDes) students at the University of Waikato. Here you will find information about
+                            the students and the work they created for their final projects.
+                        </p>
+
+                        <p>
+                            The projects cover a wide range of media including web design & production, mobile design,
+                            interactive design, brand development, interactive installation, motion graphics, 3D
+                            animation, and more!
+                        </p>
+
+                        <p>
+                            The final year of the BDes provides an opportunity for students to plan, develop, and carry
+                            out a small scale design project with relative independence. Students are encouraged to
+                            collaborate with peers in the learning environment and with members of the professional
+                            design industry and/or academic community. Advisors and mentors work closely with students
+                            throughout the process to develop their ideas through the design process to a successful
+                            solution.
+                        </p>
+
+                        <p>
+                            For more information about the degree you can visit
+                            <strong>www.waikato.ac.nz/go/bdes</strong>
+                        </p>
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-<div class="white-rip-divider"> 
-     
-</div>
+        <div class="white-rip-divider"></div>
 
-    <section id="students">
-        <div class="content-container">
-            <div class="section-title-wrapper">
-            <h1 class="section-title">Students</h1>
-             </div>
+        <section id="students">
+            <div class="content-container">
+                <div class="section-title-wrapper">
+                    <h1 class="section-title">Students</h1>
+                </div>
 
-            <div class="flex-student-rows">
-                <!-- Students will be loaded dynamically from students.json -->
+                <div class="flex-student-rows">
+                    <!-- Students will be loaded dynamically from students.json -->
+                </div>
             </div>
-           
-        </div>
-        
-    </section>
+        </section>
 
+        <section id="projects">
+            <div class="content-container">
+                <div class="section-title-wrapper">
+                    <h1 class="section-title">Projects</h1>
+                </div>
 
-    <section id="projects">
-    
-        <div class="content-container">
-                 <div class="section-title-wrapper">
-            <h1 class="section-title">Projects</h1>
-             </div>
+                <div class="flex-project-rows">
+                    <!-- Projects will be loaded dynamically from students.json -->
+                </div>
+            </div>
+        </section>
 
-            <div class="flex-project-rows">
-                <!-- Projects will be loaded dynamically from students.json -->
+        <section id="contact">
+            <div class="content-container">
+                <div class="content-wrapper">
+                    <div class="section-title-wrapper">
+                        <h1 class="section-title">Contact</h1>
+                    </div>
+
+                    <p class="contact-info">
+                        Whether you are a prospective student looking to study, or you are in industry and would like to
+                        collaborate with us, or you just want to have a chat! We'd love to hear from you!
+                    </p>
+
+                    <div class="contact-info">
+                        <p>Email: <strong>degreeshow@waikato.ac.nz</strong></p>
+                        <p>Faculty Phone: <strong>0800 924 538</strong></p>
+                        <p>Degree info: <strong>www.waikato.ac.nz/go/bdes</strong></p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="upperdownerwrapper" id="footerwrapper">
+            <div class="footer_img">
+                <footer>
+                    <img src="Images/logo.svg" class="uni-logo" />
+                    <div class="footerLinkHover">
+                        <p>
+                            Email: <span><a href="mailto:degreeshow@waikato.ac.nz">degreeshow@waikato.ac.nz</a></span>
+                        </p>
+                        <p>Faculty phone: <span>0800 924 528</span></p>
+                        <p>
+                            Faculty information:
+                            <span
+                                ><a href="https://www.waikato.ac.nz/study/qualifications/bachelor-of-design"
+                                    >waikato.ac.nz/go/bdes</a
+                                ></span
+                            >
+                        </p>
+                        <p id="cr">&copy; 2026</p>
+                    </div>
+                    <img src="Images/2025.svg" class="year" />
+                </footer>
             </div>
         </div>
-    </section>
-
-
-
-    <section id="contact">
-        <div class="content-container">
-            <div class="content-wrapper">
-                
-            <div class="section-title-wrapper">
-            <h1 class="section-title">Contact</h1>
-             </div>
-
-            <p class="contact-info">Whether you are a prospective student looking to study, or you are in industry and would like to collaborate with us, or you just want to have a chat!
-            We'd love to hear from you!</p> 
-
-            <div class="contact-info">
-                <p>Email: <strong>degreeshow@waikato.ac.nz</strong></p>
-                <p>Faculty Phone: <strong>0800 924 538</strong></p>
-                <p>Degree info: <strong>www.waikato.ac.nz/go/bdes</strong></p>
-            </div>
-    
-        </div>
-        </div>
-    </section>
-
-<div class="upperdownerwrapper" id="footerwrapper">
-     <div class="footer_img"> 
-       
-       <footer>
-    <img src="Images/logo.svg" class="uni-logo">
-    <div class="footerLinkHover">
-         <p>Email: <span><a href="mailto:degreeshow@waikato.ac.nz">degreeshow@waikato.ac.nz</a></span></p>
-            <p>Faculty phone: <span>0800 924 528</span></p>
-            <p>Faculty information: <span><a href="https://www.waikato.ac.nz/study/qualifications/bachelor-of-design">waikato.ac.nz/go/bdes</a></span></p>
-            <p id="cr">&copy; 2026</p>
-    </div>
-    <img src="Images/2025.svg" class="year">
-</footer>
-    </div>
-</div>
-</body>
+        <script src="lichenhome.js"></script>
+    </body>
 </html>

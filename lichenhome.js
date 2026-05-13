@@ -1,25 +1,14 @@
-const animationLength = 1500;
-
-const doesFreeze = true;
-const HOW_LONG_UNTIL_I_COME_FOR_YOU = 10; // frames before you're killed
-const MAGIC_MOA_NUMBER = 1.5; //force threshold, can they struggle?
-
-const _maxForce = 0.9;
-const _maxSpeed = 20;
-const _desiredSeparation = 20;
-const _separationCohesionRation = 1.1;
-const _maxEdgeLen = 5;
-
-let nodesStart = 6;
-let rayStart = 300;
+//let doesFreeze = true;
+//const HOW_LONG_UNTIL_I_COME_FOR_YOU = 10; // frames before you're killed
+//const MAGIC_MOA_NUMBER = 1.5; //force threshold, can they struggle?
 
 const herolichen = (sketch) => {
+  let doesFreeze = true;
+  const HOW_LONG_UNTIL_I_COME_FOR_YOU = 10; // frames before you're killed
+  const MAGIC_MOA_NUMBER = 1.5; //force threshold, can they struggle?
+  
   const animationLength = 1500;
-
-  const doesFreeze = true;
-  const HOW_LONG_UNTIL_I_COME_FOR_YOU = 10; // frames before you're killed
-  const MAGIC_MOA_NUMBER = 1.5; //force threshold, can they struggle?
-
+  
   const _maxForce = 0.9;
   const _maxSpeed = 20;
   const _desiredSeparation = 20;
@@ -29,66 +18,11 @@ const herolichen = (sketch) => {
   let nodesStart = 6;
   let rayStart = 300;
 
-  let windowWidth = this.innerWidth;
-
   let _diff_line;
 
   sketch.setup = function () {
-    createCanvas(2000, 2000);
-    //myCanvas.parent("herodiv");
-    //myCanvas.style("left", "50%");
-    //myCanvas.style("transform", "translateX(-50%)");
-
-    noFill();
-    stroke(106, 189, 69);
-    noSmooth(); // disables antialiasing — meaningful fps gain on canvas 2D
-    strokeWeight(2);
-    _diff_line = new DifferentialLine(_maxForce, _maxSpeed, _desiredSeparation, _separationCohesionRation, _maxEdgeLen);
-
-    let angInc = TWO_PI / nodesStart;
-
-    for (let a = 0; a < TWO_PI; a += angInc) {
-      let x = width / 2 + cos(a) * rayStart;
-      let y = height / 2 + sin(a) * rayStart;
-      _diff_line.addNode(new Node(x, y, _maxForce, _maxSpeed));
-    }
-  };
-
-  sketch.draw = function () {
-    if (animationLength < this.frameCount) {
-      noLoop();
-    }
-
-    clear();
-    //background(0);
-
-    _diff_line.run();
-    _diff_line.renderLine();
-  };
-};
-
-const contactlichen = (sketch) => {
-  const animationLength = 500;
-
-  const doesFreeze = true;
-  const HOW_LONG_UNTIL_I_COME_FOR_YOU = 10; // frames before you're killed
-  const MAGIC_MOA_NUMBER = 1.5; //force threshold, can they struggle?
-
-  const _maxForce = 0.9;
-  const _maxSpeed = 20;
-  const _desiredSeparation = 20;
-  const _separationCohesionRation = 1.1;
-  const _maxEdgeLen = 5;
-
-  let nodesStart = 6;
-  let rayStart = 300;
-
-  let windowWidth = this.innerWidth;
-
-  let _diff_line;
-
-  sketch.setup = function () {
-    sketch.createCanvas(600, 600);
+    let canvasobj = sketch.createCanvas(2000, 2000);
+    canvasobj.id("herolichen");
     //myCanvas.parent("herodiv");
     //myCanvas.style("left", "50%");
     //myCanvas.style("transform", "translateX(-50%)");
@@ -99,29 +33,176 @@ const contactlichen = (sketch) => {
     sketch.strokeWeight(2);
     _diff_line = new DifferentialLine(_maxForce, _maxSpeed, _desiredSeparation, _separationCohesionRation, _maxEdgeLen);
 
-    let angInc = TWO_PI / nodesStart;
+    let angInc = sketch.TWO_PI / nodesStart;
 
-    for (let a = 0; a < TWO_PI; a += angInc) {
-      let x = width / 2 + cos(a) * rayStart;
-      let y = height / 2 + sin(a) * rayStart;
-      _diff_line.addNode(new Node(x, y, _maxForce, _maxSpeed));
+    for (let a = 0; a < sketch.TWO_PI; a += angInc) {
+      let x = sketch.width / 2 + sketch.cos(a) * rayStart;
+      let y = sketch.height / 2 + sketch.sin(a) * rayStart;
+      _diff_line.addNode(new Node(x, y, _maxForce, _maxSpeed, sketch));
     }
   };
 
   sketch.draw = function () {
-    if (animationLength < this.frameCount) {
+    if (animationLength < sketch.frameCount) {
       sketch.noLoop();
     }
 
     sketch.clear();
     //background(0);
 
-    _diff_line.run();
-    _diff_line.renderLine();
+    _diff_line.run(sketch, doesFreeze, MAGIC_MOA_NUMBER, HOW_LONG_UNTIL_I_COME_FOR_YOU);
+    _diff_line.renderLine(sketch);
+  };
+};
+const studentslichen = (sketch) => {
+  let doesFreeze = true;
+  const HOW_LONG_UNTIL_I_COME_FOR_YOU = 10; // frames before you're killed
+  const MAGIC_MOA_NUMBER = 0.0005; //force threshold, can they struggle?
+  const animationLength = 500;
+
+  const _maxForce = 0.5;
+  const _maxSpeed = 20;
+  const _desiredSeparation = 20;
+  const _separationCohesionRation = 1.1;
+  const _maxEdgeLen = 5;
+
+  let nodesStart = 6;
+  let rayStart = 120;
+
+  let _diff_line;
+
+  sketch.setup = function () {
+    let canvasobj = sketch.createCanvas(2000, 2000);
+    canvasobj.id("contactlichen");
+
+    sketch.noFill();
+    sketch.stroke(106, 189, 69);
+    sketch.noSmooth(); // disables antialiasing — meaningful fps gain on canvas 2D
+    sketch.strokeWeight(2);
+    _diff_line = new DifferentialLine(_maxForce, _maxSpeed, _desiredSeparation, _separationCohesionRation, _maxEdgeLen);
+
+    let angInc = sketch.TWO_PI / nodesStart;
+
+    for (let a = 0; a < sketch.TWO_PI; a += angInc) {
+      let x = sketch.width / 2 + sketch.cos(a) * rayStart;
+      let y = sketch.height / 2 + sketch.sin(a) * rayStart;
+      _diff_line.addNode(new Node(x, y, _maxForce, _maxSpeed, sketch));
+    }
+  };
+
+  sketch.draw = function () {
+    if (animationLength < sketch.frameCount) {
+      sketch.noLoop();
+    }
+
+    sketch.clear();
+    //background(0);
+
+    _diff_line.run(sketch, doesFreeze, MAGIC_MOA_NUMBER, HOW_LONG_UNTIL_I_COME_FOR_YOU);
+    _diff_line.renderLine(sketch, doesFreeze, MAGIC_MOA_NUMBER, HOW_LONG_UNTIL_I_COME_FOR_YOU);
+  };
+};
+const projectslichen = (sketch) => {
+  let doesFreeze = true;
+  const HOW_LONG_UNTIL_I_COME_FOR_YOU = 10; // frames before you're killed
+  const MAGIC_MOA_NUMBER = 0.0005; //force threshold, can they struggle?
+  const animationLength = 500;
+
+  const _maxForce = 0.5;
+  const _maxSpeed = 20;
+  const _desiredSeparation = 20;
+  const _separationCohesionRation = 1.1;
+  const _maxEdgeLen = 5;
+
+  let nodesStart = 6;
+  let rayStart = 120;
+
+  let _diff_line;
+
+  sketch.setup = function () {
+    let canvasobj = sketch.createCanvas(2000, 2000);
+    canvasobj.id("contactlichen");
+
+    sketch.noFill();
+    sketch.stroke(106, 189, 69);
+    sketch.noSmooth(); // disables antialiasing — meaningful fps gain on canvas 2D
+    sketch.strokeWeight(2);
+    _diff_line = new DifferentialLine(_maxForce, _maxSpeed, _desiredSeparation, _separationCohesionRation, _maxEdgeLen);
+
+    let angInc = sketch.TWO_PI / nodesStart;
+
+    for (let a = 0; a < sketch.TWO_PI; a += angInc) {
+      let x = sketch.width / 2 + sketch.cos(a) * rayStart;
+      let y = sketch.height / 2 + sketch.sin(a) * rayStart;
+      _diff_line.addNode(new Node(x, y, _maxForce, _maxSpeed, sketch));
+    }
+  };
+
+  sketch.draw = function () {
+    if (animationLength < sketch.frameCount) {
+      sketch.noLoop();
+    }
+
+    sketch.clear();
+    //background(0);
+
+    _diff_line.run(sketch, doesFreeze, MAGIC_MOA_NUMBER, HOW_LONG_UNTIL_I_COME_FOR_YOU);
+    _diff_line.renderLine(sketch, doesFreeze, MAGIC_MOA_NUMBER, HOW_LONG_UNTIL_I_COME_FOR_YOU);
+  };
+};
+const contactlichen = (sketch) => {
+  let doesFreeze = true;
+  const HOW_LONG_UNTIL_I_COME_FOR_YOU = 10; // frames before you're killed
+  const MAGIC_MOA_NUMBER = 0.0005; //force threshold, can they struggle?
+  const animationLength = 500;
+
+  const _maxForce = 0.5;
+  const _maxSpeed = 20;
+  const _desiredSeparation = 20;
+  const _separationCohesionRation = 1.1;
+  const _maxEdgeLen = 5;
+
+  let nodesStart = 6;
+  let rayStart = 120;
+
+  let _diff_line;
+
+  sketch.setup = function () {
+    let canvasobj = sketch.createCanvas(2000, 2000);
+    canvasobj.id("contactlichen");
+
+    sketch.noFill();
+    sketch.stroke(106, 189, 69);
+    sketch.noSmooth(); // disables antialiasing — meaningful fps gain on canvas 2D
+    sketch.strokeWeight(2);
+    _diff_line = new DifferentialLine(_maxForce, _maxSpeed, _desiredSeparation, _separationCohesionRation, _maxEdgeLen);
+
+    let angInc = sketch.TWO_PI / nodesStart;
+
+    for (let a = 0; a < sketch.TWO_PI; a += angInc) {
+      let x = sketch.width / 2 + sketch.cos(a) * rayStart;
+      let y = sketch.height / 2 + sketch.sin(a) * rayStart;
+      _diff_line.addNode(new Node(x, y, _maxForce, _maxSpeed, sketch));
+    }
+  };
+
+  sketch.draw = function () {
+    if (animationLength < sketch.frameCount) {
+      sketch.noLoop();
+    }
+
+    sketch.clear();
+    //background(0);
+
+    _diff_line.run(sketch, doesFreeze, MAGIC_MOA_NUMBER, HOW_LONG_UNTIL_I_COME_FOR_YOU);
+    _diff_line.renderLine(sketch, doesFreeze, MAGIC_MOA_NUMBER, HOW_LONG_UNTIL_I_COME_FOR_YOU);
   };
 };
 
 let herolichen1 = new p5(herolichen, document.getElementById("herodiv"));
+let studentslichen1 = new p5(studentslichen, document.getElementById("lichenpink"));
+let projectslichen1 = new p5(projectslichen, document.getElementById("lichenpurple"));
+let contactlichen1 = new p5(contactlichen, document.getElementById("lichenorange"));
 
 // --------------------------------------- Functions and shit lalalalalalalaaaa
 
@@ -182,9 +263,9 @@ class DifferentialLine {
     this.nodes.splice(i, 0, n);
   }
 
-  run() {
-    this.differentiate();
-    this.growth();
+  run(sketch, doesFreeze, MAGIC_MOA_NUMBER, HOW_LONG_UNTIL_I_COME_FOR_YOU) {
+    this.differentiate(sketch, doesFreeze, MAGIC_MOA_NUMBER, HOW_LONG_UNTIL_I_COME_FOR_YOU);
+    this.growth(sketch);
   }
 
   //   growth() {
@@ -206,7 +287,7 @@ class DifferentialLine {
   //     }
   //   }
 
-  growth() {
+  growth(sketch) {
     let toInsert = [];
     for (let i = 0; i < this.nodes.length - 1; i++) {
       let n1 = this.nodes[i],
@@ -220,7 +301,8 @@ class DifferentialLine {
             (n1.position.x + n2.position.x) * 0.5,
             (n1.position.y + n2.position.y) * 0.5,
             this.maxForce,
-            this.maxSpeed
+            this.maxSpeed,
+            sketch
           )
         });
       }
@@ -231,14 +313,14 @@ class DifferentialLine {
   //   // Rebuild grid each frame — fast because it's just a Map clear + n inserts
   //   this.grid.clear();
   //   for (let n of this.nodes) this.grid.insert(n);
-  differentiate() {
+  differentiate(sketch, doesFreeze, MAGIC_MOA_NUMBER, HOW_LONG_UNTIL_I_COME_FOR_YOU) {
     this.grid.clear();
     for (let i = 0; i < this.nodes.length; i++) {
       this.nodes[i]._index = i;
       this.grid.insert(this.nodes[i]);
     }
-    let sf = this.getSeparationForces();
-    let cf = this.getEdgeCohesionForces();
+    let sf = this.getSeparationForces(sketch);
+    let cf = this.getEdgeCohesionForces(sketch);
     for (let i = 0; i < this.nodes.length; i++) {
       if (doesFreeze) {
         if (this.nodes[i].sleeping) continue;
@@ -247,13 +329,13 @@ class DifferentialLine {
       sf[i].mult(this.separationCohesionRation);
       this.nodes[i].applyForce(sf[i]);
       this.nodes[i].applyForce(cf[i]);
-      this.nodes[i].update();
+      this.nodes[i].update(doesFreeze, MAGIC_MOA_NUMBER, HOW_LONG_UNTIL_I_COME_FOR_YOU);
     }
   }
 
   //   getSeparationForces() {
   //     let n = this.nodes.length;
-  //     let sf = Array.from({ length: n }, () => createVector(0, 0));
+  //     let sf = Array.from({ length: n }, () => sketch.createVector(0, 0));
   //     let near = new Array(n).fill(0);
 
   //     for (let i = 0; i < n; i++) {
@@ -283,9 +365,9 @@ class DifferentialLine {
   //     return sf;
   //   }
 
-  getSeparationForces() {
+  getSeparationForces(sketch) {
     let n = this.nodes.length;
-    let sf = Array.from({ length: n }, () => createVector(0, 0));
+    let sf = Array.from({ length: n }, () => sketch.createVector(0, 0));
     let near = new Array(n).fill(0);
 
     for (let i = 0; i < n; i++) {
@@ -298,7 +380,7 @@ class DifferentialLine {
         let dy = nodei.position.y - nodej.position.y;
         let sq_d = dx * dx + dy * dy;
         if (sq_d > 0 && sq_d < this.sq_desiredSeparation) {
-          let dist = sqrt(sq_d);
+          let dist = sketch.sqrt(sq_d);
           let fx = dx / dist / dist;
           let fy = dy / dist / dist;
           sf[i].x += fx;
@@ -322,61 +404,46 @@ class DifferentialLine {
     return sf;
   }
 
-  getEdgeCohesionForces() {
+  getEdgeCohesionForces(sketch) {
     let n = this.nodes.length;
     return this.nodes.map((nd, i) => {
       let prev = i === 0 ? this.nodes[n - 1] : this.nodes[i - 1];
       let next = i === n - 1 ? this.nodes[0] : this.nodes[i + 1];
-      // Reuse a single createVector instead of .add() chaining with temporaries
-      let sum = createVector((prev.position.x + next.position.x) * 0.5, (prev.position.y + next.position.y) * 0.5);
+      // Reuse a single sketch.createVector instead of .add() chaining with temporaries
+      let sum = sketch.createVector(
+        (prev.position.x + next.position.x) * 0.5,
+        (prev.position.y + next.position.y) * 0.5
+      );
       return nd.seek(sum);
     });
   }
 
-  renderLine() {
+  renderLine(sketch, doesFreeze, MAGIC_MOA_NUMBER, HOW_LONG_UNTIL_I_COME_FOR_YOU) {
     for (let i = 0; i < this.nodes.length - 1; i++) {
       let p1 = this.nodes[i].position;
       let p2 = this.nodes[i + 1].position;
       //if (doesFreeze) {if (this.nodes[i].sleeping) {stroke(106, 189, 69);}
       //else {stroke(106, 189, 69);}}
-      line(p1.x, p1.y, p2.x, p2.y);
+      sketch.line(p1.x, p1.y, p2.x, p2.y);
     }
     // Close the loop
     let last = this.nodes[this.nodes.length - 1].position;
     let first = this.nodes[0].position;
-    line(last.x, last.y, first.x, first.y);
+    sketch.line(last.x, last.y, first.x, first.y);
   }
 
-  renderShape() {
-    beginShape();
-    for (let node of this.nodes) vertex(node.position.x, node.position.y);
-    endShape(CLOSE);
+  renderShape(sketch) {
+    sketch.beginShape();
+    for (let node of this.nodes) sketch.vertex(node.position.x, node.position.y);
+    sketch.endShape(sketch.CLOSE);
   }
 }
 
-// class Node {
-//   constructor(x, y, mF, mS) {
-//     this.acceleration = createVector(0, 0);
-//     this.velocity = p5.Vector.random2D();
-//     this.position = createVector(x, y);
-//     this.maxSpeed = mF;
-//     this.maxForce = mS;
-//   }
-
-//   applyForce(force) { this.acceleration.add(force); }
-
-//   update() {
-//     this.velocity.add(this.acceleration);
-//     this.velocity.limit(this.maxSpeed);
-//     this.position.add(this.velocity);
-//     this.acceleration.mult(0);
-//   }
-
 class Node {
-  constructor(x, y, mF, mS) {
-    this.acceleration = createVector(0, 0);
+  constructor(x, y, mF, mS, sketch) {
+    this.acceleration = sketch.createVector(0, 0);
     this.velocity = p5.Vector.random2D();
-    this.position = createVector(x, y);
+    this.position = sketch.createVector(x, y);
     this.maxSpeed = mF;
     this.maxForce = mS;
     // Sleep system
@@ -393,7 +460,7 @@ class Node {
     this.sleepTimer = 0;
   }
 
-  update() {
+  update(doesFreeze, MAGIC_MOA_NUMBER, HOW_LONG_UNTIL_I_COME_FOR_YOU) {
     if (this.sleeping) return;
 
     this.velocity.add(this.acceleration);

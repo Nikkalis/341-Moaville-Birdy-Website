@@ -5,7 +5,7 @@
     --heroheight: 900px;
     --navmargin: 40px;
     --navheight: 100px;
-    
+
     /* colours */
     --bggreen: #0e3325;
     --accent: #d1158d;
@@ -14,16 +14,16 @@
     --greengreen: ;
     --warmgreen: ;
     */
-    
+
     --pink: #831a54;
     --pinkdark: #420d2d;
-    
+
     --orange: #986c29;
     --orangedark: #412b15;
-    
+
     --red: #831c1b;
     --reddark: #3d1312;
-    
+
     --purple: #512c7f;
     --purpledark: #2c1141;
 }
@@ -40,8 +40,8 @@
 */
 
 @font-face {
-    font-family: 'MissFutura';
-    src: url('fonts/Futura-Medium-01.ttf') format('truetype');
+    font-family: "MissFutura";
+    src: url("fonts/Futura-Medium-01.ttf") format("truetype");
     font-weight: normal;
     font-display: swap;
 }
@@ -51,7 +51,7 @@ body {
     margin: 0;
     padding: 0;
     color: rgb(255, 255, 255);
-    font-family: MissFutura;            
+    font-family: MissFutura;
     font-weight: normal;
     font-style: normal;
     font-size: 16px;
@@ -63,13 +63,13 @@ body {
 /* Typography ---------------------------------------------------------------------- */
 h1 {
     font-size: 3rem;
-    font-family: MissFutura;  
+    font-family: MissFutura;
     font-weight: normal;
 }
 
 h2 {
     font-size: 4rem;
-    font-family: MissFutura;  
+    font-family: MissFutura;
     font-weight: normal;
     font-style: normal;
     margin-top: 0;
@@ -78,20 +78,19 @@ h2 {
 
 h3 {
     font-size: 1.5rem;
-    font-family: MissFutura;  
+    font-family: MissFutura;
     font-weight: normal;
     font-style: normal;
 }
 
 p {
-    font-family: MissFutura;  
+    font-family: MissFutura;
     font-weight: normal;
     font-size: 1.2rem;
-    
 }
 
 h5 {
-    font-family: MissFutura;  
+    font-family: MissFutura;
     font-weight: normal;
     font-style: normal;
     font-size: 2rem;
@@ -109,38 +108,40 @@ a {
     text-decoration: none;
 }
 
-
-    
-
 /* Full body stuff ----------------------------------------------------------------- */
 
 body {
     background-color: var(--bggreen);
-    
 }
 
 .content-container {
     max-width: 800px;
     margin: auto;
+
+    /*scrollbar-width: none;*/
 }
 
 /* Navigation bar  ----------------------------------------------------------------- */
 
-.upperdownerwrapper, #topnavspacer {
+.upperdownerwrapper, 
+.upperdownerwrapperHighlight,
+#topnavspacer {
     height: var(--navheight);
     max-width: 800px;
     margin: auto;
 }
-
-#headerwrapper {
-    position:fixed;
+#headerwrapperHighlight {
+    mix-blend-mode: hard-light;   
+}
+#headerwrapper, #headerwrapperHighlight {
+    position: fixed;
     top: 0;
     width: 100%;
-    
+
     z-index: 3;
 }
 
-#topnavdiv {
+#topnavdiv, #topnavdivHighlight {
     position: relative;
     top: -70px;
     display: flex;
@@ -148,7 +149,6 @@ body {
     justify-content: space-between;
     
 }
-
 
 #navhexred {
     background-image: url(images/SVG/vhexred.svg);
@@ -163,41 +163,46 @@ body {
     background-image: url(images/SVG/vhexorange.svg);
 }
 
-#topnavdiv div {
+#topnavdiv div,
+#topnavdivHighlight div{
     background-size: cover;
     background-position: bottom;
     background-repeat: no-repeat;
     width: 200px;
-    height:200px;
+    height: 200px;
+    display: flex; /* Magic begins */
+    justify-content: center; /* Center contents */
+    
 }
-#topnavdiv div a {
+
+#topnavdiv div a,
+#topnavdivHighlight div a{
     display: flex;
     justify-content: center;
     margin: auto;
     margin-top: 100px;
-    
 }
-
-
 
 /* Linework growth ----------------------------------------------------------------- */
 
-
 .p5Canvas {
-    overflow-y: visible;
     position: absolute;
     top: -550px;
-    mix-blend-mode: hard-light;
-    z-index: 2;
+    
 }
 
-/*
-#squiggleinstance {
-    position: absolute;
+#herolichen {
     z-index: 1;
-    top: 0;
+    mix-blend-mode: hard-light;
+    left: 50%;
+    transform: translateX(-50%);
 }
-*/
+
+#topnavdivHighlight .p5Canvas {
+    transform: rotate(90deg);
+    position: absolute;
+    top: -915px;
+}
 
 /* Landing page section ----------------------------------------------------------------- */
 
@@ -211,9 +216,9 @@ body {
     position: absolute;
 }
 
-#herospacer{
+#herospacer {
     top: var(--navheight);
-    height: var(--heroheight)
+    height: var(--heroheight);
 }
 
 #titlewrapper {
@@ -226,12 +231,11 @@ body {
     margin: auto;
     position: relative;
     padding-right: 40px;
-    z-index: 4;
+    z-index: 2;
     padding-top: 80px;
     width: 80vw;
     height: 80%;
     max-height: 700px;
-
 }
 
 /* Media queries for size responsiveness ----------------------------------------------------------------- */
@@ -253,10 +257,9 @@ body {
 }
 
 @media screen and (max-width: 600px) {
-
-    .content-container, .upperdownerwrapper {
+    .content-container,
+    .upperdownerwrapper {
         margin-left: 30px;
         margin-right: 30px;
     }
-    
 }
