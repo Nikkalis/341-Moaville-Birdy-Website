@@ -8,10 +8,10 @@
         <link rel="stylesheet" href="Stylesheet.css" />
         <!--p5.js file needed to load the linework growths-->
         <script src="https://cdn.jsdelivr.net/npm/p5@1.11.13/lib/p5.js"></script>
-
+        
         <!-- Javascript for whatever tf we decided to use js for -->
         <script src="main.js"></script>
-
+        <script src="lichenhome.js"></script>
         <style>
             .flex-student a::before {
                 background-image: var(--alt-image);
@@ -24,7 +24,7 @@
             <div class="upperdownerwrapper" id="topnavwrapper">
                 <div id="topnavdiv">
                     <div id="navhexred"><a href="#home">Recognise</a></div>
-                    <div id="navhexpink"><a href="#students">Students</a></div>
+                    <div id="navhexpink" onclick="spawnStudentsLichen()"><a href="#students">Students</a></div>
                     <div id="navhexpurple"><a href="#projects">Projects</a></div>
                     <div id="navhexorange"><a href="#contact">Contact</a></div>
 

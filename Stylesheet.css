@@ -122,6 +122,9 @@ body {
 }
 
 /* Navigation bar  ----------------------------------------------------------------- */
+#headerwrapperHighlight, #headerwrapperHighlight div{
+    pointer-events: none !important; 
+}
 
 .upperdownerwrapper, 
 .upperdownerwrapperHighlight,

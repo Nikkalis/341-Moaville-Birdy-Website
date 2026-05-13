@@ -6,9 +6,9 @@ const herolichen = (sketch) => {
   let doesFreeze = true;
   const HOW_LONG_UNTIL_I_COME_FOR_YOU = 10; // frames before you're killed
   const MAGIC_MOA_NUMBER = 1.5; //force threshold, can they struggle?
-  
+
   const animationLength = 1500;
-  
+
   const _maxForce = 0.9;
   const _maxSpeed = 20;
   const _desiredSeparation = 20;
@@ -22,7 +22,9 @@ const herolichen = (sketch) => {
 
   sketch.setup = function () {
     let canvasobj = sketch.createCanvas(2000, 2000);
+
     canvasobj.id("herolichen");
+
     //myCanvas.parent("herodiv");
     //myCanvas.style("left", "50%");
     //myCanvas.style("transform", "translateX(-50%)");
@@ -200,14 +202,29 @@ const contactlichen = (sketch) => {
 };
 
 let herolichen1 = new p5(herolichen, document.getElementById("herodiv"));
-let studentslichen1 = new p5(studentslichen, document.getElementById("lichenpink"));
-let projectslichen1 = new p5(projectslichen, document.getElementById("lichenpurple"));
-let contactlichen1 = new p5(contactlichen, document.getElementById("lichenorange"));
+
+// --------------------------------------- Nav bar click events
+
+let homeButton = document.getElementById("navhexred");
+let studentsButton = document.getElementById("navhexpink");
+let projectsButton = document.getElementById("navhexpurple");
+let contactButton = document.getElementById("navhexorange");
+
+function spawnStudentsLichen() {
+  let studentslichen1 = new p5(studentslichen, document.getElementById("lichenpink"));
+}
+function spawnProjectsLichen() {
+  let projectslichen1 = new p5(projectslichen, document.getElementById("lichenpurple"));
+}
+function spawnContactLichen() {
+  let contactlichen1 = new p5(contactlichen, document.getElementById("lichenorange"));
+}
 
 // --------------------------------------- Functions and shit lalalalalalalaaaa
 
-// Spatial hash grid
+// Spatial grid to provide location info to nodes
 class SpatialGrid {
+  // make the grid based on specified size - size is based on the _desiredSeperation constant
   constructor(cellSize) {
     this.cellSize = cellSize;
     this.cells = new Map();
@@ -217,10 +234,12 @@ class SpatialGrid {
     this.cells.clear();
   }
 
+  // take X and Y coordinates, convert into cell indices (index) into one 32bit integer and return
   _key(x, y) {
     return (Math.floor(x / this.cellSize) << 16) ^ Math.floor(y / this.cellSize);
   }
 
+  // take node, what cell is it in? tell everyone the node is in that cell
   insert(node) {
     let k = this._key(node.position.x, node.position.y);
     if (!this.cells.has(k)) this.cells.set(k, []);
@@ -243,6 +262,7 @@ class SpatialGrid {
   }
 }
 
+// Actually makes the line
 class DifferentialLine {
   constructor(mF, mS, dS, sCr, eL) {
     this.nodes = [];
@@ -268,25 +288,6 @@ class DifferentialLine {
     this.growth(sketch);
   }
 
-  //   growth() {
-  // //     if (this.nodes.length >= _maxNodes) return; // hard cap
-  //     // Walk backwards so splice indices stay valid, and use i+1 directly
-  //     // instead of indexOf() which was O(n) per insertion
-  //     for (let i = this.nodes.length - 2; i >= 0; i--) {
-  //       let n1 = this.nodes[i];
-  //       let n2 = this.nodes[i + 1];
-  //       let dx = n2.position.x - n1.position.x;
-  //       let dy = n2.position.y - n1.position.y;
-  //       // Avoid sqrt by comparing squared distance to squared threshold
-  //       if (dx * dx + dy * dy > this.maxEdgeLen * this.maxEdgeLen) {
-  //         let mx = (n1.position.x + n2.position.x) * 0.5;
-  //         let my = (n1.position.y + n2.position.y) * 0.5;
-  //         this.addNodeAt(new Node(mx, my, this.maxForce, this.maxSpeed), i + 1);
-  //         if (this.nodes.length >= _maxNodes) break;
-  //       }
-  //     }
-  //   }
-
   growth(sketch) {
     let toInsert = [];
     for (let i = 0; i < this.nodes.length - 1; i++) {
@@ -309,10 +310,7 @@ class DifferentialLine {
     }
     for (let { index, node } of toInsert) this.nodes.splice(index, 0, node);
   }
-  // differentiate() {
-  //   // Rebuild grid each frame — fast because it's just a Map clear + n inserts
-  //   this.grid.clear();
-  //   for (let n of this.nodes) this.grid.insert(n);
+
   differentiate(sketch, doesFreeze, MAGIC_MOA_NUMBER, HOW_LONG_UNTIL_I_COME_FOR_YOU) {
     this.grid.clear();
     for (let i = 0; i < this.nodes.length; i++) {
@@ -332,38 +330,6 @@ class DifferentialLine {
       this.nodes[i].update(doesFreeze, MAGIC_MOA_NUMBER, HOW_LONG_UNTIL_I_COME_FOR_YOU);
     }
   }
-
-  //   getSeparationForces() {
-  //     let n = this.nodes.length;
-  //     let sf = Array.from({ length: n }, () => sketch.createVector(0, 0));
-  //     let near = new Array(n).fill(0);
-
-  //     for (let i = 0; i < n; i++) {
-  //       let nodei = this.nodes[i];
-  //       // Only query neighbours in nearby grid cells instead of all n nodes
-  //       let neighbours = this.grid.query(nodei.position.x, nodei.position.y);
-  //       for (let nodej of neighbours) {
-  //         if (nodej === nodei) continue;
-  //         let dx = nodei.position.x - nodej.position.x;
-  //         let dy = nodei.position.y - nodej.position.y;
-  //         let sq_d = dx * dx + dy * dy;
-  //         if (sq_d > 0 && sq_d < this.sq_desiredSeparation) {
-  //           let dist = sqrt(sq_d);
-  //           // Reuse dx/dy directly instead of creating a new PVector
-  //           sf[i].x += (dx / dist) / dist;
-  //           sf[i].y += (dy / dist) / dist;
-  //           near[i]++;
-  //         }
-  //       }
-  //       if (near[i] > 0) sf[i].div(near[i]);
-  //       if (sf[i].mag() > 0) {
-  //         sf[i].setMag(this.maxSpeed);
-  //         sf[i].sub(this.nodes[i].velocity);
-  //         sf[i].limit(this.maxForce);
-  //       }
-  //     }
-  //     return sf;
-  //   }
 
   getSeparationForces(sketch) {
     let n = this.nodes.length;
@@ -431,14 +397,9 @@ class DifferentialLine {
     let first = this.nodes[0].position;
     sketch.line(last.x, last.y, first.x, first.y);
   }
-
-  renderShape(sketch) {
-    sketch.beginShape();
-    for (let node of this.nodes) sketch.vertex(node.position.x, node.position.y);
-    sketch.endShape(sketch.CLOSE);
-  }
 }
 
+// Individual node behaviour rules
 class Node {
   constructor(x, y, mF, mS, sketch) {
     this.acceleration = sketch.createVector(0, 0);
