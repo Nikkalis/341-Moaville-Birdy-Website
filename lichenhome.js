@@ -399,9 +399,9 @@ const contactlichen = (sketch) => {
   };
 };
 
-
-
 // --------------------------------------- General initialisation and spawn hero animations
+
+let homelichenHero;
 let homelichen1;
 let studentslichen1;
 let projectslichen1;
@@ -431,6 +431,7 @@ let contActive = false;
 let homeActive = false;
 
 let heroActive = false;
+let heroInitial = false;
 
 let herolichen1 = new p5(herolichen, document.getElementById("herodiv"));
 
@@ -442,12 +443,12 @@ homeBtm = homeRect.bottom;
 homeTopThresh = homeTop + (homeTop - window.innerHeight / 2);
 homeBtmThresh = homeBtm + (homeBtm - window.innerHeight / 2);
 
-if (homeTopThresh >= 0 && heroActive == false) {
-    homelichen1 = new p5(homelichen, document.getElementById("lichenred"));
+if (homeTopThresh >= 0 && heroInitial == false) {
+    homelichenHero = new p5(homelichen, document.getElementById("lichenred"));
     studentslichen1 = new p5(studentslichen, document.getElementById("lichenpink"));
     projectslichen1 = new p5(projectslichen, document.getElementById("lichenpurple"));
     contactlichen1 = new p5(contactlichen, document.getElementById("lichenorange"));
-    heroActive = true; 
+    heroInitial = true; 
   } 
 
 // --------------------------------------- Event listeners
@@ -497,21 +498,33 @@ document.addEventListener("scroll", (event) => {
   contBtm = contactRect.bottom;
   contBtmThresh = contBtm - window.innerHeight;
   
-
-  if (homeTopThresh <= 0 && heroActive) {
+  console.log(homeActive);
+  
+  if (homeTopThresh >= 0 && heroActive == false && heroInitial == false) { 
+    homelichenHero = new p5(homelichen, document.getElementById("lichenred"));
+    studentslichen1 = new p5(studentslichen, document.getElementById("lichenpink"));
+    projectslichen1 = new p5(projectslichen, document.getElementById("lichenpurple"));
+    contactlichen1 = new p5(contactlichen, document.getElementById("lichenorange"));
+    heroActive = true; 
+    console.log(homeActive);
+  } else if (homeTopThresh <= 0 && (heroActive || heroInitial)) {
     studentslichen1.remove();
     projectslichen1.remove();
     contactlichen1.remove();
-    homelichen1.remove();
+    homelichenHero.remove();
+    console.log(homeActive+" "+heroActive+" "+ heroInitial);
     heroActive = false;
+    heroInitial = false;
   } 
 
   if (homeTopThresh <= 0 && homeBtmThresh >= 0 && homeActive == false) {
     homelichen1 = new p5(homelichen, document.getElementById("lichenred"));
     homeActive = true;
+    console.log(homeActive);
   } else if ((homeTopThresh >= 0 || homeBtmThresh <= 0) && homeActive){
     //homelichen1.fuseRemove(homelichen1.lastNodes);
     homelichen1.remove();
+    console.log(homeActive);
     homeActive = false;
   }
   
@@ -526,6 +539,7 @@ document.addEventListener("scroll", (event) => {
   if (projTopThresh <= 0 && projBtmThresh >= 0 && projActive == false) {
     projectslichen1 = new p5(projectslichen, document.getElementById("lichenpurple"));
     projActive = true;
+    console.log(homeActive);
   } else if ((projTopThresh >= 0 || projBtmThresh <= 0) && projActive) {
     projectslichen1.remove();
     projActive = false;
