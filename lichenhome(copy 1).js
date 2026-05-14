@@ -1,4 +1,6 @@
-// --------------------------------------- Instance initialisation
+//let doesFreeze = true;
+//const HOW_LONG_UNTIL_I_COME_FOR_YOU = 10; // frames before you're killed
+//const MAGIC_MOA_NUMBER = 1.5; //force threshold, can they struggle?
 
 const herolichen = (sketch) => {
   let doesFreeze = true;
@@ -6,7 +8,7 @@ const herolichen = (sketch) => {
   const MAGIC_MOA_NUMBER = 1.5; //force threshold, can they struggle?
 
   const animationLength = 1500;
-  let animationSpeed = 250; // fps
+
   const _maxForce = 0.9;
   const _maxSpeed = 20;
   const _desiredSeparation = 20;
@@ -23,9 +25,13 @@ const herolichen = (sketch) => {
 
     canvasobj.id("herolichen");
 
+    //myCanvas.parent("herodiv");
+    //myCanvas.style("left", "50%");
+    //myCanvas.style("transform", "translateX(-50%)");
+
     sketch.noFill();
     sketch.stroke(106, 189, 69);
-    sketch.noSmooth();
+    sketch.noSmooth(); // disables antialiasing — meaningful fps gain on canvas 2D
     sketch.strokeWeight(2);
     _diff_line = new DifferentialLine(_maxForce, _maxSpeed, _desiredSeparation, _separationCohesionRation, _maxEdgeLen);
 
@@ -50,111 +56,18 @@ const herolichen = (sketch) => {
     _diff_line.renderLine(sketch);
   };
 };
-const homelichen = (sketch) => {
-  let doesFreeze = true;
-  const HOW_LONG_UNTIL_I_COME_FOR_YOU = 10; // frames before you're killed
-  const MAGIC_MOA_NUMBER = 0.0005; //force threshold, can they struggle?
-  const animationLength = 500;
-  let animationSpeed = 250; // fps
-
-  const _maxForce = 0.5;
-  const _maxSpeed = 20;
-  const _desiredSeparation = 20;
-  const _separationCohesionRation = 1.1;
-  const _maxEdgeLen = 5;
-  let erasing = false;
-  let eraseIndex = 0;
-  let lastNodes = [];
-  
-  
-  
-  let nodesStart = 6;
-  let rayStart = 120;
-
-  let _diff_line;
-
-  sketch.setup = function () {
-    let canvasobj = sketch.createCanvas(2000, 2000);
-    canvasobj.id("contactlichen");
-    sketch.lastNodes = lastNodes;
-    sketch.noFill();
-    sketch.stroke(106, 189, 69);
-    sketch.noSmooth(); // disables antialiasing — meaningful fps gain on canvas 2D
-    sketch.strokeWeight(2);
-    _diff_line = new DifferentialLine(_maxForce, _maxSpeed, _desiredSeparation, _separationCohesionRation, _maxEdgeLen);
-
-    let angInc = sketch.TWO_PI / nodesStart;
-
-    for (let a = 0; a < sketch.TWO_PI; a += angInc) {
-      let x = sketch.width / 2 + sketch.cos(a) * rayStart;
-      let y = sketch.height / 2 + sketch.sin(a) * rayStart;
-      _diff_line.addNode(new Node(x, y, _maxForce, _maxSpeed, sketch));
-    }
-  };
-
-  sketch.draw = function () {
-    if (erasing) {
-      sketch.erase();
-      sketch.strokeWeight(3);
-      // erase a few segments per frame
-      for (let i = 0; i < 3; i++) { 
-        if (eraseIndex >= sketch.lastNodes.length - 1) {
-          erasing = false;
-          sketch.noErase();
-          sketch.noLoop();
-          break;
-        }
-        let p1 = lastNodes[eraseIndex].position;
-        let p2 = lastNodes[eraseIndex + 1].position;
-        sketch.line(p1.x, p1.y, p2.x, p2.y);
-        eraseIndex++;
-      }
-      sketch.noErase();
-      return; // don't run normal draw while erasing
-    }
-    
-    if (animationLength < sketch.frameCount) {
-      sketch.noLoop();
-    }
-
-    animationSpeed = animationSpeed - 0.5;
-    sketch.frameRate(animationSpeed);
-
-    sketch.clear();
-    //background(0);
-
-    _diff_line.run(sketch, doesFreeze, MAGIC_MOA_NUMBER, HOW_LONG_UNTIL_I_COME_FOR_YOU);
-    _diff_line.renderLine(sketch, doesFreeze, MAGIC_MOA_NUMBER, HOW_LONG_UNTIL_I_COME_FOR_YOU);
-  };
-  
-  sketch.fuseRemove = function() {
-    console.log("erasing:", erasing);
-    console.log("lastNodes:", lastNodes.length);
-    console.log("sample node:", lastNodes[0]);
-    erasing = true;
-    eraseIndex = 0;
-    sketch.loop(); // restart draw loop if it stopped
-    sketch.frameRate(30);
-  };
-};
 const studentslichen = (sketch) => {
   let doesFreeze = true;
   const HOW_LONG_UNTIL_I_COME_FOR_YOU = 10; // frames before you're killed
   const MAGIC_MOA_NUMBER = 0.0005; //force threshold, can they struggle?
   const animationLength = 500;
-  let animationSpeed = 250; // fps
 
   const _maxForce = 0.5;
   const _maxSpeed = 20;
   const _desiredSeparation = 20;
   const _separationCohesionRation = 1.1;
   const _maxEdgeLen = 5;
-  let erasing = false;
-  let eraseIndex = 0;
-  let lastNodes = [];
-  
-  
-  
+
   let nodesStart = 6;
   let rayStart = 120;
 
@@ -163,7 +76,7 @@ const studentslichen = (sketch) => {
   sketch.setup = function () {
     let canvasobj = sketch.createCanvas(2000, 2000);
     canvasobj.id("contactlichen");
-    sketch.lastNodes = lastNodes;
+
     sketch.noFill();
     sketch.stroke(106, 189, 69);
     sketch.noSmooth(); // disables antialiasing — meaningful fps gain on canvas 2D
@@ -180,48 +93,15 @@ const studentslichen = (sketch) => {
   };
 
   sketch.draw = function () {
-    if (erasing) {
-      sketch.erase();
-      sketch.strokeWeight(3);
-      // erase a few segments per frame
-      for (let i = 0; i < 3; i++) { 
-        if (eraseIndex >= sketch.lastNodes.length - 1) {
-          erasing = false;
-          sketch.noErase();
-          sketch.noLoop();
-          break;
-        }
-        let p1 = lastNodes[eraseIndex].position;
-        let p2 = lastNodes[eraseIndex + 1].position;
-        sketch.line(p1.x, p1.y, p2.x, p2.y);
-        eraseIndex++;
-      }
-      sketch.noErase();
-      return; // don't run normal draw while erasing
-    }
-    
     if (animationLength < sketch.frameCount) {
       sketch.noLoop();
     }
-
-    animationSpeed = animationSpeed - 0.5;
-    sketch.frameRate(animationSpeed);
 
     sketch.clear();
     //background(0);
 
     _diff_line.run(sketch, doesFreeze, MAGIC_MOA_NUMBER, HOW_LONG_UNTIL_I_COME_FOR_YOU);
     _diff_line.renderLine(sketch, doesFreeze, MAGIC_MOA_NUMBER, HOW_LONG_UNTIL_I_COME_FOR_YOU);
-  };
-  
-  sketch.fuseRemove = function() {
-    console.log("erasing:", erasing);
-    console.log("lastNodes:", lastNodes.length);
-    console.log("sample node:", lastNodes[0]);
-    erasing = true;
-    eraseIndex = 0;
-    sketch.loop(); // restart draw loop if it stopped
-    sketch.frameRate(30);
   };
 };
 const projectslichen = (sketch) => {
@@ -229,19 +109,13 @@ const projectslichen = (sketch) => {
   const HOW_LONG_UNTIL_I_COME_FOR_YOU = 10; // frames before you're killed
   const MAGIC_MOA_NUMBER = 0.0005; //force threshold, can they struggle?
   const animationLength = 500;
-  let animationSpeed = 250; // fps
 
   const _maxForce = 0.5;
   const _maxSpeed = 20;
   const _desiredSeparation = 20;
   const _separationCohesionRation = 1.1;
   const _maxEdgeLen = 5;
-  let erasing = false;
-  let eraseIndex = 0;
-  let lastNodes = [];
-  
-  
-  
+
   let nodesStart = 6;
   let rayStart = 120;
 
@@ -250,7 +124,7 @@ const projectslichen = (sketch) => {
   sketch.setup = function () {
     let canvasobj = sketch.createCanvas(2000, 2000);
     canvasobj.id("contactlichen");
-    sketch.lastNodes = lastNodes;
+
     sketch.noFill();
     sketch.stroke(106, 189, 69);
     sketch.noSmooth(); // disables antialiasing — meaningful fps gain on canvas 2D
@@ -267,48 +141,15 @@ const projectslichen = (sketch) => {
   };
 
   sketch.draw = function () {
-    if (erasing) {
-      sketch.erase();
-      sketch.strokeWeight(3);
-      // erase a few segments per frame
-      for (let i = 0; i < 3; i++) { 
-        if (eraseIndex >= sketch.lastNodes.length - 1) {
-          erasing = false;
-          sketch.noErase();
-          sketch.noLoop();
-          break;
-        }
-        let p1 = lastNodes[eraseIndex].position;
-        let p2 = lastNodes[eraseIndex + 1].position;
-        sketch.line(p1.x, p1.y, p2.x, p2.y);
-        eraseIndex++;
-      }
-      sketch.noErase();
-      return; // don't run normal draw while erasing
-    }
-    
     if (animationLength < sketch.frameCount) {
       sketch.noLoop();
     }
-
-    animationSpeed = animationSpeed - 0.5;
-    sketch.frameRate(animationSpeed);
 
     sketch.clear();
     //background(0);
 
     _diff_line.run(sketch, doesFreeze, MAGIC_MOA_NUMBER, HOW_LONG_UNTIL_I_COME_FOR_YOU);
     _diff_line.renderLine(sketch, doesFreeze, MAGIC_MOA_NUMBER, HOW_LONG_UNTIL_I_COME_FOR_YOU);
-  };
-  
-  sketch.fuseRemove = function() {
-    console.log("erasing:", erasing);
-    console.log("lastNodes:", lastNodes.length);
-    console.log("sample node:", lastNodes[0]);
-    erasing = true;
-    eraseIndex = 0;
-    sketch.loop(); // restart draw loop if it stopped
-    sketch.frameRate(30);
   };
 };
 const contactlichen = (sketch) => {
@@ -316,19 +157,13 @@ const contactlichen = (sketch) => {
   const HOW_LONG_UNTIL_I_COME_FOR_YOU = 10; // frames before you're killed
   const MAGIC_MOA_NUMBER = 0.0005; //force threshold, can they struggle?
   const animationLength = 500;
-  let animationSpeed = 250; // fps
 
   const _maxForce = 0.5;
   const _maxSpeed = 20;
   const _desiredSeparation = 20;
   const _separationCohesionRation = 1.1;
   const _maxEdgeLen = 5;
-  let erasing = false;
-  let eraseIndex = 0;
-  let lastNodes = [];
-  
-  
-  
+
   let nodesStart = 6;
   let rayStart = 120;
 
@@ -337,7 +172,7 @@ const contactlichen = (sketch) => {
   sketch.setup = function () {
     let canvasobj = sketch.createCanvas(2000, 2000);
     canvasobj.id("contactlichen");
-    sketch.lastNodes = lastNodes;
+
     sketch.noFill();
     sketch.stroke(106, 189, 69);
     sketch.noSmooth(); // disables antialiasing — meaningful fps gain on canvas 2D
@@ -354,32 +189,9 @@ const contactlichen = (sketch) => {
   };
 
   sketch.draw = function () {
-    if (erasing) {
-      sketch.erase();
-      sketch.strokeWeight(3);
-      // erase a few segments per frame
-      for (let i = 0; i < 3; i++) { 
-        if (eraseIndex >= sketch.lastNodes.length - 1) {
-          erasing = false;
-          sketch.noErase();
-          sketch.noLoop();
-          break;
-        }
-        let p1 = lastNodes[eraseIndex].position;
-        let p2 = lastNodes[eraseIndex + 1].position;
-        sketch.line(p1.x, p1.y, p2.x, p2.y);
-        eraseIndex++;
-      }
-      sketch.noErase();
-      return; // don't run normal draw while erasing
-    }
-    
     if (animationLength < sketch.frameCount) {
       sketch.noLoop();
     }
-
-    animationSpeed = animationSpeed - 0.5;
-    sketch.frameRate(animationSpeed);
 
     sketch.clear();
     //background(0);
@@ -387,179 +199,28 @@ const contactlichen = (sketch) => {
     _diff_line.run(sketch, doesFreeze, MAGIC_MOA_NUMBER, HOW_LONG_UNTIL_I_COME_FOR_YOU);
     _diff_line.renderLine(sketch, doesFreeze, MAGIC_MOA_NUMBER, HOW_LONG_UNTIL_I_COME_FOR_YOU);
   };
-  
-  sketch.fuseRemove = function() {
-    console.log("erasing:", erasing);
-    console.log("lastNodes:", lastNodes.length);
-    console.log("sample node:", lastNodes[0]);
-    erasing = true;
-    eraseIndex = 0;
-    sketch.loop(); // restart draw loop if it stopped
-    sketch.frameRate(30);
-  };
 };
 
+let herolichen1 = new p5(herolichen, document.getElementById("herodiv"));
 
-
-// --------------------------------------- General initialisation and spawn hero animations
-let homelichen1;
-let studentslichen1;
-let projectslichen1;
-let contactlichen1;
+// --------------------------------------- Nav bar click events
 
 let homeButton = document.getElementById("navhexred");
 let studentsButton = document.getElementById("navhexpink");
 let projectsButton = document.getElementById("navhexpurple");
 let contactButton = document.getElementById("navhexorange");
 
-let studentsSection = document.getElementById("students");
-let projectsSection = document.getElementById("projects");
-let contactSection = document.getElementById("contact");
-let homeSection = document.getElementById("home");
-
-let studentsRect;   let projectsRect;   let contactRect;    let homeRect;
-let studTop;        let projTop;        let contTop;        let homeTop;
-let studBtm;        let projBtm;        let contBtm;        let homeBtm;
-let studTopThresh;  let projTopThresh;  let contTopThresh;  let homeTopThresh;
-let studBtmThresh;  let projBtmThresh;  let contBtmThresh;  let homeBtmThresh; 
-
-let heroBtmThresh;
-
-let studActive = false;
-let projActive = false;
-let contActive = false;
-let homeActive = false;
-
-let heroActive = false;
-
-let herolichen1 = new p5(herolichen, document.getElementById("herodiv"));
-
-const offsetSections = 100;
-
-homeRect = homeSection.getBoundingClientRect();
-homeTop = homeRect.top;
-homeBtm = homeRect.bottom;
-homeTopThresh = homeTop + (homeTop - window.innerHeight / 2);
-homeBtmThresh = homeBtm + (homeBtm - window.innerHeight / 2);
-
-if (homeTopThresh >= 0 && heroActive == false) {
-    homelichen1 = new p5(homelichen, document.getElementById("lichenred"));
-    studentslichen1 = new p5(studentslichen, document.getElementById("lichenpink"));
-    projectslichen1 = new p5(projectslichen, document.getElementById("lichenpurple"));
-    contactlichen1 = new p5(contactlichen, document.getElementById("lichenorange"));
-    heroActive = true; 
-  } 
-
-// --------------------------------------- Event listeners
-
-const links = document.querySelectorAll(".internal-link");
-
-for (const link of links) {
-  link.addEventListener("click", function (e) {
-    if (this.getAttribute("href").startsWith("#")) {
-      e.preventDefault();
-      const targetId = this.getAttribute("href");
-      const targetElement = document.querySelector(targetId);
-
-      if (targetElement) {
-        window.scrollTo({
-          top: targetElement.offsetTop,
-          behavior: "smooth"
-        });
-      }
-    }
-  });
+function spawnStudentsLichen() {
+  let studentslichen1 = new p5(studentslichen, document.getElementById("lichenpink"));
+}
+function spawnProjectsLichen() {
+  let projectslichen1 = new p5(projectslichen, document.getElementById("lichenpurple"));
+}
+function spawnContactLichen() {
+  let contactlichen1 = new p5(contactlichen, document.getElementById("lichenorange"));
 }
 
-
-document.addEventListener("scroll", (event) => {
-  
-  homeRect = homeSection.getBoundingClientRect();
-  homeTop = homeRect.top;
-  homeBtm = homeRect.bottom;
-  homeTopThresh = homeTop + (homeTop - window.innerHeight / 2);
-  homeBtmThresh = homeBtm + (homeBtm - window.innerHeight / 2);
-  
-  studentsRect = studentsSection.getBoundingClientRect();
-  studTop = studentsRect.top;
-  studBtm = studentsRect.bottom;
-  studTopThresh = studTop + (studTop - window.innerHeight / 2);
-  studBtmThresh = studBtm + (studBtm - window.innerHeight / 2);
-
-  projectsRect = projectsSection.getBoundingClientRect();
-  projTop = projectsRect.top;
-  projBtm = projectsRect.bottom;
-  projTopThresh = projTop + (projTop - window.innerHeight / 2);
-  projBtmThresh = projBtm + (projBtm - window.innerHeight / 2);
-
-  contactRect = contactSection.getBoundingClientRect();
-  contTop = contactRect.top;
-  contBtm = contactRect.bottom;
-  contBtmThresh = contBtm - window.innerHeight;
-  
-
-  if (homeTopThresh <= 0 && heroActive) {
-    studentslichen1.remove();
-    projectslichen1.remove();
-    contactlichen1.remove();
-    homelichen1.remove();
-    heroActive = false;
-  } 
-
-  if (homeTopThresh <= 0 && homeBtmThresh >= 0 && homeActive == false) {
-    homelichen1 = new p5(homelichen, document.getElementById("lichenred"));
-    homeActive = true;
-  } else if ((homeTopThresh >= 0 || homeBtmThresh <= 0) && homeActive){
-    //homelichen1.fuseRemove(homelichen1.lastNodes);
-    homelichen1.remove();
-    homeActive = false;
-  }
-  
-  if (studTopThresh <= 0 && studBtmThresh >= 0 && studActive == false) {
-    studentslichen1 = new p5(studentslichen, document.getElementById("lichenpink"));
-    studActive = true;
-  } else if ((studTopThresh >= 0 || studBtmThresh <= 0) && studActive){
-    studentslichen1.remove();
-    studActive = false;
-  }
-
-  if (projTopThresh <= 0 && projBtmThresh >= 0 && projActive == false) {
-    projectslichen1 = new p5(projectslichen, document.getElementById("lichenpurple"));
-    projActive = true;
-  } else if ((projTopThresh >= 0 || projBtmThresh <= 0) && projActive) {
-    projectslichen1.remove();
-    projActive = false;
-  }
-
-  if (contBtmThresh <= 0 && contActive == false) {
-    contactlichen1 = new p5(contactlichen, document.getElementById("lichenorange"));
-    contActive = true;
-  } else if (contBtmThresh >= 0 && contActive){
-    contactlichen1.remove();
-    contActive = false;
-  }
-
-});
-
-
-// --------------------------------------- Functions and classes and shit lalalalalalalaaaa
-
-//function fuseRemove(lastNodes) {
-//  sketch.erase();
-//  sketch.strokeWeight(3);
-//  for (let i = 0; i < this.lastNodes.length - 1; i++) {
-//    let p1 = this.lastNodes[i].position;
-//    let p2 = this.lastNodes[i + 1].position;
-//    sketch.line(p1.x, p1.y, p2.x, p2.y);
-//  }
-//
-//  // Close the loop
-//  let last = this.nodes[this.nodes.length - 1].position;
-//  let first = this.nodes[0].position;
-//  sketch.line(last.x, last.y, first.x, first.y);
-//
-//  sketch.noErase();
-//}
+// --------------------------------------- Functions and shit lalalalalalalaaaa
 
 // Spatial grid to provide location info to nodes
 class SpatialGrid {
@@ -731,21 +392,11 @@ class DifferentialLine {
       //else {stroke(106, 189, 69);}}
       sketch.line(p1.x, p1.y, p2.x, p2.y);
     }
-
     // Close the loop
     let last = this.nodes[this.nodes.length - 1].position;
     let first = this.nodes[0].position;
     sketch.line(last.x, last.y, first.x, first.y);
-    
-    // ------ pleaseee give me my nodes
-    //for (let i = 0; i < this.nodes.length - 1; i++) {
-    //  let p1 = this.nodes[i].position;
-    //  sketch.lastNodes.push(p1);
-    //}
-    
   }
-  
-  
 }
 
 // Individual node behaviour rules
@@ -797,4 +448,3 @@ class Node {
     return steer;
   }
 }
-

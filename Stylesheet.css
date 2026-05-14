@@ -117,8 +117,10 @@ body {
 .content-container {
     max-width: 800px;
     margin: auto;
+}
 
-    /*scrollbar-width: none;*/
+section {
+    padding-top: 200px;
 }
 
 /* Navigation bar  ----------------------------------------------------------------- */
