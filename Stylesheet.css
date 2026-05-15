@@ -204,7 +204,7 @@ section {
 }
 
 #topnavdivHighlight .p5Canvas {
-    transform: rotate(90deg);
+    transform: rotate(330deg);
     position: absolute;
     top: -915px;
 }

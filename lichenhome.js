@@ -1,4 +1,5 @@
 // --------------------------------------- Instance initialisation
+const fuseSpeed = 12;
 
 const herolichen = (sketch) => {
   let doesFreeze = true;
@@ -96,21 +97,23 @@ const homelichen = (sketch) => {
     if (erasing) {
       sketch.erase();
       sketch.strokeWeight(3);
-      // erase a few segments per frame
-      for (let i = 0; i < 3; i++) { 
-        if (eraseIndex >= sketch.lastNodes.length - 1) {
+      for (let i = 0; i < fuseSpeed; i++) {
+        if (eraseIndex >= _diff_line.nodes.length - 1) {
           erasing = false;
-          sketch.noErase();
           sketch.noLoop();
+          let last = _diff_line.nodes[_diff_line.nodes.length - 1].position;
+          let first = _diff_line.nodes[0].position;
+          sketch.line(last.x, last.y, first.x, first.y);
+          sketch.noErase();
           break;
         }
-        let p1 = lastNodes[eraseIndex].position;
-        let p2 = lastNodes[eraseIndex + 1].position;
+        let p1 = _diff_line.nodes[eraseIndex].position;
+        let p2 = _diff_line.nodes[eraseIndex + 1].position;
         sketch.line(p1.x, p1.y, p2.x, p2.y);
         eraseIndex++;
       }
       sketch.noErase();
-      return; // don't run normal draw while erasing
+      return;
     }
     
     if (animationLength < sketch.frameCount) {
@@ -183,21 +186,23 @@ const studentslichen = (sketch) => {
     if (erasing) {
       sketch.erase();
       sketch.strokeWeight(3);
-      // erase a few segments per frame
-      for (let i = 0; i < 3; i++) { 
-        if (eraseIndex >= sketch.lastNodes.length - 1) {
+      for (let i = 0; i < fuseSpeed; i++) {
+        if (eraseIndex >= _diff_line.nodes.length - 1) {
           erasing = false;
-          sketch.noErase();
           sketch.noLoop();
+          let last = _diff_line.nodes[_diff_line.nodes.length - 1].position;
+          let first = _diff_line.nodes[0].position;
+          sketch.line(last.x, last.y, first.x, first.y);
+          sketch.noErase();
           break;
         }
-        let p1 = lastNodes[eraseIndex].position;
-        let p2 = lastNodes[eraseIndex + 1].position;
+        let p1 = _diff_line.nodes[eraseIndex].position;
+        let p2 = _diff_line.nodes[eraseIndex + 1].position;
         sketch.line(p1.x, p1.y, p2.x, p2.y);
         eraseIndex++;
       }
       sketch.noErase();
-      return; // don't run normal draw while erasing
+      return;
     }
     
     if (animationLength < sketch.frameCount) {
@@ -270,21 +275,23 @@ const projectslichen = (sketch) => {
     if (erasing) {
       sketch.erase();
       sketch.strokeWeight(3);
-      // erase a few segments per frame
-      for (let i = 0; i < 3; i++) { 
-        if (eraseIndex >= sketch.lastNodes.length - 1) {
+      for (let i = 0; i < fuseSpeed; i++) {
+        if (eraseIndex >= _diff_line.nodes.length - 1) {
           erasing = false;
-          sketch.noErase();
           sketch.noLoop();
+          let last = _diff_line.nodes[_diff_line.nodes.length - 1].position;
+          let first = _diff_line.nodes[0].position;
+          sketch.line(last.x, last.y, first.x, first.y);
+          sketch.noErase();
           break;
         }
-        let p1 = lastNodes[eraseIndex].position;
-        let p2 = lastNodes[eraseIndex + 1].position;
+        let p1 = _diff_line.nodes[eraseIndex].position;
+        let p2 = _diff_line.nodes[eraseIndex + 1].position;
         sketch.line(p1.x, p1.y, p2.x, p2.y);
         eraseIndex++;
       }
       sketch.noErase();
-      return; // don't run normal draw while erasing
+      return;
     }
     
     if (animationLength < sketch.frameCount) {
@@ -357,21 +364,23 @@ const contactlichen = (sketch) => {
     if (erasing) {
       sketch.erase();
       sketch.strokeWeight(3);
-      // erase a few segments per frame
-      for (let i = 0; i < 3; i++) { 
-        if (eraseIndex >= sketch.lastNodes.length - 1) {
+      for (let i = 0; i < fuseSpeed; i++) {
+        if (eraseIndex >= _diff_line.nodes.length - 1) {
           erasing = false;
-          sketch.noErase();
           sketch.noLoop();
+          let last = _diff_line.nodes[_diff_line.nodes.length - 1].position;
+          let first = _diff_line.nodes[0].position;
+          sketch.line(last.x, last.y, first.x, first.y);
+          sketch.noErase();
           break;
         }
-        let p1 = lastNodes[eraseIndex].position;
-        let p2 = lastNodes[eraseIndex + 1].position;
+        let p1 = _diff_line.nodes[eraseIndex].position;
+        let p2 = _diff_line.nodes[eraseIndex + 1].position;
         sketch.line(p1.x, p1.y, p2.x, p2.y);
         eraseIndex++;
       }
       sketch.noErase();
-      return; // don't run normal draw while erasing
+      return;
     }
     
     if (animationLength < sketch.frameCount) {
@@ -389,14 +398,12 @@ const contactlichen = (sketch) => {
   };
   
   sketch.fuseRemove = function() {
-    console.log("erasing:", erasing);
-    console.log("lastNodes:", lastNodes.length);
-    console.log("sample node:", lastNodes[0]);
     erasing = true;
     eraseIndex = 0;
-    sketch.loop(); // restart draw loop if it stopped
+    sketch.loop();
     sketch.frameRate(30);
   };
+  
 };
 
 // --------------------------------------- General initialisation and spawn hero animations
@@ -498,82 +505,72 @@ document.addEventListener("scroll", (event) => {
   contBtm = contactRect.bottom;
   contBtmThresh = contBtm - window.innerHeight;
   
-  console.log(homeActive);
+
   
   if (homeTopThresh >= 0 && heroActive == false && heroInitial == false) { 
+    heroActive = true; 
+
     homelichenHero = new p5(homelichen, document.getElementById("lichenred"));
     studentslichen1 = new p5(studentslichen, document.getElementById("lichenpink"));
     projectslichen1 = new p5(projectslichen, document.getElementById("lichenpurple"));
     contactlichen1 = new p5(contactlichen, document.getElementById("lichenorange"));
-    heroActive = true; 
-    console.log(homeActive);
+    
+
   } else if (homeTopThresh <= 0 && (heroActive || heroInitial)) {
-    studentslichen1.remove();
-    projectslichen1.remove();
-    contactlichen1.remove();
-    homelichenHero.remove();
-    console.log(homeActive+" "+heroActive+" "+ heroInitial);
     heroActive = false;
     heroInitial = false;
+
+    studentslichen1.fuseRemove(); 
+    projectslichen1.fuseRemove();
+    contactlichen1.fuseRemove();
+    homelichenHero.fuseRemove();
   } 
 
   if (homeTopThresh <= 0 && homeBtmThresh >= 0 && homeActive == false) {
-    homelichen1 = new p5(homelichen, document.getElementById("lichenred"));
     homeActive = true;
-    console.log(homeActive);
+
+    homelichen1 = new p5(homelichen, document.getElementById("lichenred"));
   } else if ((homeTopThresh >= 0 || homeBtmThresh <= 0) && homeActive){
     //homelichen1.fuseRemove(homelichen1.lastNodes);
-    homelichen1.remove();
-    console.log(homeActive);
     homeActive = false;
+
+    homelichen1.fuseRemove();
   }
   
   if (studTopThresh <= 0 && studBtmThresh >= 0 && studActive == false) {
-    studentslichen1 = new p5(studentslichen, document.getElementById("lichenpink"));
     studActive = true;
+
+    studentslichen1 = new p5(studentslichen, document.getElementById("lichenpink"));
   } else if ((studTopThresh >= 0 || studBtmThresh <= 0) && studActive){
-    studentslichen1.remove();
     studActive = false;
+
+    studentslichen1.fuseRemove();
   }
 
   if (projTopThresh <= 0 && projBtmThresh >= 0 && projActive == false) {
-    projectslichen1 = new p5(projectslichen, document.getElementById("lichenpurple"));
     projActive = true;
-    console.log(homeActive);
+
+    projectslichen1 = new p5(projectslichen, document.getElementById("lichenpurple"));
   } else if ((projTopThresh >= 0 || projBtmThresh <= 0) && projActive) {
-    projectslichen1.remove();
     projActive = false;
+
+    projectslichen1.fuseRemove();
   }
 
   if (contBtmThresh <= 0 && contActive == false) {
-    contactlichen1 = new p5(contactlichen, document.getElementById("lichenorange"));
     contActive = true;
+
+    contactlichen1 = new p5(contactlichen, document.getElementById("lichenorange"));
   } else if (contBtmThresh >= 0 && contActive){
-    contactlichen1.remove();
     contActive = false;
+    
+    contactlichen1.fuseRemove();
   }
 
 });
 
 
 // --------------------------------------- Functions and classes and shit lalalalalalalaaaa
-
-//function fuseRemove(lastNodes) {
-//  sketch.erase();
-//  sketch.strokeWeight(3);
-//  for (let i = 0; i < this.lastNodes.length - 1; i++) {
-//    let p1 = this.lastNodes[i].position;
-//    let p2 = this.lastNodes[i + 1].position;
-//    sketch.line(p1.x, p1.y, p2.x, p2.y);
-//  }
-//
-//  // Close the loop
-//  let last = this.nodes[this.nodes.length - 1].position;
-//  let first = this.nodes[0].position;
-//  sketch.line(last.x, last.y, first.x, first.y);
-//
-//  sketch.noErase();
-//}
 
 // Spatial grid to provide location info to nodes
 class SpatialGrid {
@@ -750,14 +747,24 @@ class DifferentialLine {
     let last = this.nodes[this.nodes.length - 1].position;
     let first = this.nodes[0].position;
     sketch.line(last.x, last.y, first.x, first.y);
-    
-    // ------ pleaseee give me my nodes
-    //for (let i = 0; i < this.nodes.length - 1; i++) {
-    //  let p1 = this.nodes[i].position;
-    //  sketch.lastNodes.push(p1);
-    //}
-    
   }
+  
+  //fuseRemove(sketch, eraseIndex) {
+  //  console.log("nodes:", this.nodes.length);
+  //  
+  //  for (let i = 0; i < 3; i++) { 
+  //      if (eraseIndex >= this.nodes.length - 1) {
+  //        erasing = false;
+  //        sketch.noErase();
+  //        sketch.noLoop();
+  //        break;
+  //      }
+  //      let p1 = this.nodes[eraseIndex].position;
+  //      let p2 = this.nodes[eraseIndex + 1].position;
+  //      sketch.line(p1.x, p1.y, p2.x, p2.y);
+  //      eraseIndex++;
+  //    }
+  //}
   
   
 }
