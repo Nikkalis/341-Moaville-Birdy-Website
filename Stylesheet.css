@@ -57,6 +57,7 @@ body {
     font-size: 16px;
     scroll-behavior: smooth;
     background-image: url("");
+    position: relative;
     /*overflow:clip;*/
 }
 
@@ -121,6 +122,85 @@ body {
 
 section {
     padding-top: 200px;
+    overflow:hidden;
+    border:#d1158d 1px solid;
+}
+/* Background textures GREEN ----------------------------------------------------------------- */
+#bglayer1{
+    position: absolute;
+    background-size: cover;
+    background-image: url('images/SVG/webbylong.svg');
+    /*background-color: var(--pink);*/
+    min-height: 100%;
+    width: 100%;
+    z-index: -1;
+}
+#bglayer2{
+    position: absolute;
+    background-size: cover;
+    background-image: url('images/SVG/multihexweblong.svg');
+    height: 100%;
+    width: 100%;    
+    opacity: 42%;
+    z-index: -1;
+}
+#bglayer3{
+    background-size: cover;
+    background-image: url('images/SVG/lotuslong.svg');
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    z-index: -1;
+}
+
+/* Background Textures ANIMATED COLORS*/
+
+.contentANIM{
+    position: absolute;
+    width:100%;
+    height: 3000px;
+    overflow:hidden;
+
+    z-index: -1;
+}
+
+.rippleHORIZON{
+    height: 700px;
+    width: auto;
+}
+.rippleVERTICAL{
+    height: auto;
+    width: 700px;
+}
+
+@keyframes rotateLEFT {
+  from {transform: rotate(0deg);}
+  to {transform: rotate(360deg);}
+}
+@keyframes rotateRIGHT {
+  from {transform: rotate(360deg);}
+  to {transform: rotate(0deg);}
+}
+
+@keyframes pulse {
+  from {transform: scale(e);}
+  to {transform: scale(e);}
+}
+
+
+
+.rotateLEFT{
+  animation-name: rotateLEFT;
+  animation-duration: 180s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+
+.rotateRIGHT{
+  animation-name: rotateRIGHT;
+  animation-duration: 180s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
 }
 
 /* Navigation bar  ----------------------------------------------------------------- */
