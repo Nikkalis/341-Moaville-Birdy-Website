@@ -1,5 +1,5 @@
 // --------------------------------------- Instance initialisation
-const fuseSpeed = 12;
+const fuseSpeed = 30;
 
 const herolichen = (sketch) => {
   let doesFreeze = true;
@@ -105,6 +105,7 @@ const homelichen = (sketch) => {
           let first = _diff_line.nodes[0].position;
           sketch.line(last.x, last.y, first.x, first.y);
           sketch.noErase();
+          sketch.remove();
           break;
         }
         let p1 = _diff_line.nodes[eraseIndex].position;
@@ -194,6 +195,7 @@ const studentslichen = (sketch) => {
           let first = _diff_line.nodes[0].position;
           sketch.line(last.x, last.y, first.x, first.y);
           sketch.noErase();
+          sketch.remove();
           break;
         }
         let p1 = _diff_line.nodes[eraseIndex].position;
@@ -283,6 +285,7 @@ const projectslichen = (sketch) => {
           let first = _diff_line.nodes[0].position;
           sketch.line(last.x, last.y, first.x, first.y);
           sketch.noErase();
+          sketch.remove();
           break;
         }
         let p1 = _diff_line.nodes[eraseIndex].position;
@@ -372,6 +375,7 @@ const contactlichen = (sketch) => {
           let first = _diff_line.nodes[0].position;
           sketch.line(last.x, last.y, first.x, first.y);
           sketch.noErase();
+          sketch.remove();
           break;
         }
         let p1 = _diff_line.nodes[eraseIndex].position;
@@ -380,6 +384,7 @@ const contactlichen = (sketch) => {
         eraseIndex++;
       }
       sketch.noErase();
+      sketch.remove();
       return;
     }
     
@@ -450,13 +455,13 @@ homeBtm = homeRect.bottom;
 homeTopThresh = homeTop + (homeTop - window.innerHeight / 2);
 homeBtmThresh = homeBtm + (homeBtm - window.innerHeight / 2);
 
-if (homeTopThresh >= 0 && heroInitial == false) {
-    homelichenHero = new p5(homelichen, document.getElementById("lichenred"));
-    studentslichen1 = new p5(studentslichen, document.getElementById("lichenpink"));
-    projectslichen1 = new p5(projectslichen, document.getElementById("lichenpurple"));
-    contactlichen1 = new p5(contactlichen, document.getElementById("lichenorange"));
-    heroInitial = true; 
-  } 
+//if (homeTopThresh >= 0 && heroInitial == false) {
+//    homelichenHero = new p5(homelichen, document.getElementById("lichenred"));
+//    studentslichen1 = new p5(studentslichen, document.getElementById("lichenpink"));
+//    projectslichen1 = new p5(projectslichen, document.getElementById("lichenpurple"));
+//    contactlichen1 = new p5(contactlichen, document.getElementById("lichenorange"));
+//    heroInitial = true; 
+//  } 
 
 // --------------------------------------- Event listeners
 
@@ -510,10 +515,10 @@ document.addEventListener("scroll", (event) => {
   if (homeTopThresh >= 0 && heroActive == false && heroInitial == false) { 
     heroActive = true; 
 
-    homelichenHero = new p5(homelichen, document.getElementById("lichenred"));
-    studentslichen1 = new p5(studentslichen, document.getElementById("lichenpink"));
-    projectslichen1 = new p5(projectslichen, document.getElementById("lichenpurple"));
-    contactlichen1 = new p5(contactlichen, document.getElementById("lichenorange"));
+    //homelichenHero = new p5(homelichen, document.getElementById("lichenred"));
+    //studentslichen1 = new p5(studentslichen, document.getElementById("lichenpink"));
+    //projectslichen1 = new p5(projectslichen, document.getElementById("lichenpurple"));
+    //contactlichen1 = new p5(contactlichen, document.getElementById("lichenorange"));
     
 
   } else if (homeTopThresh <= 0 && (heroActive || heroInitial)) {
