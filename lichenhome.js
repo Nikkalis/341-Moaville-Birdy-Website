@@ -117,7 +117,7 @@ const homelichen = (sketch) => {
       return;
     }
     
-    if (animationLength < sketch.frameCount) {
+    if (animationSpeed <= 1) {
       sketch.noLoop();
     }
 
@@ -207,7 +207,7 @@ const studentslichen = (sketch) => {
       return;
     }
     
-    if (animationLength < sketch.frameCount) {
+    if (animationSpeed <= 1) {
       sketch.noLoop();
     }
 
@@ -297,7 +297,7 @@ const projectslichen = (sketch) => {
       return;
     }
     
-    if (animationLength < sketch.frameCount) {
+    if (animationSpeed <= 1) {
       sketch.noLoop();
     }
 
@@ -388,7 +388,7 @@ const contactlichen = (sketch) => {
       return;
     }
     
-    if (animationLength < sketch.frameCount) {
+    if (animationSpeed <= 1) {
       sketch.noLoop();
     }
 
