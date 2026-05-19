@@ -183,8 +183,9 @@ section {
 }
 
 @keyframes pulse {
-  from {transform: scale(0.5);}
-  to {transform: scale(1);}
+  0% {transform: scale(0.4);}
+  50% {transform: scale(0.5);}
+  100% {transform: scale(0.4);}
 }
 
 @keyframes comboLEFT {
@@ -199,6 +200,7 @@ from {transform: rotate(360deg) scale(0.5);}
 }
 
 .rotateLEFT{
+  will-change: transform;
   animation-name: rotateLEFT;
   animation-duration: 180s;
   animation-iteration-count: infinite;
@@ -206,6 +208,7 @@ from {transform: rotate(360deg) scale(0.5);}
 }
 
 .rotateRIGHT{
+  will-change: transform;
   animation-name: rotateRIGHT;
   animation-duration: 180s;
   animation-iteration-count: infinite;
@@ -213,13 +216,15 @@ from {transform: rotate(360deg) scale(0.5);}
 }
 
 .pulse{
+  will-change: transform;
   animation-name: pulse;
-  animation-duration: 60s;
+  animation-duration: 5s;
   animation-iteration-count: infinite;
   animation-timing-function: linear; 
 }
 
 .comboLEFT{
+  will-change: transform;
   animation-name: comboLEFT;
   animation-duration: 180s;
   animation-iteration-count: infinite;
@@ -227,6 +232,7 @@ from {transform: rotate(360deg) scale(0.5);}
 }
 
 .comboRIGHT{
+  will-change: transform;
   animation-name:  comboRIGHT;
   animation-duration: 180s;
   animation-iteration-count: infinite;
