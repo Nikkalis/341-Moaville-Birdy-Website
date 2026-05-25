@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>University of Waikato Design Showcase</title>
+
+        <link rel="stylesheet" href="Stylesheet.css" />
+        <!--p5.js file needed to load the linework growths-->
+        <script src="https://cdn.jsdelivr.net/npm/p5@1.11.13/lib/p5.js"></script>
+        
+        <!-- Javascript for whatever tf we decided to use js for -->
+        <script src="main.js"></script>
+        <!--<script src="lichenhome.js"></script>-->
+        <style>
+            .flex-student a::before {
+                background-image: var(--alt-image);
+            }
+        </style>
+    </head>
+    <body data-page="index">
+        <!-- IDK WHERE I AM!! LOL-->
+         <div id="bglayer1"> </div>
+         <div id="bglayer2"> </div>
+         <div id="bglayer3"> </div>
+
+        <!--<div id="topnavspacer"></div>-->
+        <div id="headerwrapper">
+            <div class="upperdownerwrapper" id="topnavwrapper">
+                <div id="topnavdiv">
+                    <div id="navhexred"><a href="#home" class="internal-link">Recognise</a></div>
+                    <div id="navhexpink"><a href="#students" class="internal-link">Students</a></div>
+                    <div id="navhexpurple"><a href="#projects" class="internal-link">Projects</a></div>
+                    <div id="navhexorange"><a href="#contact" class="internal-link">Contact</a></div>
+
+                    <!--Hamburger menu for mobile-->
+                </div>
+
+                <a href="javascript:void(0);" class="icon" onclick="toggleNav()">
+                    <i class="fa fa-bars"></i>
+                </a>
+            </div>
+        </div>
+
+        <div id="headerwrapperHighlight">
+            <div class="upperdownerwrapper" id="topnavwrapperHighlight">
+                <div id="topnavdivHighlight">
+                    <div id="lichenred"></div>
+                    <div id="lichenpink"></div>
+                    <div id="lichenpurple"></div>
+                    <div id="lichenorange"></div>
+
+                    <!--Hamburger menu for mobile-->
+                </div>
+
+                <a href="javascript:void(0);" class="icon" onclick="toggleNav()">
+                    <i class="fa fa-bars"></i>
+                </a>
+            </div>
+        </div>
+
+        <!--HERO SECTION LANDING PAGE EEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE-->
+
+        
+
+
+
+
+
+
+        <section id="student-">
+            <!-- Visual effects for section -->
+            <div class="contentANIM"> 
+
+                <img src="images/SVG/rippleYELLOW.svg" alt="Yellow ripple"  class="pulse rippleHORIZON">
+                <img src="images/SVG/rippleRED.svg" alt="Yellow ripple"  class="pulse rippleVERTICAL">
+                <img src="images/SVG/rippleLIME.svg" alt="Yellow ripple"  class="pulse rippleHORIZON">
+                <img src="images/SVG/rippleINDIGO.svg" alt="Yellow ripple"  class="pulse rippleVERTICAL">
+
+            </div>
+             <!-- Student INFO container -->
+            <div class="content-container">
+                
+                <div class="section-title-wrapper">
+                    <h1 class="section-title">Mysterious cat</h1>
+                </div>
+
+                
+            </div>
+            
+        </section>
+
+        
+
+        <section id="contact">
+            <div class="content-container">
+                <div class="content-wrapper">
+                    <div class="section-title-wrapper">
+                        <h1 class="section-title">Contact</h1>
+                    </div>
+
+                    <p class="contact-info">
+                        Whether you are a prospective student looking to study, or you are in industry and would like to
+                        collaborate with us, or you just want to have a chat! We'd love to hear from you!
+                    </p>
+
+                    <div class="contact-info">
+                        <p>Email: <strong>degreeshow@waikato.ac.nz</strong></p>
+                        <p>Faculty Phone: <strong>0800 924 538</strong></p>
+                        <p>Degree info: <strong>www.waikato.ac.nz/go/bdes</strong></p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="upperdownerwrapper" id="footerwrapper">
+            <div class="footer_img">
+                <footer>
+                    <img src="Images/logo.svg" class="uni-logo" />
+                    <div class="footerLinkHover">
+                        <p>
+                            Email: <span><a href="mailto:degreeshow@waikato.ac.nz">degreeshow@waikato.ac.nz</a></span>
+                        </p>
+                        <p>Faculty phone: <span>0800 924 528</span></p>
+                        <p>
+                            Faculty information:
+                            <span
+                                ><a href="https://www.waikato.ac.nz/study/qualifications/bachelor-of-design"
+                                    >waikato.ac.nz/go/bdes</a
+                                ></span
+                            >
+                        </p>
+                        <p id="cr">&copy; 2026</p>
+                    </div>
+                    <img src="Images/2025.svg" class="year" />
+                </footer>
+            </div>
+        </div>
+        <script src="lichenhome.js"></script>
+    </body>
+</html>
