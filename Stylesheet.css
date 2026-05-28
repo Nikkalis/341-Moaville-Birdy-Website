@@ -26,6 +26,8 @@
 
     --purple: #512c7f;
     --purpledark: #2c1141;
+    
+    --hex-size: 250px;
 }
 
 /* Custom Fonts --------------------------------------------------------------------- */
@@ -117,6 +119,11 @@ body {
 
 .content-container {
     max-width: 800px;
+    margin: auto;
+    overflow: hidden;
+}
+.content-container-wide {
+    max-width: 1200px;
     margin: auto;
     overflow: hidden;
 }
@@ -324,7 +331,7 @@ from {transform: rotate(360deg) scale(0.5);}
 
 #herolichen {
     z-index: 1;
-    mix-blend-mode: hard-light;
+    mix-blend-mode: overlay;
     left: 50%;
     transform: translateX(-50%);
 }
@@ -345,6 +352,23 @@ from {transform: rotate(360deg) scale(0.5);}
     background-size: cover;
     overflow: hidden;
     position: absolute;
+}
+#herooverlay {
+    width: 100%;
+    height: var(--heroheight);
+    background-image: url(images/textureoverlay.png);
+    background-size: cover;
+    mix-blend-mode: color-dodge;
+    opacity: 20%;
+
+}
+#herooverlaywrapper {
+    width: 100%;
+    height: var(--heroheight);
+    mix-blend-mode: overlay;
+    overflow: hidden;
+    position: absolute;
+    z-index: 1;
 }
 
 #herospacer {
@@ -373,9 +397,42 @@ from {transform: rotate(360deg) scale(0.5);}
 
 /* Students section ----------------------------------------------------------------- */
 
+    /*hexagon frames*/
+.student-frame {
+    background-image: url(images/students/studentsplaceholder2.png);
+    background-size: 50%;
+    background-repeat: no-repeat;
+    background-position-x: center;
+    background-position-y: bottom -100px;
+}
+
+.student-bg-red {
+    background-color: var(--reddark);
+}
+.student-bg-purple {
+    background-color: var(--purpledark);
+}
+.student-bg-orange {
+    background-color: var(--orangedark);
+}
+.student-bg-pink {
+    background-color: var(--pinkdark);
+}
+.hex-vert{
+    width: var(--hex-size);
+    height: calc(0.8660254 * var(--hex-size));
+    clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
+}
+.hex {
+    width: var(--hex-size);
+    height: calc(1.1547005 * var(--hex-size));
+    clip-path: polygon(0% 25%, 50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%);
+}
+    /*---*/
+
 .flex-student-rows {
     display: flex;
-    flex-flow: row wrap;
+    flex-flow: wrap;
     align-items: center;
     justify-content: space-around;
     margin-top: 40px;
@@ -389,7 +446,8 @@ from {transform: rotate(360deg) scale(0.5);}
 }
 
 .flex-student {
-    width: 30%;
+    width: fit-content;
+    max-width: 30%;
     height:fit-content;
     position: relative;
     text-align: center;
@@ -397,11 +455,13 @@ from {transform: rotate(360deg) scale(0.5);}
     margin-top: 6%;
 }
 
+/*
 .student-image {
     height: auto;
     width: 100%;
     
 }
+*/
 
 /* Media queries for size responsiveness ----------------------------------------------------------------- */
 @media screen and (max-width: 860px) {
