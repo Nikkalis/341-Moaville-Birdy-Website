@@ -331,7 +331,7 @@ from {transform: rotate(360deg) scale(0.5);}
 
 #herolichen {
     z-index: 1;
-    mix-blend-mode: hard-light;
+    mix-blend-mode: overlay;
     left: 50%;
     transform: translateX(-50%);
 }
@@ -352,6 +352,23 @@ from {transform: rotate(360deg) scale(0.5);}
     background-size: cover;
     overflow: hidden;
     position: absolute;
+}
+#herooverlay {
+    width: 100%;
+    height: var(--heroheight);
+    background-image: url(images/textureoverlay.png);
+    background-size: cover;
+    mix-blend-mode: color-dodge;
+    opacity: 20%;
+
+}
+#herooverlaywrapper {
+    width: 100%;
+    height: var(--heroheight);
+    mix-blend-mode: overlay;
+    overflow: hidden;
+    position: absolute;
+    z-index: 1;
 }
 
 #herospacer {
