@@ -187,6 +187,14 @@ section {
     position: absolute;
     height: 700px;
     mix-blend-mode: overlay;
+    opacity: 44%;
+    width: auto;
+}
+.hexclusterdark{
+    position: absolute;
+    height: 700px;
+    mix-blend-mode: multiply;
+    opacity: 75%;
     width: auto;
 }
 
