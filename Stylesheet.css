@@ -186,6 +186,7 @@ section {
 .hexcluster{
     position: absolute;
     height: 700px;
+    mix-blend-mode: overlay;
     width: auto;
 }
 
