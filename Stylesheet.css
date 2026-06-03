@@ -28,7 +28,7 @@
     --purpledark: #2c1141;
     
     --hex-size: 250px;
-    --hex-size-big:443px;
+    --hex-size-big:554px;
 }
 
 /* Custom Fonts --------------------------------------------------------------------- */
@@ -124,7 +124,7 @@ body {
     overflow: hidden;
 }
 .content-container-wide {
-    max-width: 1200px;
+    max-width: 80%;
     margin: auto;
     overflow: hidden;
 }
@@ -298,6 +298,7 @@ from {transform: rotate(360deg) scale(0.5);}
     
 }
 
+/*
 #navhexred {
     background-image: url(images/SVG/vhexred.svg);
 }
@@ -310,6 +311,7 @@ from {transform: rotate(360deg) scale(0.5);}
 #navhexorange {
     background-image: url(images/SVG/vhexorange.svg);
 }
+*/
 
 #topnavdiv div,
 #topnavdivHighlight div{
@@ -350,6 +352,22 @@ from {transform: rotate(360deg) scale(0.5);}
     transform: rotate(330deg);
     position: absolute;
     top: -915px;
+}
+
+#studentlichendiv {
+    width: 100%;
+    height: 100vh;
+    overflow: hidden, visible;
+    position: absolute;
+    right: 179px;
+    top: -225px;
+}
+#studentlichen {
+    z-index: 1;
+    mix-blend-mode: overlay;
+    left: 50%;
+    transform: translateX(-50%);
+
 }
 
 /* Landing page section ----------------------------------------------------------------- */
@@ -451,13 +469,14 @@ from {transform: rotate(360deg) scale(0.5);}
 .student-link {
     position: relative;
     
-    width: 80%;
+    width: 100%;
     height: 100%;
 }
 
 .flex-student {
     width: fit-content;
-    max-width: 30%;
+    max-width: 50%;
+    min-width: 25%;
     height:fit-content;
     position: relative;
     text-align: center;
@@ -472,30 +491,22 @@ from {transform: rotate(360deg) scale(0.5);}
     height: calc(0.8660254 * var(--hex-size-big));
     clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
     position: relative;
-    top: -597px;
+    top: -747px;
 }
 
 .student-title-visual-wrapper {
-    position: absolute;
-    width: 800px;
-    right: -250px;
+    position:absolute;
+    width: 1000px;
+    left: 55%;
+    top: 70px;
 }
 
-#studentlichendiv {
-    width: 100%;
-    height: 100vh;
-    overflow: hidden, visible;
-    position: absolute;
-    right: 179px;
-    top: -225px;
-}
-#studentlichen {
-    z-index: 1;
-    mix-blend-mode: overlay;
-    left: 50%;
-    transform: translateX(-50%);
 
+#student-visual-spacer {
+    height: 50px;
 }
+
+
 
 
 /* Media queries for size responsiveness ----------------------------------------------------------------- */
