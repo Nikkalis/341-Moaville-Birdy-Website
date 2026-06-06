@@ -359,8 +359,8 @@ from {transform: rotate(360deg) scale(0.5);}
     height: 100vh;
     overflow: hidden, visible;
     position: absolute;
-    right: 179px;
-    top: -225px;
+    right: 223px;
+    top: -170px;
 }
 #studentlichen {
     z-index: 1;
@@ -451,9 +451,19 @@ from {transform: rotate(360deg) scale(0.5);}
     height: calc(0.8660254 * var(--hex-size));
     clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
 }
-.hex {
+.hex-big {
     width: var(--hex-size);
     height: calc(1.1547005 * var(--hex-size));
+    clip-path: polygon(0% 25%, 50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%);
+}
+.hex-vert-big{
+    width: var(--hex-size-big);
+    height: calc(0.8660254 * var(--hex-size-big));
+    clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
+}
+.hex-big {
+    width: var(--hex-size-big);
+    height: calc(1.1547005 * var(--hex-size-big));
     clip-path: polygon(0% 25%, 50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%);
 }
     /*---*/
@@ -486,12 +496,15 @@ from {transform: rotate(360deg) scale(0.5);}
 
 /* student page visual layout----------------------------------------------------------------- */
 
-.student-image {
-    width: var(--hex-size-big);
-    height: calc(0.8660254 * var(--hex-size-big));
-    clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
+.student-image-wrapper {
     position: relative;
     top: -747px;
+}
+
+#student-image{
+    height: 150%;
+    position: fixed;
+    right: 5%;
 }
 
 .student-title-visual-wrapper {
@@ -510,12 +523,7 @@ from {transform: rotate(360deg) scale(0.5);}
 
 
 /* Media queries for size responsiveness ----------------------------------------------------------------- */
-@media screen and (max-width: 860px) {
-    .upperdownerwrapper {
-        margin-left: 30px;
-        margin-right: 30px;
-    }
-}
+
 
 @media screen and (max-width: 940px) {
     .content-container {
@@ -526,8 +534,22 @@ from {transform: rotate(360deg) scale(0.5);}
         font-size: 1.4rem;
     }
     .student-title-visual-wrapper {
-        right: -30%;
+        left: 10%;
     }
+    #student-image{
+        height: 120%;
+
+        left: 15%;
+        bottom: -300px;
+}
+}
+
+@media screen and (max-width: 860px) {
+    .upperdownerwrapper {
+        margin-left: 30px;
+        margin-right: 30px;
+    }
+    
 }
 
 @media screen and (max-width: 600px) {
@@ -537,7 +559,13 @@ from {transform: rotate(360deg) scale(0.5);}
         margin-right: 30px;
     }
     .student-title-visual-wrapper {
-        right: -300px;
+        left: -150px;
+    }
+    #student-image{
+        height: 100%;
+
+        right: 5%;
+        bottom: -150px;
     }
     
 }

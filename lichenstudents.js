@@ -15,7 +15,7 @@ const herolichen = (sketch) => {
   const _maxEdgeLen = 5;
 
   let nodesStart = 6;
-  let rayStart = 225;
+  let rayStart = 280;
 
   let _diff_line;
 
