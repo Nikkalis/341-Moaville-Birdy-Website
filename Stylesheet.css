@@ -28,6 +28,7 @@
     --purpledark: #2c1141;
     
     --hex-size: 250px;
+    --hex-size-big:554px;
 }
 
 /* Custom Fonts --------------------------------------------------------------------- */
@@ -123,7 +124,7 @@ body {
     overflow: hidden;
 }
 .content-container-wide {
-    max-width: 1200px;
+    max-width: 80vw;
     margin: auto;
     overflow: hidden;
 }
@@ -131,7 +132,7 @@ body {
 section {
     padding-top: 200px;
     overflow:hidden;
-    border:#d1158d 1px solid;
+    /* border:#d1158d 1px solid; */
 }
 /* Background textures GREEN ----------------------------------------------------------------- */
 #bglayer1{
@@ -297,6 +298,7 @@ from {transform: rotate(360deg) scale(0.5);}
     
 }
 
+/*
 #navhexred {
     background-image: url(images/SVG/vhexred.svg);
 }
@@ -309,6 +311,7 @@ from {transform: rotate(360deg) scale(0.5);}
 #navhexorange {
     background-image: url(images/SVG/vhexorange.svg);
 }
+*/
 
 #topnavdiv div,
 #topnavdivHighlight div{
@@ -335,12 +338,13 @@ from {transform: rotate(360deg) scale(0.5);}
 .p5Canvas {
     position: absolute;
     top: -550px;
-    
+    mix-blend-mode: hard-light;
+    pointer-events: none !important; 
 }
 
 #herolichen {
     z-index: 1;
-    mix-blend-mode: overlay;
+
     left: 50%;
     transform: translateX(-50%);
 }
@@ -349,6 +353,30 @@ from {transform: rotate(360deg) scale(0.5);}
     transform: rotate(330deg);
     position: absolute;
     top: -915px;
+}
+
+#studentlichendiv {
+    width: 100%;
+    height: 100vh;
+    
+    position: absolute;
+    right: 223px;
+    top: -170px;
+}
+#studentlichendiv2 {
+    width: 100%;
+    height: 100vh;
+    
+    position: absolute;
+    right: 100px;
+    top: -170px;
+}
+#studentlichen {
+    z-index: 1;
+
+    left: 50%;
+    transform: translateX(-50%);
+
 }
 
 /* Landing page section ----------------------------------------------------------------- */
@@ -405,6 +433,9 @@ from {transform: rotate(360deg) scale(0.5);}
 }
 
 /* Students section ----------------------------------------------------------------- */
+#student {
+    overflow: hidden;
+}
 
     /*hexagon frames*/
 .student-frame {
@@ -427,6 +458,9 @@ from {transform: rotate(360deg) scale(0.5);}
 .student-bg-pink {
     background-color: var(--pinkdark);
 }
+
+    /* hex frames */
+
 .hex-vert{
     width: var(--hex-size);
     height: calc(0.8660254 * var(--hex-size));
@@ -437,6 +471,30 @@ from {transform: rotate(360deg) scale(0.5);}
     height: calc(1.1547005 * var(--hex-size));
     clip-path: polygon(0% 25%, 50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%);
 }
+.hex-vert-big{
+    width: var(--hex-size-big);
+    height: calc(0.8660254 * var(--hex-size-big));
+    clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
+}
+.hex-big {
+    width: var(--hex-size-big);
+    height: calc(1.1547005 * var(--hex-size-big));
+    clip-path: polygon(0% 25%, 50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%);
+}
+
+    /* hex frames for carousel */
+    .carousel-hex {
+    width: 20vw;
+    height: calc(1.1547005 * 20vw);
+    }
+    .carousel-hex-big {
+    width: 40vw;
+    height: calc(1.1547005 * 40vw);
+    }
+    .carousel-hex-clip {
+    clip-path: polygon(0% 25%, 50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%);
+    }
+
     /*---*/
 
 .flex-student-rows {
@@ -450,13 +508,14 @@ from {transform: rotate(360deg) scale(0.5);}
 .student-link {
     position: relative;
     
-    width: 80%;
+    width: 100%;
     height: 100%;
 }
 
 .flex-student {
     width: fit-content;
-    max-width: 30%;
+    max-width: 50%;
+    min-width: 25%;
     height:fit-content;
     position: relative;
     text-align: center;
@@ -464,20 +523,154 @@ from {transform: rotate(360deg) scale(0.5);}
     margin-top: 6%;
 }
 
-/*
-.student-image {
-    height: auto;
-    width: 100%;
+/* student page visual layout----------------------------------------------------------------- */
+
+#student-visuals {
+    width: 100vw;
+    overflow: hidden;
+    position:absolute;
+    right: 0;
+    height: 100%;
+}
+
+.student-image-wrapper {
+    position: relative;
+    top: -747px;
+    z-index: 2;
+}
+
+#student-image{
+    height: 200%;
+    position: absolute;
+    right: 18%;
     
 }
-*/
+
+.student-hex-visual-wrapper {
+    position:absolute;
+    width: 1000px;
+
+    
+}
+#student-image-top {
+    left: 47%;
+    top: 70px;
+}
+#student-margin-decor-a {
+    left:-700px;
+    top: 310px;
+}
+
+
+#student-visual-spacer {
+    height: 50px;
+}
+#student-carousel-spacer {
+    height: calc(1.1547005 * 40vw);
+}
+
+    /* carousel */
+
+    #carousel-wrapper {
+        display: flex;
+        align-items: center;
+        justify-items: center;
+        position: absolute;
+        margin-left: 10vw;
+        margin-right: 10vw;
+        overflow: visible;
+    }
+    #carousel-bg-wrapper {
+        display: flex;
+        align-items: center;
+        justify-items: center;
+        position: absolute;
+        margin-left: 10vw;
+        margin-right: 10vw;
+        z-index: -1;
+    }
+
+
+    ul {
+        width: 100%;
+        height:100%;
+        display: flex;
+        overflow-x: scroll;
+        overflow-y: hidden;
+        scroll-snap-type: x mandatory;
+        anchor-name: --my-carousel;
+        padding:0;
+        margin: 0;
+        scrollbar-width: 0;
+    }
+    li {
+        list-style-type: none;
+        flex: 0 0 100%;
+        scroll-snap-align: center;
+        top: 0;
+
+
+    }
+    li:nth-child(even) {
+        background-color: cyan;
+    }
+    ul::-webkit-scrollbar {
+        display: none;
+    }
+    ul::scroll-button(*) {
+        border: 0;
+        font-size: 4rem;
+        
+        color: white;
+
+        cursor: pointer;
+        position: absolute;
+        position-anchor: --my-carousel;
+        z-index: 2;
+        overflow: visible;
+        bottom: 0;
+        
+        background-color: var(--bggreen);
+        width: 100px;
+        height: calc(1.1547005 * 100px);
+        clip-path: polygon(0% 25%, 50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%);
+
+    }
+
+
+
+    ul::scroll-button(*):active {
+        translate: 1px 1px;
+    }
+
+    ul::scroll-button(*):disabled {
+        color: var(--bggreen);
+        cursor: unset;
+    }
+    ul::scroll-button(left) {
+        content: "◄" / "Previous";
+        right: calc(anchor(left) - 100px);
+        
+    }
+
+    ul::scroll-button(right) {
+        content: "►" / "Next";
+        left: calc(anchor(right) - 100px);
+  
+    }
+
+
+
 
 /* Media queries for size responsiveness ----------------------------------------------------------------- */
-@media screen and (max-width: 860px) {
-    .upperdownerwrapper {
-        margin-left: 30px;
-        margin-right: 30px;
+
+@media screen and (max-width: 1200px) {
+    #student-image {
+    height: 200%;
+
+    right: 18%;
     }
+
 }
 
 @media screen and (max-width: 940px) {
@@ -488,6 +681,18 @@ from {transform: rotate(360deg) scale(0.5);}
     #topnavdiv a {
         font-size: 1.4rem;
     }
+    #student-image-top {
+        left: 10%;
+    }
+    
+}
+
+@media screen and (max-width: 860px) {
+    .upperdownerwrapper {
+        margin-left: 30px;
+        margin-right: 30px;
+    }
+    
 }
 
 @media screen and (max-width: 600px) {
@@ -496,4 +701,14 @@ from {transform: rotate(360deg) scale(0.5);}
         margin-left: 30px;
         margin-right: 30px;
     }
+    #student-image-top {
+        left: -150px;
+    }
+    #student-image{
+        height: 180%;
+
+        right: 12%;
+        top: 20px;
+    }
+    
 }

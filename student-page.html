@@ -8,7 +8,7 @@
         <link rel="stylesheet" href="Stylesheet.css" />
         <!--p5.js file needed to load the linework growths-->
         <script src="https://cdn.jsdelivr.net/npm/p5@1.11.13/lib/p5.js"></script>
-        
+
         <!-- Javascript for whatever tf we decided to use js for -->
         <script src="main.js"></script>
         <!--<script src="lichenhome.js"></script>-->
@@ -20,18 +20,18 @@
     </head>
     <body data-page="index">
         <!-- IDK WHERE I AM!! LOL-->
-         <div id="bglayer1"> </div>
-         <div id="bglayer2"> </div>
-         <div id="bglayer3"> </div>
+        <div id="bglayer1"></div>
+        <div id="bglayer2"></div>
+        <div id="bglayer3"></div>
 
         <!--<div id="topnavspacer"></div>-->
         <div id="headerwrapper">
             <div class="upperdownerwrapper" id="topnavwrapper">
                 <div id="topnavdiv">
-                    <div id="navhexred"><a href="#home" class="internal-link">Recognise</a></div>
-                    <div id="navhexpink"><a href="#students" class="internal-link">Students</a></div>
-                    <div id="navhexpurple"><a href="#projects" class="internal-link">Projects</a></div>
-                    <div id="navhexorange"><a href="#contact" class="internal-link">Contact</a></div>
+                    <div id="navhexred"><a href="index.html" class="internal-link">Recognise</a></div>
+                    <div id="navhexpink"><a href="index.html#students" class="internal-link">Students</a></div>
+                    <div id="navhexpurple"><a href="index.html#projects" class="internal-link">Projects</a></div>
+                    <div id="navhexorange"><a href="index.html#contact" class="internal-link">Contact</a></div>
 
                     <!--Hamburger menu for mobile-->
                 </div>
@@ -58,60 +58,77 @@
                 </a>
             </div>
         </div>
-
-        <!--HERO SECTION LANDING PAGE EEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE-->
-
-        
-
-
-
-
-
-
-        <section id="student-">
-            <!-- Visual effects for section -->
-            <div class="contentANIM"> 
-                <!-- Hex-->
-                <img style="top: 50px; left:  1%;" src="images/SVG/hexwebRED.svg" alt="Red hex cluster" class="rotateLEFT hexcluster">     
-                <img style="top: 50px; left:  1%;" src="images/SVG/hexwebGREEN.svg" alt="Indigo hex cluster" class="rotateLEFT hexclusterdark">
-                <!-- Ripple-->
-                <img style="top: 10px; left: -10%;" src="images/SVG/rippleYELLOW.svg" alt="Yellow ripple"  class="pulse rippleHORIZON">
-                <!-- Hex-->
-                <img style="top: 650px; left: 65%;" src="images/SVG/hexwebINDIGO.svg" alt="Indigo hex cluster" class="rotateRIGHT hexcluster">
-                <img style="top: 650px; left: 65%;" src="images/SVG/hexwebGREEN.svg" alt="Indigo hex cluster" class="rotateRIGHT hexclusterdark">
-                <!-- Ripple-->
-                <img style="top: 250px; left: 65%;" src="images/SVG/rippleLIME.svg" alt="Green ripple"  class="pulse rippleHORIZON">               
-                <img style="top: 450px; left: 15%;" src="images/SVG/rippleRED.svg" alt="Red ripple"  class="pulse rippleVERTICAL">            
-                <img style="top: 850px; left: -20%;" src="images/SVG/rippleINDIGO.svg" alt="Indigo ripple"  class="pulse rippleVERTICAL">
-                <img style="top: 750px; left: 1%;" src="images/SVG/rippleLIME.svg" alt="Green ripple"  class="pulse rippleHORIZON">               
-                <!-- Hex-->
-                <img style="top: 950px; left: 45%;" src="images/SVG/hexwebYELLOW.svg" alt="Indigo hex cluster" class="rotateLEFT hexcluster">
-                <img style="top: 950px; left: 45%;" src="images/SVG/hexwebGREEN.svg" alt="Indigo hex cluster" class="rotateLEFT hexclusterdark">
-               <!-- Ripple-->
-                <img style="top: 1050px; left: 45%;" src="images/SVG/rippleMAGENTA.svg" alt="Indigo ripple"  class="pulse rippleVERTICAL">
-                <!-- Hex-->
-                <img style="top: 1250px; left: 15%;" src="images/SVG/hexwebRED.svg" alt="Red hex cluster"  class="rotateRIGHT hexcluster">                      
-                <img style="top: 1250px; left: 15%;" src="images/SVG/hexwebGREEN.svg" alt="Red hex cluster"  class="rotateRIGHT hexclusterdark">                 
-                <!-- Ripple-->
-                <img style="top: 1250px; left: 65%;" src="images/SVG/rippleLIME.svg" alt="Green ripple"  class="pulse rippleHORIZON">                 
-                <img style="top: 1650px; left: 10%;" src="images/SVG/rippleYELLOW.svg" alt="Yellow ripple"  class="pulse rippleHORIZON">
-                <img style="top: 1850px; left: -10%;" src="images/SVG/rippleLIME.svg" alt="Green ripple"  class="pulse rippleHORIZON">                 
-                
-            
+        <div id="student-visuals">
+                <!-- Visual stuff -->
+                <div class="student-hex-visual-wrapper" id="student-image-top">
+                    <!--lichen animation-->
+                    <div id="studentlichendiv"></div>
+                    <img src="images/SVG/studenthexorange.svg"/>
+                    <div class="student-image-wrapper hex-vert-big">
+                        <img src="images/students/studentsplaceholder2.png" id="student-image" />
+                    </div>
+                </div>
+                <div class="student-hex-visual-wrapper" id="student-margin-decor-a">
+                    <div id="studentlichendiv2"></div>
+                    <img src="images/SVG/studenthexorange.svg"/>
+                    
+                </div>
             </div>
-             <!-- Student INFO container -->
+        <section id="student">
+            <!-- Visual effects for section -->
+            <div class="contentANIM">
+                <img src="images/SVG/rippleYELLOW.svg" alt="Yellow ripple" class="pulse rippleHORIZON" />
+                <img src="images/SVG/rippleRED.svg" alt="Yellow ripple" class="pulse rippleVERTICAL" />
+                <img src="images/SVG/rippleLIME.svg" alt="Yellow ripple" class="pulse rippleHORIZON" />
+                <img src="images/SVG/rippleINDIGO.svg" alt="Yellow ripple" class="pulse rippleVERTICAL" />
+            </div>
+            
+            <!-- Student INFO container -->
             <div class="content-container">
-                
+                <!-- Text stuff -->
                 <div class="section-title-wrapper">
                     <h1 class="section-title">Mysterious cat</h1>
                 </div>
-
-                
+                <div class="content-container">
+                    <h3>Bachelor of Communication</h3>
+                    <h3>Majoring in</h3>
+                    <h3>Media Production <br>Screen and Media Studies</h3>
+                    <div id="student-visual-spacer"></div>
+                    <p>
+                        Yello, I’m Sawan Raman, I’m studying towards a bachelor of Design, Majoring in Media and
+                        Interface design. I found my interest in design and film in high school and wanted to explore it
+                        further in the University. I’ve found a collection of interests such as photography, filming,
+                        music, keyframe animation and graphic design. And I’ve wanted to create projects that hold a
+                        high level of creative vision and quality. As of lately, I’ve been focusing on working behind
+                        the camera trying to do better; and now I’ve created a short film project named Cut Short. This
+                        short film focuses on two characters, Jay and Will; played by Ravi Vathada and Johnson Manukau,
+                        who have come across a large bag of money, which caused them to be hunted by an unnamed criminal
+                        force. While on the run, jay and Will argue over the consequences of their actions and whether
+                        it’s worth the risk to be rich. In this film I have done camerawork, directing and music.
+                    </p>
+                </div>
             </div>
-            
-        </section>
+            <div id="carousel-bg-wrapper" class="content-container-wide">
+                    <div id="carousel-left-hex" class="carousel-hex carousel-hex-clip student-bg-orange"></div>
+                    <div id="carousel-middle-hex" class="carousel-hex-big carousel-hex-clip student-bg-orange"></div>
+                    <div id="carousel-right-hex" class="carousel-hex carousel-hex-clip student-bg-orange"></div>
+                </div>
+            <div id="carousel-wrapper" class="content-container-wide"z>
+                <div id="carousel-left-hex" class="carousel-hex"></div>
+                <div id="carousel-middle-hex" class="carousel-hex-big">
+                    <ul class="carousel-hex-clip">
+                        <li data-accName="Item 1" class=" carousel-hex-big"><h2>ugly fa1111y!!!!!</h2></li>
+                        <li data-accName="Item 2" class=" carousel-hex-big"><h2>2222ugly fatty!!!</h2></li>
+                        <li data-accName="Item 3" class=" carousel-hex-big"><h2>3333333ugly fatty</h2></li>
+                        <li data-accName="Item 4" class=" carousel-hex-big"><h2>444 4 4 4 4ugly f</h2></li>
+                        <li data-accName="Item 5" class=" carousel-hex-big"><h2>me555mememetty!!!</h2></li>
+                    </ul>
 
-        
+                </div>
+                <div id="carousel-right-hex" class="carousel-hex"></div>
+            </div>
+            <div id="student-carousel-spacer"></div>
+        </section>
 
         <section id="contact">
             <div class="content-container">
@@ -157,6 +174,6 @@
                 </footer>
             </div>
         </div>
-        <script src="lichenhome.js"></script>
+        <script src="lichenstudents.js"></script>
     </body>
 </html>
