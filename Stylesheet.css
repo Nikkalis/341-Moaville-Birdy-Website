@@ -141,16 +141,28 @@ section {
     background-image: url('images/SVG/webbylong.svg');
     /*background-color: var(--pink);*/
     min-height: 100%;
-    width: 100%;
+    width: 100%;    
+    mix-blend-mode: multiply;
+    opacity: 60%;
     z-index: -1;
 }
-#bglayer2{
+#bglayer2A{
     position: absolute;
     background-size: cover;
-    background-image: url('images/SVG/multihexweblong.svg');
+    background-image: url('images/SVG/longhexwebCOLOR.svg');
     height: 100%;
     width: 100%;    
-    opacity: 42%;
+    opacity: 25%;
+    z-index: -1;
+}
+#bglayerB{
+    position: absolute;
+    background-size: cover;
+    background-image: url('images/SVG/longhexwebGREEN.svg');
+    height: 100%;
+    width: 100%;    
+    mix-blend-mode: multiply;
+    opacity: 44%;
     z-index: -1;
 }
 #bglayer3{
@@ -158,8 +170,9 @@ section {
     background-image: url('images/SVG/lotuslong.svg');
     height: 100%;
     width: 100%;
-    position: absolute;
-    z-index: -1;
+    position: absolute;   
+    opacity: 66%;
+     z-index: -1;
 }
 
 /* Background Textures ANIMATED COLORS*/
@@ -188,7 +201,7 @@ section {
     position: absolute;
     height: 700px;
     mix-blend-mode: overlay;
-    opacity: 44%;
+    opacity: 25%;
     width: auto;
 }
 .hexclusterdark{
