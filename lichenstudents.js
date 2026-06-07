@@ -57,6 +57,7 @@ const herolichen = (sketch) => {
 
 
 let herolichen1 = new p5(herolichen, document.getElementById("studentlichendiv"));
+let herolichen2 = new p5(herolichen, document.getElementById("studentlichendiv2"));
 
 
 // --------------------------------------- Functions and classes and shit lalalalalalalaaaa
