@@ -212,6 +212,18 @@ section {
     width: auto;
 }
 
+.triplehex{
+    position: absolute;
+    height: 500px;
+    width: auto;
+}
+
+.bonuslotus{
+    position: absolute;
+    height:1000px;
+    opacity: 44%;
+}
+
 @keyframes rotateLEFT {
   from {transform: rotate(0deg);}
   to {transform: rotate(360deg);}
