@@ -30,6 +30,7 @@
     --hex-size: 250px;
     --hex-size-big:554px;
     --carousel-button-width: 100px;
+    --carousel-button-width-small: 75px;
 }
 
 /* Custom Fonts --------------------------------------------------------------------- */
@@ -759,7 +760,24 @@ video {
         margin-left: 30px;
         margin-right: 30px;
     }
-    
+    .carousel-button {
+        border: 0;
+        font-size: 50px;
+        
+        color: white;
+
+        cursor: pointer;
+        position: absolute;
+        z-index: 2;
+        overflow: visible;
+        bottom:-2vw;
+        
+        background-color: var(--bggreen);
+        width: var(--carousel-button-width-small);
+        height: calc(1.1547005 * var(--carousel-button-width-small));
+        clip-path: polygon(0% 25%, 50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%);
+
+    }
 }
 
 @media screen and (max-width: 750px) {
@@ -776,6 +794,24 @@ video {
 
         right: 12%;
         top: 20px;
+    }
+    .carousel-button {
+        border: 0;
+        font-size: 50px;
+        
+        color: white;
+
+        cursor: pointer;
+        position: absolute;
+        z-index: 2;
+        overflow: visible;
+        bottom:-3vw;
+        
+        background-color: var(--bggreen);
+        width: var(--carousel-button-width-small);
+        height: calc(1.1547005 * var(--carousel-button-width-small));
+        clip-path: polygon(0% 25%, 50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%);
+
     }
    
 }
