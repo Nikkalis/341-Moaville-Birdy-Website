@@ -329,18 +329,18 @@ from {transform: rotate(360deg) scale(0.5);}
 
 .headerimgdiv{
     position: fixed;
-    height: 240px;
+    height: 300px;
     width: vw;
     top: 0px;
     bottom: 0px;
     left: 0px;
     right: 0px;
-    overflow: hidden;   
+    overflow: hidden;  
 }
 
 .footerimgdiv{
-    height: 240px;
     width: vw;
+    height: 250px;
     top: 0px;
     bottom: 0px;
     left: 0px;
@@ -351,16 +351,14 @@ from {transform: rotate(360deg) scale(0.5);}
 
 .headerimg{
     position: absolute;
-    transform: scale(110%);
-    top: -240px;
-    width: vw;
+    transform: scale(100%);
+    top: -250px;    
 }
 
 .footerimg{
-    position: absolute;
-    transform: scale(120%), rotate(180deg);;
-    bottom: 100px;
-    width: vw;
+    transform: scale(100%);
+    transform:  rotate(180deg);
+    bottom: -250px;
     z-index: -1; 
 }
 
