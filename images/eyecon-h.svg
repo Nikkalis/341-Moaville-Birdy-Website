@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_2" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 39.04 19.52">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #663996;
+      }
+
+      .cls-2 {
+        fill: #cf1a8c;
+      }
+
+      .cls-3 {
+        fill: #fff;
+        opacity: .8;
+      }
+
+      .cls-4 {
+        fill: #da2228;
+      }
+
+      .cls-5 {
+        fill: #f1f7fc;
+      }
+
+      .cls-6 {
+        fill: #f68b22;
+      }
+    </style>
+  </defs>
+  <g id="text_extra" data-name="text extra">
+    <g>
+      <path class="cls-5" d="M19.52,19.52c9.27,0,17.09-4.12,19.52-9.76C36.61,4.12,28.79,0,19.52,0S2.43,4.12,0,9.76c2.43,5.63,10.25,9.76,19.52,9.76Z"/>
+      <ellipse class="cls-6" cx="19.52" cy="9.76" rx="10.36" ry="8.91"/>
+      <ellipse class="cls-4" cx="19.52" cy="9.76" rx="9.16" ry="7.87"/>
+      <ellipse class="cls-2" cx="19.52" cy="9.76" rx="8.02" ry="6.9"/>
+      <ellipse class="cls-1" cx="19.52" cy="9.76" rx="6.2" ry="5.33"/>
+      <polygon class="cls-3" points="14.88 10.39 15.88 12.13 14.88 13.87 12.87 13.87 11.87 12.13 12.87 10.39 14.88 10.39"/>
+      <g>
+        <ellipse class="cls-6" cx="19.52" cy="9.76" rx="10.36" ry="8.91"/>
+        <ellipse class="cls-4" cx="19.52" cy="9.76" rx="9.16" ry="7.87"/>
+        <ellipse class="cls-2" cx="19.52" cy="9.76" rx="8.02" ry="6.9"/>
+        <ellipse class="cls-1" cx="19.52" cy="9.76" rx="6.2" ry="5.33"/>
+        <polygon class="cls-3" points="14.88 10.39 15.88 12.13 14.88 13.87 12.87 13.87 11.87 12.13 12.87 10.39 14.88 10.39"/>
+      </g>
+    </g>
+  </g>
+</svg>
