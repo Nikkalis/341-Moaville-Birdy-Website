@@ -118,6 +118,8 @@ a {
 
 body {
     background-color: var(--bggreen);
+    position: relative;
+
 }
 
 .content-container {
@@ -179,10 +181,12 @@ section {
 
 /* Background Textures ANIMATED COLORS*/
 #contentANIMwrapper {
-    width: 100%;
-    height: 100%;
     overflow: hidden;
-    /*position: absolute;*/
+    position: absolute;
+    top: 0px;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
 }
 .contentANIM{
     position: absolute;
@@ -238,6 +242,8 @@ section {
   from {transform: rotate(360deg);}
   to {transform: rotate(0deg);}
 }
+
+
 
 @keyframes pulse {
   0% {transform: scale(0.9);}
@@ -341,6 +347,7 @@ from {transform: rotate(360deg) scale(0.5);}
 /* FOOTER RRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRR */
 #footerwrapper {
     padding-top: 100px;
+    height: fit-content;
 }
 
 /*
@@ -384,7 +391,17 @@ from {transform: rotate(360deg) scale(0.5);}
     position: absolute;
     top: -550px;
     mix-blend-mode: hard-light;
+    opacity: 75%;
     pointer-events: none !important; 
+}
+.flex-student .p5Canvas {
+    z-index: 9999;
+    left: 50%;
+    transform: 
+        translateX(-50%)
+        translateY(-50%)
+        rotate(30deg);
+    top: 50%;
 }
 
 #herolichen {
@@ -424,20 +441,41 @@ from {transform: rotate(360deg) scale(0.5);}
 }
 
 /* static linework */
-
+#staticlineworkwrapper {
+    overflow: hidden;
+    top: 0px;
+    left: 0px;
+    bottom: 0px;
+    right: 0px;
+    position: absolute;
+}
 .staticlinework {
     position:absolute;
     mix-blend-mode: overlay;
+    pointer-events: none !important; 
+}
+.staticlineworkimg {
+
+    height: 1800px;
+    width:auto;
+}
+#lineworktop {
     
+    top: -900px;
+    left: 50%;
+    transform: translateX(-50%);
 }
 #linework1 {
-    
+    top: 15%;
+    right: -900px;
 }
 #linework2 {
-    
+    top: 35%;
+    left: -900px;
 }
 #linework3 {
-    
+    top: 66%;
+    right: -900px;
 }
 
 /* Landing page section ----------------------------------------------------------------- */
@@ -471,6 +509,7 @@ from {transform: rotate(360deg) scale(0.5);}
   animation-iteration-count: infinite;
   animation-timing-function: linear;
     will-change: transform;
+    
 }
 #herooverlayhey {
     min-width: 100%; 
@@ -495,6 +534,7 @@ from {transform: rotate(360deg) scale(0.5);}
     overflow: hidden;
     position: absolute;
     z-index: 1;
+    pointer-events: none !important; 
 }
 
 #herospacer {
@@ -902,5 +942,13 @@ video {
     .flex-student {
         max-width: 100%;
     }
+    
    
+}
+
+@media screen and (max-width: 600px) {
+    #topnavdiv, #topnavdivHighlight {
+        visibility: hidden;
+        
+    }
 }

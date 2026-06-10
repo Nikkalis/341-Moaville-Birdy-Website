@@ -15,7 +15,7 @@ const herolichen = (sketch) => {
   const _maxEdgeLen = 5;
 
   let nodesStart = 6;
-  let rayStart = 300;
+  let rayStart = 600;
 
   let _diff_line;
 
@@ -410,6 +410,95 @@ const contactlichen = (sketch) => {
   };
   
 };
+const flexgridlichen = (sketch) => {
+  let doesFreeze = true;
+  const HOW_LONG_UNTIL_I_COME_FOR_YOU = 10; // frames before you're killed
+  const MAGIC_MOA_NUMBER = 0.0005; //force threshold, can they struggle?
+  const animationLength = 1000;
+  let animationSpeed = 120; // fps
+
+  const _maxForce = 0.5;
+  const _maxSpeed = 20;
+  const _desiredSeparation = 20;
+  const _separationCohesionRation = 1.1;
+  const _maxEdgeLen = 5;
+  let erasing = false;
+  let eraseIndex = 0;
+  let lastNodes = [];
+  
+  
+  
+  let nodesStart = 6;
+  let rayStart = 145;
+
+  let _diff_line;
+
+  sketch.setup = function () {
+    let canvasobj = sketch.createCanvas(500, 500);
+    canvasobj.id("flexgridlichen");
+    sketch.lastNodes = lastNodes;
+    sketch.noFill();
+    sketch.stroke(106, 189, 69);
+    sketch.noSmooth(); // disables antialiasing — meaningful fps gain on canvas 2D
+    sketch.strokeWeight(2);
+    _diff_line = new DifferentialLine(_maxForce, _maxSpeed, _desiredSeparation, _separationCohesionRation, _maxEdgeLen);
+
+    let angInc = sketch.TWO_PI / nodesStart;
+
+    for (let a = 0; a < sketch.TWO_PI; a += angInc) {
+      let x = sketch.width / 2 + sketch.cos(a) * rayStart;
+      let y = sketch.height / 2 + sketch.sin(a) * rayStart;
+      _diff_line.addNode(new Node(x, y, _maxForce, _maxSpeed, sketch));
+    }
+  };
+
+  sketch.draw = function () {
+    if (erasing) {
+      sketch.erase();
+      sketch.strokeWeight(3);
+      for (let i = 0; i < fuseSpeed; i++) {
+        if (eraseIndex >= _diff_line.nodes.length - 1) {
+          erasing = false;
+          sketch.noLoop();
+          let last = _diff_line.nodes[_diff_line.nodes.length - 1].position;
+          let first = _diff_line.nodes[0].position;
+          sketch.line(last.x, last.y, first.x, first.y);
+          sketch.noErase();
+          sketch.remove();
+          break;
+        }
+        let p1 = _diff_line.nodes[eraseIndex].position;
+        let p2 = _diff_line.nodes[eraseIndex + 1].position;
+        sketch.line(p1.x, p1.y, p2.x, p2.y);
+        eraseIndex++;
+      }
+      sketch.noErase();
+      sketch.remove();
+      return;
+    }
+    
+    if (animationSpeed <= 1) {
+      sketch.noLoop();
+    }
+
+    animationSpeed = animationSpeed - 0.5;
+    sketch.frameRate(animationSpeed);
+
+    sketch.clear();
+    //background(0);
+
+    _diff_line.run(sketch, doesFreeze, MAGIC_MOA_NUMBER, HOW_LONG_UNTIL_I_COME_FOR_YOU);
+    _diff_line.renderLine(sketch, doesFreeze, MAGIC_MOA_NUMBER, HOW_LONG_UNTIL_I_COME_FOR_YOU);
+  };
+  
+  sketch.fuseRemove = function() {
+    erasing = true;
+    eraseIndex = 0;
+    sketch.loop();
+    sketch.frameRate(30);
+  };
+  
+};
 
 // --------------------------------------- General initialisation and spawn hero animations
 
@@ -418,6 +507,7 @@ let homelichen1;
 let studentslichen1;
 let projectslichen1;
 let contactlichen1;
+// let flexgridlichen1;
 
 let homeButton = document.getElementById("navhexred");
 let studentsButton = document.getElementById("navhexpink");
@@ -462,6 +552,19 @@ homeBtmThresh = homeBtm + (homeBtm - window.innerHeight / 2);
 //    contactlichen1 = new p5(contactlichen, document.getElementById("lichenorange"));
 //    heroInitial = true; 
 //  } 
+
+// --------------------------------------- Student section grid outlines (might be laggy asf)
+
+let studentindex = Array.from(document.getElementsByClassName("flex-student"));
+
+applylichenborders(studentindex);
+
+function applylichenborders(studentindex) {
+  studentindex.forEach((stud, i) => {
+    studentindex.map((stud, i) => (stud.id = 'lichenhost-' + (i)) && stud);
+    let studentflexlichen = new p5(flexgridlichen, document.getElementById(`lichenhost-${i}`));
+  });
+}
 
 // --------------------------------------- Event listeners
 
@@ -573,6 +676,7 @@ document.addEventListener("scroll", (event) => {
   }
 
 });
+
 
 
 // --------------------------------------- Functions and classes and shit lalalalalalalaaaa
