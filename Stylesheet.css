@@ -335,7 +335,8 @@ from {transform: rotate(360deg) scale(0.5);}
     bottom: 0px;
     left: 0px;
     right: 0px;
-    overflow: hidden;   
+    overflow: hidden;  
+    z-index: 3; 
 }
 
 .footerimgdiv{
@@ -394,6 +395,10 @@ from {transform: rotate(360deg) scale(0.5);}
     flex-direction: row;
     justify-content: space-between;
     
+}
+
+a.icon {
+    display: none;
 }
 
 /* FOOTER RRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRR */
@@ -1029,8 +1034,37 @@ video {
 }
 
 @media screen and (max-width: 600px) {
-    #topnavdiv, #topnavdivHighlight {
-        visibility: hidden;
+    #topnavdiv{
+        display: none;
+        top: 40px;
         
+    }
+    
+    #topnavwrapper {
+        position: relative;
+    }
+
+    a.icon {
+        display: block;
+        position: absolute;
+        right: 0;
+        top: 0;
+        width: 80px;
+        height:auto;
+        padding-top: 40px;
+    }
+    
+
+    .responsive #topnavdiv {
+        display: block;
+    }
+    .responsive #topnavdiv div { 
+        height: 80px;
+        justify-content: left;
+        top: 0px;
+    }
+    .responsive #topnavdiv div a {
+        justify-content: left;
+        margin: 0px;
     }
 }
