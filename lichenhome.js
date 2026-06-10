@@ -637,6 +637,15 @@ for (const link of links) {
   });
 }
 
+function toggleNav() {
+  var x = document.getElementById("topnavwrapper");
+  if (x.className === "upperdownerwrapper") {
+    x.className += " responsive";
+  } else {
+    x.className = "upperdownerwrapper";
+  }
+}
+
 
 document.addEventListener("scroll", (event) => {
   
