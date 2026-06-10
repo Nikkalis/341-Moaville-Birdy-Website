@@ -60,6 +60,61 @@ let herolichen1 = new p5(herolichen, document.getElementById("studentlichendiv")
 let herolichen2 = new p5(herolichen, document.getElementById("studentlichendiv2"));
 
 
+// --------------------------------------- Event listenersssss hiii
+
+
+const nextBtn = document.getElementById("carousel-button-right");
+const prevBtn = document.getElementById("carousel-button-left");
+
+nextBtn.addEventListener("click", showNextImage);
+prevBtn.addEventListener("click", showPrevImage);
+
+//document.getElementsByClassName return HTML collection so we are using "Array.from" method to get an iterable
+
+const images = Array.from(document.getElementsByClassName("carousel-item"));
+const totalImages = 5;
+
+let currentImageIndex = 0; //index of image that being display on screen
+
+// function addTransitionEffectToImages() {
+//   images.forEach((img) => {
+//     img.style.transition = "transform 0.2s ease";
+//   });
+// }
+
+function showNextImage() { //if we are at last image reset the carousel 
+if (currentImageIndex == totalImages - 1) { resetCarousel(); return; }
+// if (currentImageIndex === 0) addTransitionEffectToImages();
+//translate every image with (-100%) every time we go to next image
+images.forEach((img) => {
+img.style.transform = `translateX(${(currentImageIndex + 1) * -100}%)`;
+});
+currentImageIndex++;
+}
+function showPrevImage() {
+if (currentImageIndex === 0) {
+  // addTransitionEffectToImages();
+  images.forEach((img) => {
+  img.style.transform = `translateX(${(totalImages) * -100}%)`;
+  });
+  currentImageIndex = totalImages;
+}; //if we are at first image, then go to the last
+
+//reverse logic for what we did in showNextImage
+images.forEach((img) => {
+img.style.transform = `translateX(${(currentImageIndex - 1) * -100}%)`;
+});
+currentImageIndex--;
+}
+
+function resetCarousel() {
+// addTransitionEffectToImages();
+images.forEach((img) => {
+img.style.transform = `translateX(0)`; //every image back to original position
+});
+currentImageIndex = 0;
+}
+
 // --------------------------------------- Functions and classes and shit lalalalalalalaaaa
 
 // Spatial grid to provide location info to nodes

@@ -29,6 +29,8 @@
     
     --hex-size: 250px;
     --hex-size-big:554px;
+    --carousel-button-width: 100px;
+    --carousel-button-width-small: 75px;
 }
 
 /* Custom Fonts --------------------------------------------------------------------- */
@@ -176,13 +178,17 @@ section {
 }
 
 /* Background Textures ANIMATED COLORS*/
-
+#contentANIMwrapper {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    /*position: absolute;*/
+}
 .contentANIM{
     position: absolute;
     width:100%;
     height: 3000px;
     overflow:hidden;
-
     z-index: -1;
 }
 
@@ -250,6 +256,15 @@ from {transform: rotate(360deg) scale(0.5);}
 
 }
 
+@keyframes slide {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    transform: translate3d(0, -1500px, 0); /* The image width */
+  }
+}
+
 .rotateLEFT{
   will-change: transform;
   animation-name: rotateLEFT;
@@ -271,7 +286,7 @@ from {transform: rotate(360deg) scale(0.5);}
   animation-name: pulse;
   animation-duration: 10s;
   animation-iteration-count: infinite;
-  animation-timing-function: linear; 
+  animation-timing-function:cubic-bezier(0.175, 0.885, 0.32, 1.275); 
 }
 
 .comboLEFT{
@@ -321,6 +336,11 @@ from {transform: rotate(360deg) scale(0.5);}
     flex-direction: row;
     justify-content: space-between;
     
+}
+
+/* FOOTER RRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRR */
+#footerwrapper {
+    padding-top: 100px;
 }
 
 /*
@@ -401,32 +421,76 @@ from {transform: rotate(360deg) scale(0.5);}
 
     left: 50%;
     transform: translateX(-50%);
+}
 
+/* static linework */
+
+.staticlinework {
+    position:absolute;
+    mix-blend-mode: overlay;
+    
+}
+#linework1 {
+    
+}
+#linework2 {
+    
+}
+#linework3 {
+    
 }
 
 /* Landing page section ----------------------------------------------------------------- */
-
+#herowrapper {
+    height: 100%;
+        width: 100%;
+    overflow: hidden;
+    position: absolute;
+}
 #herodiv {
     /*top: var(--navheight);*/
     width: 100%;
     height: var(--heroheight);
     /*background-image: url(images/texture.png);*/
     background-size: cover;
-    overflow: hidden;
+    overflow: visible; 
+    
     position: absolute;
 }
 #herooverlay {
-    width: 100%;
-    height: var(--heroheight);
+    min-width: 100%; 
+    width: 1500px;
+    height: 200%;
     background-image: url(images/textureoverlay.png);
-    background-size: cover;
+    background-size: 100% 1500px;
     mix-blend-mode: color-dodge;
+    background-repeat: repeat-y;
     opacity: 20%;
-
+  animation-name: slide;
+  animation-duration: 100s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+    will-change: transform;
 }
-#herooverlaywrapper {
+#herooverlayhey {
+    min-width: 100%; 
+    width: 1500px;
+    height: 200%;
+    background-image: url(images/textureoverlay.png);
+    background-size: 100% 1500px;
+    mix-blend-mode: color-dodge;
+    background-repeat: repeat-y;
+    opacity: 10%;
+  animation-name: slide;
+  animation-duration: 30s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+    will-change: transform;
+}
+
+.herooverlaywrapper {
     width: 100%;
-    height: var(--heroheight);
+    height: 100%;
     mix-blend-mode: overlay;
     overflow: hidden;
     position: absolute;
@@ -513,8 +577,8 @@ from {transform: rotate(360deg) scale(0.5);}
     height: calc(1.1547005 * 20vw);
     }
     .carousel-hex-big {
-    width: 40vw;
-    height: calc(1.1547005 * 40vw);
+    width: 36vw;
+    height: calc(1.1547005 * 36vw);
     }
     .carousel-hex-clip {
     clip-path: polygon(0% 25%, 50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%);
@@ -526,8 +590,9 @@ from {transform: rotate(360deg) scale(0.5);}
     display: flex;
     flex-flow: wrap;
     align-items: center;
-    justify-content: space-around;
+    justify-content: center;
     margin-top: 40px;
+    column-gap: 5%;
 }
 
 .student-link {
@@ -540,12 +605,47 @@ from {transform: rotate(360deg) scale(0.5);}
 .flex-student {
     width: fit-content;
     max-width: 50%;
+    
+    height:fit-content;
+    position: relative;
+    text-align: center;
+    display: block;
+    margin-top: 6%;
+}
+
+/* Project section ------------------------------------------------------------------------*/
+
+.flex-project-rows {
+    display: flex;
+    flex-flow: wrap;
+    align-items: top;
+    justify-content: space-around;
+    margin-top: 40px;
+    column-gap: 5%;
+}
+
+.project-link {
+    position: relative;
+    
+    width: 100%;
+    height: 100%;
+}
+
+.flex-project {
+    width: fit-content;
+    max-width: 47%;
     min-width: 25%;
     height:fit-content;
     position: relative;
     text-align: center;
     display: block;
     margin-top: 6%;
+    
+}
+
+.project-frame img {
+    object-fit: contain;
+    width: 100%;
 }
 
 /* student page visual layout----------------------------------------------------------------- */
@@ -556,6 +656,8 @@ from {transform: rotate(360deg) scale(0.5);}
     position:absolute;
     right: 0;
     height: 100%;
+    pointer-events: none !important; 
+    
 }
 
 .student-image-wrapper {
@@ -586,12 +688,16 @@ from {transform: rotate(360deg) scale(0.5);}
     top: 310px;
 }
 
+video {
+    width: 100%;
+    height: auto;
+}
 
 #student-visual-spacer {
     height: 50px;
 }
 #student-carousel-spacer {
-    height: calc(1.1547005 * 40vw);
+    height: calc(1.1547005 * 36vw + 25px);
 }
 
     /* carousel */
@@ -604,6 +710,7 @@ from {transform: rotate(360deg) scale(0.5);}
         margin-left: 10vw;
         margin-right: 10vw;
         overflow: visible;
+        gap: 2vw;
     }
     #carousel-bg-wrapper {
         display: flex;
@@ -613,36 +720,50 @@ from {transform: rotate(360deg) scale(0.5);}
         margin-left: 10vw;
         margin-right: 10vw;
         z-index: -1;
+        gap: 2vw;
+    }
+    
+    .carousel-img {
+        padding: 3vw;
+        width: 100%;
+        max-width: 30vw;
+        max-height: 26vw;
+        object-fit: contain;
+    }
+    .carousel-hex .carousel-img {
+        padding: 2vw;
+        height:auto;
+        width: auto;
+        max-width: 14vw;
+        max-height: 14vw;
     }
 
 
-    ul {
+    .carousel-item-frame {
         width: 100%;
         height:100%;
         display: flex;
         overflow-x: scroll;
         overflow-y: hidden;
         scroll-snap-type: x mandatory;
-        anchor-name: --my-carousel;
         padding:0;
         margin: 0;
         scrollbar-width: 0;
     }
-    li {
-        list-style-type: none;
+    .carousel-item {
         flex: 0 0 100%;
         scroll-snap-align: center;
         top: 0;
-
-
+        align-items: center;
+        justify-items: center;
+        display: flex;
+        justify-content: center;
+        transition: transform 0.2s ease;
     }
-    li:nth-child(even) {
-        background-color: cyan;
-    }
-    ul::-webkit-scrollbar {
+    ::-webkit-scrollbar {
         display: none;
     }
-    ul::scroll-button(*) {
+    .carousel-button {
         border: 0;
         font-size: 4rem;
         
@@ -650,38 +771,32 @@ from {transform: rotate(360deg) scale(0.5);}
 
         cursor: pointer;
         position: absolute;
-        position-anchor: --my-carousel;
         z-index: 2;
         overflow: visible;
-        bottom: 0;
+        bottom:-2vw;
         
         background-color: var(--bggreen);
-        width: 100px;
-        height: calc(1.1547005 * 100px);
+        width: var(--carousel-button-width);
+        height: calc(1.1547005 * var(--carousel-button-width));
         clip-path: polygon(0% 25%, 50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%);
 
     }
 
-
-
-    ul::scroll-button(*):active {
+    .carousel-button:active {
         translate: 1px 1px;
     }
 
-    ul::scroll-button(*):disabled {
+    .carousel-button:disabled {
         color: var(--bggreen);
         cursor: unset;
     }
-    ul::scroll-button(left) {
-        content: "◄" / "Previous";
-        right: calc(anchor(left) - 100px);
-        
+
+    #carousel-button-left { 
+        left: 12vw;
     }
 
-    ul::scroll-button(right) {
-        content: "►" / "Next";
-        left: calc(anchor(right) - 100px);
-  
+    #carousel-button-right {
+        right: 12vw;
     }
 
 
@@ -695,6 +810,10 @@ from {transform: rotate(360deg) scale(0.5);}
 
     right: 18%;
     }
+    #student-margin-decor-a {
+    visibility: hidden;
+}
+
 
 }
 
@@ -709,6 +828,16 @@ from {transform: rotate(360deg) scale(0.5);}
     #student-image-top {
         left: 10%;
     }
+    #mobile-top-spacer {
+        height: 420px;
+    }
+    #student-visual-spacer {
+        height: 5px;
+    }
+    .flex-project {
+        max-width: 100%;
+    }
+
     
 }
 
@@ -717,17 +846,34 @@ from {transform: rotate(360deg) scale(0.5);}
         margin-left: 30px;
         margin-right: 30px;
     }
-    
+    .carousel-button {
+        border: 0;
+        font-size: 50px;
+        
+        color: white;
+
+        cursor: pointer;
+        position: absolute;
+        z-index: 2;
+        overflow: visible;
+        bottom:-2vw;
+        
+        background-color: var(--bggreen);
+        width: var(--carousel-button-width-small);
+        height: calc(1.1547005 * var(--carousel-button-width-small));
+        clip-path: polygon(0% 25%, 50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%);
+
+    }
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 750px) {
     .content-container,
     .upperdownerwrapper {
         margin-left: 30px;
         margin-right: 30px;
     }
     #student-image-top {
-        left: -150px;
+        left: -80px;
     }
     #student-image{
         height: 180%;
@@ -735,5 +881,26 @@ from {transform: rotate(360deg) scale(0.5);}
         right: 12%;
         top: 20px;
     }
-    
+    .carousel-button {
+        border: 0;
+        font-size: 50px;
+        
+        color: white;
+
+        cursor: pointer;
+        position: absolute;
+        z-index: 2;
+        overflow: visible;
+        bottom:-3vw;
+        
+        background-color: var(--bggreen);
+        width: var(--carousel-button-width-small);
+        height: calc(1.1547005 * var(--carousel-button-width-small));
+        clip-path: polygon(0% 25%, 50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%);
+
+    }
+    .flex-student {
+        max-width: 100%;
+    }
+   
 }
