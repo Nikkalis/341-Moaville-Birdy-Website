@@ -325,6 +325,44 @@ from {transform: rotate(360deg) scale(0.5);}
   animation-timing-function: linear;
 }
 
+/* Header and Footer graphics -----------------------------------------------------==*/
+
+.headerimgdiv{
+    position: sticky;
+    height: 240px;
+    width: vw;
+    top: 0px;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+    overflow: hidden;   
+}
+
+.footerimgdiv{
+    height: 240px;
+    width: vw;
+    top: 0px;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+    overflow: hidden;  
+    z-index: -1; 
+}
+
+.headerimg{
+    position: absolute;
+    transform: scale(110%);
+    top: -240px;
+    width: vw;
+}
+
+.footerimg{
+    position: absolute;
+    transform: scale(120%), rotate(180deg);;
+    bottom: 100px;
+    width: vw;
+    z-index: -1; 
+}
 
 /* Navigation bar  ----------------------------------------------------------------- */
 #headerwrapperHighlight, #headerwrapperHighlight div{
