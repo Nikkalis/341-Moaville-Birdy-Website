@@ -256,6 +256,15 @@ from {transform: rotate(360deg) scale(0.5);}
 
 }
 
+@keyframes slide {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    transform: translate3d(0, -1500px, 0); /* The image width */
+  }
+}
+
 .rotateLEFT{
   will-change: transform;
   animation-name: rotateLEFT;
@@ -277,7 +286,7 @@ from {transform: rotate(360deg) scale(0.5);}
   animation-name: pulse;
   animation-duration: 10s;
   animation-iteration-count: infinite;
-  animation-timing-function: linear; 
+  animation-timing-function:cubic-bezier(0.175, 0.885, 0.32, 1.275); 
 }
 
 .comboLEFT{
@@ -414,6 +423,23 @@ from {transform: rotate(360deg) scale(0.5);}
     transform: translateX(-50%);
 }
 
+/* static linework */
+
+.staticlinework {
+    position:absolute;
+    mix-blend-mode: overlay;
+    
+}
+#linework1 {
+    
+}
+#linework2 {
+    
+}
+#linework3 {
+    
+}
+
 /* Landing page section ----------------------------------------------------------------- */
 #herowrapper {
     height: 100%;
@@ -432,17 +458,39 @@ from {transform: rotate(360deg) scale(0.5);}
     position: absolute;
 }
 #herooverlay {
-    width: 100%;
-    height: var(--heroheight);
+    min-width: 100%; 
+    width: 1500px;
+    height: 200%;
     background-image: url(images/textureoverlay.png);
-    background-size: cover;
+    background-size: 100% 1500px;
     mix-blend-mode: color-dodge;
+    background-repeat: repeat-y;
     opacity: 20%;
-
+  animation-name: slide;
+  animation-duration: 100s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+    will-change: transform;
 }
-#herooverlaywrapper {
+#herooverlayhey {
+    min-width: 100%; 
+    width: 1500px;
+    height: 200%;
+    background-image: url(images/textureoverlay.png);
+    background-size: 100% 1500px;
+    mix-blend-mode: color-dodge;
+    background-repeat: repeat-y;
+    opacity: 10%;
+  animation-name: slide;
+  animation-duration: 30s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+    will-change: transform;
+}
+
+.herooverlaywrapper {
     width: 100%;
-    height: var(--heroheight);
+    height: 100%;
     mix-blend-mode: overlay;
     overflow: hidden;
     position: absolute;
@@ -542,8 +590,9 @@ from {transform: rotate(360deg) scale(0.5);}
     display: flex;
     flex-flow: wrap;
     align-items: center;
-    justify-content: space-around;
+    justify-content: center;
     margin-top: 40px;
+    column-gap: 5%;
 }
 
 .student-link {
@@ -556,12 +605,47 @@ from {transform: rotate(360deg) scale(0.5);}
 .flex-student {
     width: fit-content;
     max-width: 50%;
+    
+    height:fit-content;
+    position: relative;
+    text-align: center;
+    display: block;
+    margin-top: 6%;
+}
+
+/* Project section ------------------------------------------------------------------------*/
+
+.flex-project-rows {
+    display: flex;
+    flex-flow: wrap;
+    align-items: top;
+    justify-content: space-around;
+    margin-top: 40px;
+    column-gap: 5%;
+}
+
+.project-link {
+    position: relative;
+    
+    width: 100%;
+    height: 100%;
+}
+
+.flex-project {
+    width: fit-content;
+    max-width: 47%;
     min-width: 25%;
     height:fit-content;
     position: relative;
     text-align: center;
     display: block;
     margin-top: 6%;
+    
+}
+
+.project-frame img {
+    object-fit: contain;
+    width: 100%;
 }
 
 /* student page visual layout----------------------------------------------------------------- */
@@ -640,12 +724,11 @@ video {
     }
     
     .carousel-img {
-        padding: 5vw;
-        height:auto;
-        width: auto;
-        max-width: 26vw;
+        padding: 3vw;
+        width: 100%;
+        max-width: 30vw;
         max-height: 26vw;
-
+        object-fit: contain;
     }
     .carousel-hex .carousel-img {
         padding: 2vw;
@@ -677,7 +760,7 @@ video {
         justify-content: center;
         transition: transform 0.2s ease;
     }
-    ul::-webkit-scrollbar {
+    ::-webkit-scrollbar {
         display: none;
     }
     .carousel-button {
@@ -751,6 +834,9 @@ video {
     #student-visual-spacer {
         height: 5px;
     }
+    .flex-project {
+        max-width: 100%;
+    }
 
     
 }
@@ -812,6 +898,9 @@ video {
         height: calc(1.1547005 * var(--carousel-button-width-small));
         clip-path: polygon(0% 25%, 50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%);
 
+    }
+    .flex-student {
+        max-width: 100%;
     }
    
 }
