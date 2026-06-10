@@ -136,51 +136,47 @@ body {
 section {
     padding-top: 200px;
     overflow:hidden;
+    position: relative;
     /* border:#d1158d 1px solid; */
 }
 /* Background textures GREEN ----------------------------------------------------------------- */
-#bglayer1{
+.bggreentextures {
     position: absolute;
-    background-size: cover;
-    background-image: url('images/SVG/webbylong.svg');
-    /*background-color: var(--pink);*/
+    background-size: contain;
+    background-repeat: repeat-y;
     min-height: 100%;
     width: 100%;    
+    z-index: -1;
+}
+#bglayer1{
+    background-image: url('images/SVG/webbylong.svg');
     mix-blend-mode: multiply;
     opacity: 60%;
-    z-index: -1;
 }
 #bglayer2A{
-    position: absolute;
-    background-size: cover;
-    background-image: url('images/SVG/longhexwebCOLOR.svg');
-    height: 100%;
-    width: 100%;    
+    background-image: url('images/SVG/longhexwebCOLOR.svg');  
     opacity: 25%;
-    z-index: -1;
 }
-#bglayerB{
-    position: absolute;
-    background-size: cover;
-    background-image: url('images/SVG/longhexwebGREEN.svg');
-    height: 100%;
-    width: 100%;    
+#bglayer2B{
+    background-image: url('images/SVG/longhexwebGREEN.svg');  
     mix-blend-mode: multiply;
     opacity: 44%;
-    z-index: -1;
 }
 #bglayer3{
-    background-size: cover;
-    background-image: url('images/SVG/lotuslong.svg');
-    height: 100%;
-    width: 100%;
-    position: absolute;   
+    background-image: url('images/SVG/lotuslong.svg'); 
     opacity: 66%;
-     z-index: -1;
 }
 
 /* Background Textures ANIMATED COLORS*/
 #contentANIMwrapper {
+    overflow: hidden;
+    position: absolute;
+    top: 0px;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+}
+#contentANIMwrapperProjects {
     overflow: hidden;
     position: absolute;
     top: 0px;
@@ -194,6 +190,15 @@ section {
     height: 3000px;
     overflow:hidden;
     z-index: -1;
+    top: 0px;
+}
+.contentANIM{
+    position: absolute;
+    width:100%;
+    height: 3000px;
+    overflow:hidden;
+    z-index: -1;
+    top: 3000px;
 }
 
 .rippleHORIZON{
@@ -387,6 +392,15 @@ from {transform: rotate(360deg) scale(0.5);}
 #footerwrapper {
     padding-top: 100px;
     height: fit-content;
+}
+.uni-logo {
+    width: 200px;
+    height: auto;
+}
+.eyecon-h{
+    width:50px;
+    height: auto;
+    margin-bottom: 25px;
 }
 
 /*
@@ -601,10 +615,6 @@ from {transform: rotate(360deg) scale(0.5);}
 }
 
 /* Students section ----------------------------------------------------------------- */
-#student {
-    overflow: hidden;
-}
-
     /*hexagon frames*/
 .student-frame {
     background-image: url(images/students/studentsplaceholder2.png);

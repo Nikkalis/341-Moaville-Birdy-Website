@@ -20,22 +20,28 @@
     </head>
     <body data-page="index">
         <!-- IDK WHERE I AM!! LOL-->
-         <div id="bglayer1"> </div>
-         <div id="bglayer2A"> </div>
-         <div id="bglayer2B"> </div>
-         <div id="bglayer3"> </div>
+         <div id="bglayer1" class="bggreentextures"> </div>
+         <div id="bglayer2A" class="bggreentextures"> </div>
+         <div id="bglayer2B" class="bggreentextures"> </div>
+         <div id="bglayer3" class="bggreentextures"> </div>
 
         <!--static lineworks-->
-        <img class="staticlinework" id="linework1" src="images/linework.png">
-        <img class="staticlinework" id="linework2" src="images/linework.png">
-        <img class="staticlinework" id="linework3" src="images/linework.png">
-        
+        <div id="staticlineworkwrapper">
+            <div class="staticlinework" id="lineworktop"> 
+                <img class="staticlineworkimg" src="images/linework.png">
+            </div>
+            <div class="staticlinework" id="linework1"> 
+                <img class="staticlineworkimg" src="images/linework.png">
+            </div>
+            <div class="staticlinework" id="linework2"> 
+                <img class="staticlineworkimg" src="images/linework.png">
+            </div>
+            <div class="staticlinework" id="linework3"> 
+                <img class="staticlineworkimg" src="images/linework.png">
+            </div>
+        </div>
         <!--<div id="topnavspacer"></div>-->
-        <div class="headerimgdiv">
-            <img src="images/SVG/headerfooter.svg" alt="Red hex cluster" class="headerimg">     
-            </div> 
         <div id="headerwrapper">
-            
             <div class="upperdownerwrapper" id="topnavwrapper">
                 <div id="topnavdiv">
                     <div id="navhexred"><a href="#home" class="internal-link">Recognise</a></div>
@@ -45,6 +51,7 @@
 
                     <!--Hamburger menu for mobile-->
                 </div>
+
                 <a href="javascript:void(0);" class="icon" onclick="toggleNav()">
                     <i class="fa fa-bars"></i>
                 </a>
@@ -73,7 +80,10 @@
         <div class="herooverlaywrapper"><div id="herooverlayhey"></div></div>
         <div id="herowrapper">
         <div id="herodiv">
-            
+            <div class="contentANIM"> 
+             
+
+            </div>
             <div id="titlewrapper">
                 <svg id="titleimg" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 666.23 251.07">
                     
@@ -211,6 +221,57 @@
                 
             
             </div>
+            <div class="contentANIM-b"> 
+
+                <!-- Hexcluster-->
+                <img style="top: 10px; left:  1%;" src="images/SVG/hexclusterRED.svg" alt="Red hex cluster" class="triplehex">     
+                <!-- Hexweb-->
+                <img style="top: 50px; left:  1%;" src="images/SVG/hexwebRED.svg" alt="Red hex cluster" class="rotateLEFT hexcluster">     
+                <img style="top: 50px; left:  1%;" src="images/SVG/hexwebGREEN.svg" alt="Indigo hex cluster" class="rotateLEFT hexclusterdark">
+                <!-- Ripple-->
+                <img style="top: 10px; left: -10%;" src="images/SVG/rippleYELLOW.svg" alt="Yellow ripple"  class="pulse rippleHORIZON">
+                <!-- Hexcluster-->
+                <img style="top: 750px; left: 75%;" src="images/SVG/hexclusterINDIGO.svg" alt="Indigo hex cluster" class="triplehex">     
+                <!-- Hexweb-->
+                <img style="top: 650px; left: 65%;" src="images/SVG/hexwebINDIGO.svg" alt="Indigo hex cluster" class="rotateRIGHT hexcluster">
+                <img style="top: 650px; left: 65%;" src="images/SVG/hexwebGREEN.svg" alt="Indigo hex cluster" class="rotateRIGHT hexclusterdark">
+                <!-- Ripple-->
+                <img style="top: 250px; left: 65%;" src="images/SVG/rippleLIME.svg" alt="Green ripple"  class="pulse rippleHORIZON">               
+                <img style="top: 450px; left: 15%;" src="images/SVG/rippleRED.svg" alt="Red ripple"  class="pulse rippleVERTICAL">            
+                <img style="top: 850px; left: -20%;" src="images/SVG/rippleINDIGO.svg" alt="Indigo ripple"  class="pulse rippleVERTICAL">
+                <img style="top: 750px; left: 1%;" src="images/SVG/rippleLIME.svg" alt="Green ripple"  class="pulse rippleHORIZON">               
+                <!-- Hexweb-->
+                <img style="top: 950px; left: 45%;" src="images/SVG/hexwebYELLOW.svg" alt="Indigo hex cluster" class="rotateLEFT hexcluster">
+                <img style="top: 950px; left: 45%;" src="images/SVG/hexwebGREEN.svg" alt="Indigo hex cluster" class="rotateLEFT hexclusterdark">
+                <!-- Hexcluster-->
+                <img style="top: 1550px; left: -10%;" src="images/SVG/hexclusterYELLOW.svg" alt="Yellow hex cluster" class="triplehex">     
+                <!-- Ripple-->
+                <img style="top: 1050px; left: 45%;" src="images/SVG/rippleMAGENTA.svg" alt="Indigo ripple"  class="pulse rippleVERTICAL">
+                <!-- Hexweb-->
+                <img style="top: 1250px; left: 15%;" src="images/SVG/hexwebRED.svg" alt="Red hex cluster"  class="rotateRIGHT hexcluster">                      
+                <img style="top: 1250px; left: 15%;" src="images/SVG/hexwebGREEN.svg" alt="Red hex cluster"  class="rotateRIGHT hexclusterdark">                 
+                 <!-- Hexweb-->
+                <img style="top: 1950px; left: -15%;" src="images/SVG/hexwebYELLOW.svg" alt="Yellow hex cluster" class="rotateRIGHT hexcluster">
+                <img style="top: 1950px; left: -15%;" src="images/SVG/hexwebGREEN.svg" alt="Yellowhex cluster" class="rotateRIGHT hexclusterdark">
+                <!-- Ripple-->
+                <img style="top: 1250px; left: 65%;" src="images/SVG/rippleLIME.svg" alt="Green ripple"  class="pulse rippleHORIZON">                 
+                <img style="top: 1650px; left: 10%;" src="images/SVG/rippleYELLOW.svg" alt="Yellow ripple"  class="pulse rippleHORIZON">
+                <img style="top: 1850px; left: -10%;" src="images/SVG/rippleLIME.svg" alt="Green ripple"  class="pulse rippleHORIZON">                 
+                <!-- Extra Lotus-->
+                <img style="top: 1650px; left: 60%;" src="images/SVG/lotusCOOL.svg" alt="Magenta hex cluster" class="bonuslotus">     
+                <!-- Hexcluster-->
+                <img style="top: 2050px; left: 70%;" src="images/SVG/hexclusterMAGENTA.svg" alt="Magenta hex cluster" class="triplehex">     
+                <!-- Ripple--> 
+                <img style="top: 2350px; left: 35%;" src="images/SVG/rippleLIME.svg" alt="Lime ripple"  class="pulse rippleVERTICAL">
+                <img style="top: 2250px; left: 55%;" src="images/SVG/rippleRED.svg" alt="Indigo ripple"  class="pulse rippleVERTICAL">
+                <!-- Hexweb-->
+                <img style="top: 2450px; left: 45%;" src="images/SVG/hexwebINDIGO.svg" alt="Indigo hex cluster" class="rotateRIGHT hexcluster">
+                <img style="top: 2450px; left: 45%;" src="images/SVG/hexwebGREEN.svg" alt="Indigo hex cluster" class="rotateRIGHT hexclusterdark">  
+                <!-- Hexcluster-->
+                <img style="top: 2650px; left:  1%;" src="images/SVG/hexclusterRED.svg" alt="Red hex cluster" class="triplehex">     
+                
+            
+            </div>
             </div>
              <!-- Hex-->
             <div class="content-container">
@@ -256,12 +317,296 @@
                             <div class="hex student-frame student-bg-red"> </div>
                         </a>
                     </div>
+                    <div class="flex-student">
+                        <a class="student-link" href="student-page.html">
+                            <div class="hex student-frame student-bg-red"> </div>
+                        </a>
+                    </div>
+                    <div class="flex-student">
+                        <a class="student-link" href="student-page.html">
+                            <div class="hex student-frame student-bg-red"> </div>
+                        </a>
+                    </div>
+                    <div class="flex-student">
+                        <a class="student-link" href="student-page.html">
+                            <div class="hex student-frame student-bg-red"> </div>
+                        </a>
+                    </div>
+                    <div class="flex-student">
+                        <a class="student-link" href="student-page.html">
+                            <div class="hex student-frame student-bg-red"> </div>
+                        </a>
+                    </div>
+                    <div class="flex-student">
+                        <a class="student-link" href="student-page.html">
+                            <div class="hex student-frame student-bg-red"> </div>
+                        </a>
+                    </div>
+                    <div class="flex-student">
+                        <a class="student-link" href="student-page.html">
+                            <div class="hex student-frame student-bg-red"> </div>
+                        </a>
+                    </div>
+                    <div class="flex-student">
+                        <a class="student-link" href="student-page.html">
+                            <div class="hex student-frame student-bg-red"> </div>
+                        </a>
+                    </div>
+                    <div class="flex-student">
+                        <a class="student-link" href="student-page.html">
+                            <div class="hex student-frame student-bg-red"> </div>
+                        </a>
+                    </div>
+                    <div class="flex-student">
+                        <a class="student-link" href="student-page.html">
+                            <div class="hex student-frame student-bg-red"> </div>
+                        </a>
+                    </div>
+                    <div class="flex-student">
+                        <a class="student-link" href="student-page.html">
+                            <div class="hex student-frame student-bg-red"> </div>
+                        </a>
+                    </div>
+                    <div class="flex-student">
+                        <a class="student-link" href="student-page.html">
+                            <div class="hex student-frame student-bg-red"> </div>
+                        </a>
+                    </div>
+                    <div class="flex-student">
+                        <a class="student-link" href="student-page.html">
+                            <div class="hex student-frame student-bg-red"> </div>
+                        </a>
+                    </div>
+                    <div class="flex-student">
+                        <a class="student-link" href="student-page.html">
+                            <div class="hex student-frame student-bg-pink"> </div>
+                        </a>
+                    </div>
+                    <div class="flex-student">
+                        <a class="student-link" href="student-page.html">
+                            <div class="hex student-frame student-bg-orange"> </div>
+                        </a>
+                    </div>
+                    <div class="flex-student">
+                        <a class="student-link" href="student-page.html">
+                            <div class="hex student-frame student-bg-purple"> </div>
+                        </a>
+                    </div>
+                    <div class="flex-student">
+                        <a class="student-link" href="student-page.html">
+                            <div class="hex student-frame student-bg-pink"> </div>
+                        </a>
+                    </div>
+                    <div class="flex-student">
+                        <a class="student-link" href="student-page.html">
+                            <div class="hex student-frame student-bg-orange"> </div>
+                        </a>
+                    </div>
+                    <div class="flex-student">
+                        <a class="student-link" href="student-page.html">
+                            <div class="hex student-frame student-bg-purple"> </div>
+                        </a>
+                    </div>
+                    <div class="flex-student">
+                        <a class="student-link" href="student-page.html">
+                            <div class="hex student-frame student-bg-pink"> </div>
+                        </a>
+                    </div>
+                    <div class="flex-student">
+                        <a class="student-link" href="student-page.html">
+                            <div class="hex student-frame student-bg-orange"> </div>
+                        </a>
+                    </div>
+                    <div class="flex-student">
+                        <a class="student-link" href="student-page.html">
+                            <div class="hex student-frame student-bg-purple"> </div>
+                        </a>
+                    </div>
+                    <div class="flex-student">
+                        <a class="student-link" href="student-page.html">
+                            <div class="hex student-frame student-bg-pink"> </div>
+                        </a>
+                    </div>
+                    <div class="flex-student">
+                        <a class="student-link" href="student-page.html">
+                            <div class="hex student-frame student-bg-orange"> </div>
+                        </a>
+                    </div>
+                    <div class="flex-student">
+                        <a class="student-link" href="student-page.html">
+                            <div class="hex student-frame student-bg-purple"> </div>
+                        </a>
+                    </div>
+                    <div class="flex-student">
+                        <a class="student-link" href="student-page.html">
+                            <div class="hex student-frame student-bg-pink"> </div>
+                        </a>
+                    </div>
+                    <div class="flex-student">
+                        <a class="student-link" href="student-page.html">
+                            <div class="hex student-frame student-bg-orange"> </div>
+                        </a>
+                    </div>
+                    <div class="flex-student">
+                        <a class="student-link" href="student-page.html">
+                            <div class="hex student-frame student-bg-purple"> </div>
+                        </a>
+                    </div>
+                    <div class="flex-student">
+                        <a class="student-link" href="student-page.html">
+                            <div class="hex student-frame student-bg-pink"> </div>
+                        </a>
+                    </div>
+                    <div class="flex-student">
+                        <a class="student-link" href="student-page.html">
+                            <div class="hex student-frame student-bg-orange"> </div>
+                        </a>
+                    </div>
+                    <div class="flex-student">
+                        <a class="student-link" href="student-page.html">
+                            <div class="hex student-frame student-bg-purple"> </div>
+                        </a>
+                    </div>
+                    <div class="flex-student">
+                        <a class="student-link" href="student-page.html">
+                            <div class="hex student-frame student-bg-pink"> </div>
+                        </a>
+                    </div>
+                    <div class="flex-student">
+                        <a class="student-link" href="student-page.html">
+                            <div class="hex student-frame student-bg-orange"> </div>
+                        </a>
+                    </div>
+                    <div class="flex-student">
+                        <a class="student-link" href="student-page.html">
+                            <div class="hex student-frame student-bg-purple"> </div>
+                        </a>
+                    </div>
+                    <div class="flex-student">
+                        <a class="student-link" href="student-page.html">
+                            <div class="hex student-frame student-bg-pink"> </div>
+                        </a>
+                    </div>
+                    <div class="flex-student">
+                        <a class="student-link" href="student-page.html">
+                            <div class="hex student-frame student-bg-orange"> </div>
+                        </a>
+                    </div>
+                    <div class="flex-student">
+                        <a class="student-link" href="student-page.html">
+                            <div class="hex student-frame student-bg-purple"> </div>
+                        </a>
+                    </div>
                 </div>
             </div>
             
         </section>
 
         <section id="projects">
+            <div id="contentANIMwrapperProjects">
+            <div class="contentANIM"> 
+
+                <!-- Hexcluster-->
+                <img style="top: 10px; left:  1%;" src="images/SVG/hexclusterRED.svg" alt="Red hex cluster" class="triplehex">     
+                <!-- Hexweb-->
+                <img style="top: 50px; left:  1%;" src="images/SVG/hexwebRED.svg" alt="Red hex cluster" class="rotateLEFT hexcluster">     
+                <img style="top: 50px; left:  1%;" src="images/SVG/hexwebGREEN.svg" alt="Indigo hex cluster" class="rotateLEFT hexclusterdark">
+                <!-- Ripple-->
+                <img style="top: 10px; left: -10%;" src="images/SVG/rippleYELLOW.svg" alt="Yellow ripple"  class="pulse rippleHORIZON">
+                <!-- Hexcluster-->
+                <img style="top: 750px; left: 75%;" src="images/SVG/hexclusterINDIGO.svg" alt="Indigo hex cluster" class="triplehex">     
+                <!-- Hexweb-->
+                <img style="top: 650px; left: 65%;" src="images/SVG/hexwebINDIGO.svg" alt="Indigo hex cluster" class="rotateRIGHT hexcluster">
+                <img style="top: 650px; left: 65%;" src="images/SVG/hexwebGREEN.svg" alt="Indigo hex cluster" class="rotateRIGHT hexclusterdark">
+                <!-- Ripple-->
+                <img style="top: 250px; left: 65%;" src="images/SVG/rippleLIME.svg" alt="Green ripple"  class="pulse rippleHORIZON">               
+                <img style="top: 450px; left: 15%;" src="images/SVG/rippleRED.svg" alt="Red ripple"  class="pulse rippleVERTICAL">            
+                <img style="top: 850px; left: -20%;" src="images/SVG/rippleINDIGO.svg" alt="Indigo ripple"  class="pulse rippleVERTICAL">
+                <img style="top: 750px; left: 1%;" src="images/SVG/rippleLIME.svg" alt="Green ripple"  class="pulse rippleHORIZON">               
+                <!-- Hexweb-->
+                <img style="top: 950px; left: 45%;" src="images/SVG/hexwebYELLOW.svg" alt="Indigo hex cluster" class="rotateLEFT hexcluster">
+                <img style="top: 950px; left: 45%;" src="images/SVG/hexwebGREEN.svg" alt="Indigo hex cluster" class="rotateLEFT hexclusterdark">
+                <!-- Hexcluster-->
+                <img style="top: 1550px; left: -10%;" src="images/SVG/hexclusterYELLOW.svg" alt="Yellow hex cluster" class="triplehex">     
+                <!-- Ripple-->
+                <img style="top: 1050px; left: 45%;" src="images/SVG/rippleMAGENTA.svg" alt="Indigo ripple"  class="pulse rippleVERTICAL">
+                <!-- Hexweb-->
+                <img style="top: 1250px; left: 15%;" src="images/SVG/hexwebRED.svg" alt="Red hex cluster"  class="rotateRIGHT hexcluster">                      
+                <img style="top: 1250px; left: 15%;" src="images/SVG/hexwebGREEN.svg" alt="Red hex cluster"  class="rotateRIGHT hexclusterdark">                 
+                 <!-- Hexweb-->
+                <img style="top: 1950px; left: -15%;" src="images/SVG/hexwebYELLOW.svg" alt="Yellow hex cluster" class="rotateRIGHT hexcluster">
+                <img style="top: 1950px; left: -15%;" src="images/SVG/hexwebGREEN.svg" alt="Yellowhex cluster" class="rotateRIGHT hexclusterdark">
+                <!-- Ripple-->
+                <img style="top: 1250px; left: 65%;" src="images/SVG/rippleLIME.svg" alt="Green ripple"  class="pulse rippleHORIZON">                 
+                <img style="top: 1650px; left: 10%;" src="images/SVG/rippleYELLOW.svg" alt="Yellow ripple"  class="pulse rippleHORIZON">
+                <img style="top: 1850px; left: -10%;" src="images/SVG/rippleLIME.svg" alt="Green ripple"  class="pulse rippleHORIZON">                 
+                <!-- Extra Lotus-->
+                <img style="top: 1650px; left: 60%;" src="images/SVG/lotusCOOL.svg" alt="Magenta hex cluster" class="bonuslotus">     
+                <!-- Hexcluster-->
+                <img style="top: 2050px; left: 70%;" src="images/SVG/hexclusterMAGENTA.svg" alt="Magenta hex cluster" class="triplehex">     
+                <!-- Ripple--> 
+                <img style="top: 2350px; left: 35%;" src="images/SVG/rippleLIME.svg" alt="Lime ripple"  class="pulse rippleVERTICAL">
+                <img style="top: 2250px; left: 55%;" src="images/SVG/rippleRED.svg" alt="Indigo ripple"  class="pulse rippleVERTICAL">
+                <!-- Hexweb-->
+                <img style="top: 2450px; left: 45%;" src="images/SVG/hexwebINDIGO.svg" alt="Indigo hex cluster" class="rotateRIGHT hexcluster">
+                <img style="top: 2450px; left: 45%;" src="images/SVG/hexwebGREEN.svg" alt="Indigo hex cluster" class="rotateRIGHT hexclusterdark">  
+                <!-- Hexcluster-->
+                <img style="top: 2650px; left:  1%;" src="images/SVG/hexclusterRED.svg" alt="Red hex cluster" class="triplehex">     
+                
+            
+            </div>
+            <div class="contentANIM-b"> 
+
+                <!-- Hexcluster-->
+                <img style="top: 10px; left:  1%;" src="images/SVG/hexclusterRED.svg" alt="Red hex cluster" class="triplehex">     
+                <!-- Hexweb-->
+                <img style="top: 50px; left:  1%;" src="images/SVG/hexwebRED.svg" alt="Red hex cluster" class="rotateLEFT hexcluster">     
+                <img style="top: 50px; left:  1%;" src="images/SVG/hexwebGREEN.svg" alt="Indigo hex cluster" class="rotateLEFT hexclusterdark">
+                <!-- Ripple-->
+                <img style="top: 10px; left: -10%;" src="images/SVG/rippleYELLOW.svg" alt="Yellow ripple"  class="pulse rippleHORIZON">
+                <!-- Hexcluster-->
+                <img style="top: 750px; left: 75%;" src="images/SVG/hexclusterINDIGO.svg" alt="Indigo hex cluster" class="triplehex">     
+                <!-- Hexweb-->
+                <img style="top: 650px; left: 65%;" src="images/SVG/hexwebINDIGO.svg" alt="Indigo hex cluster" class="rotateRIGHT hexcluster">
+                <img style="top: 650px; left: 65%;" src="images/SVG/hexwebGREEN.svg" alt="Indigo hex cluster" class="rotateRIGHT hexclusterdark">
+                <!-- Ripple-->
+                <img style="top: 250px; left: 65%;" src="images/SVG/rippleLIME.svg" alt="Green ripple"  class="pulse rippleHORIZON">               
+                <img style="top: 450px; left: 15%;" src="images/SVG/rippleRED.svg" alt="Red ripple"  class="pulse rippleVERTICAL">            
+                <img style="top: 850px; left: -20%;" src="images/SVG/rippleINDIGO.svg" alt="Indigo ripple"  class="pulse rippleVERTICAL">
+                <img style="top: 750px; left: 1%;" src="images/SVG/rippleLIME.svg" alt="Green ripple"  class="pulse rippleHORIZON">               
+                <!-- Hexweb-->
+                <img style="top: 950px; left: 45%;" src="images/SVG/hexwebYELLOW.svg" alt="Indigo hex cluster" class="rotateLEFT hexcluster">
+                <img style="top: 950px; left: 45%;" src="images/SVG/hexwebGREEN.svg" alt="Indigo hex cluster" class="rotateLEFT hexclusterdark">
+                <!-- Hexcluster-->
+                <img style="top: 1550px; left: -10%;" src="images/SVG/hexclusterYELLOW.svg" alt="Yellow hex cluster" class="triplehex">     
+                <!-- Ripple-->
+                <img style="top: 1050px; left: 45%;" src="images/SVG/rippleMAGENTA.svg" alt="Indigo ripple"  class="pulse rippleVERTICAL">
+                <!-- Hexweb-->
+                <img style="top: 1250px; left: 15%;" src="images/SVG/hexwebRED.svg" alt="Red hex cluster"  class="rotateRIGHT hexcluster">                      
+                <img style="top: 1250px; left: 15%;" src="images/SVG/hexwebGREEN.svg" alt="Red hex cluster"  class="rotateRIGHT hexclusterdark">                 
+                 <!-- Hexweb-->
+                <img style="top: 1950px; left: -15%;" src="images/SVG/hexwebYELLOW.svg" alt="Yellow hex cluster" class="rotateRIGHT hexcluster">
+                <img style="top: 1950px; left: -15%;" src="images/SVG/hexwebGREEN.svg" alt="Yellowhex cluster" class="rotateRIGHT hexclusterdark">
+                <!-- Ripple-->
+                <img style="top: 1250px; left: 65%;" src="images/SVG/rippleLIME.svg" alt="Green ripple"  class="pulse rippleHORIZON">                 
+                <img style="top: 1650px; left: 10%;" src="images/SVG/rippleYELLOW.svg" alt="Yellow ripple"  class="pulse rippleHORIZON">
+                <img style="top: 1850px; left: -10%;" src="images/SVG/rippleLIME.svg" alt="Green ripple"  class="pulse rippleHORIZON">                 
+                <!-- Extra Lotus-->
+                <img style="top: 1650px; left: 60%;" src="images/SVG/lotusCOOL.svg" alt="Magenta hex cluster" class="bonuslotus">     
+                <!-- Hexcluster-->
+                <img style="top: 2050px; left: 70%;" src="images/SVG/hexclusterMAGENTA.svg" alt="Magenta hex cluster" class="triplehex">     
+                <!-- Ripple--> 
+                <img style="top: 2350px; left: 35%;" src="images/SVG/rippleLIME.svg" alt="Lime ripple"  class="pulse rippleVERTICAL">
+                <img style="top: 2250px; left: 55%;" src="images/SVG/rippleRED.svg" alt="Indigo ripple"  class="pulse rippleVERTICAL">
+                <!-- Hexweb-->
+                <img style="top: 2450px; left: 45%;" src="images/SVG/hexwebINDIGO.svg" alt="Indigo hex cluster" class="rotateRIGHT hexcluster">
+                <img style="top: 2450px; left: 45%;" src="images/SVG/hexwebGREEN.svg" alt="Indigo hex cluster" class="rotateRIGHT hexclusterdark">  
+                <!-- Hexcluster-->
+                <img style="top: 2650px; left:  1%;" src="images/SVG/hexclusterRED.svg" alt="Red hex cluster" class="triplehex">     
+                
+            
+            </div>
+            </div>
             <div class="content-container">
                 <div class="section-title-wrapper">
                     <h1 class="section-title">Projects</h1>
@@ -348,12 +693,10 @@
             </div>
         </section>
 
-         
         <div class="upperdownerwrapper" id="footerwrapper">
-            
             <div class="footer_img">
                 <footer>
-                    <img src="Images/logo.svg" class="uni-logo" />
+                    <img src="images/uni-logo.png" class="uni-logo" />
                     <div class="footerLinkHover">
                         <p>
                             Email: <span><a href="mailto:degreeshow@waikato.ac.nz">degreeshow@waikato.ac.nz</a></span>
@@ -368,18 +711,13 @@
                             >
                         </p>
                         <p id="cr">&copy; 2026</p>
+                        <br>
                     </div>
-                    <img src="Images/2025.svg" class="year" />   
-    
-                
-            </div>                 
+                    <img src="images/eyecon-h.svg" class="eyecon-h" />
+                    
+                </footer>
+            </div>
         </div>
-        <!-- Footer background image goes here -->
-            <div class="footerimgdiv">
-                  <img src="images/SVG/headerfooter.svg" alt="Red hex cluster" class="footerimg">     
-            </div>                                     
-        </footer>
-        
         <script src="lichenhome.js"></script>
     </body>
 </html>
