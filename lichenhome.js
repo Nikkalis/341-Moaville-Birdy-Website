@@ -51,6 +51,56 @@ const herolichen = (sketch) => {
     _diff_line.renderLine(sketch);
   };
 };
+const herolichenmini = (sketch) => {
+  let doesFreeze = true;
+  const HOW_LONG_UNTIL_I_COME_FOR_YOU = 10; // frames before you're killed
+  const MAGIC_MOA_NUMBER = 1.5; //force threshold, can they struggle?
+
+  const animationLength = 1500;
+  let animationSpeed = 250; // fps
+  const _maxForce = 0.9;
+  const _maxSpeed = 20;
+  const _desiredSeparation = 20;
+  const _separationCohesionRation = 1.1;
+  const _maxEdgeLen = 5;
+
+  let nodesStart = 6;
+  let rayStart = 150;
+
+  let _diff_line;
+
+  sketch.setup = function () {
+    let canvasobj = sketch.createCanvas(2000, 2000);
+
+    canvasobj.id("herolichenmini");
+
+    sketch.noFill();
+    sketch.stroke(106, 189, 69);
+    sketch.noSmooth();
+    sketch.strokeWeight(2);
+    _diff_line = new DifferentialLine(_maxForce, _maxSpeed, _desiredSeparation, _separationCohesionRation, _maxEdgeLen);
+
+    let angInc = sketch.TWO_PI / nodesStart;
+
+    for (let a = 0; a < sketch.TWO_PI; a += angInc) {
+      let x = sketch.width / 2 + sketch.cos(a) * rayStart;
+      let y = sketch.height / 2 + sketch.sin(a) * rayStart;
+      _diff_line.addNode(new Node(x, y, _maxForce, _maxSpeed, sketch));
+    }
+  };
+
+  sketch.draw = function () {
+    if (animationLength < sketch.frameCount) {
+      sketch.noLoop();
+    }
+
+    sketch.clear();
+    //background(0);
+
+    _diff_line.run(sketch, doesFreeze, MAGIC_MOA_NUMBER, HOW_LONG_UNTIL_I_COME_FOR_YOU);
+    _diff_line.renderLine(sketch);
+  };
+};
 const homelichen = (sketch) => {
   let doesFreeze = true;
   const HOW_LONG_UNTIL_I_COME_FOR_YOU = 10; // frames before you're killed
@@ -507,7 +557,6 @@ let homelichen1;
 let studentslichen1;
 let projectslichen1;
 let contactlichen1;
-// let flexgridlichen1;
 
 let homeButton = document.getElementById("navhexred");
 let studentsButton = document.getElementById("navhexpink");
@@ -536,6 +585,7 @@ let heroActive = false;
 let heroInitial = false;
 
 let herolichen1 = new p5(herolichen, document.getElementById("herodiv"));
+let herolichenmini1 = new p5(herolichenmini, document.getElementById("herodivmini"));
 
 const offsetSections = 100;
 
@@ -555,7 +605,7 @@ homeBtmThresh = homeBtm + (homeBtm - window.innerHeight / 2);
 
 // --------------------------------------- Student section grid outlines (might be laggy asf)
 
-let studentindex = Array.from(document.getElementsByClassName("flex-student"));
+let studentindex = Array.from(document.getElementsByClassName("flex-student-lichen"));
 
 applylichenborders(studentindex);
 
