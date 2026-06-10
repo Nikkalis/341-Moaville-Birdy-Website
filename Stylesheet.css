@@ -349,10 +349,9 @@ from {transform: rotate(360deg) scale(0.5);}
 
 .footerimg{
     position: absolute;
-    transform: scale(110%);
-    bottom: 240px;
+    transform: scale(120%), rotate(180deg);;
+    bottom: 100px;
     width: vw;
-    transform: rotate(180deg);
     z-index: -1; 
 }
 
