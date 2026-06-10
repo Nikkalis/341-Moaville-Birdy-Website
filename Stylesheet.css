@@ -248,6 +248,16 @@ section {
     opacity: 44%;
 }
 
+.minihex{
+    position: absolute;
+    height: 500px;
+    width: auto;
+    mix-blend-mode: overlay;
+    opacity: 40%;
+}
+
+
+
 @keyframes rotateLEFT {
   from {transform: rotate(0deg);}
   to {transform: rotate(360deg);}
