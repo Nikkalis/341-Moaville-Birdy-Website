@@ -328,7 +328,7 @@ from {transform: rotate(360deg) scale(0.5);}
 /* Header and Footer graphics -----------------------------------------------------==*/
 
 .headerimgdiv{
-    position: sticky;
+    position: fixed;
     height: 240px;
     width: vw;
     top: 0px;
