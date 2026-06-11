@@ -376,9 +376,8 @@ from {transform: rotate(360deg) scale(0.5);}
 }
 
 .footerimgdiv{
-  
     height: 250px;
-    top: 0px;
+    top: -100px;
     bottom: 0px;
     left: 0px;
     right: 0px;
@@ -395,9 +394,16 @@ from {transform: rotate(360deg) scale(0.5);}
 }
 
 .footerimg{
-    transform:  rotate(180deg);
-    bottom: -250px;
+    position: absolute;
+    transform:  
+        translateX(-50%)
+        rotate(180deg);
+    
     z-index: -1; 
+    width: 1200px;
+    height: auto;
+    left: 50%;
+    
 }
 
 /* Navigation bar  ----------------------------------------------------------------- */
