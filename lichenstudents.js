@@ -98,7 +98,7 @@ if (currentImageIndex === 0) {
   img.style.transform = `translateX(${(totalImages) * -100}%)`;
   });
   currentImageIndex = totalImages;
-}; //if we are at first image, then go to the last
+} //if we are at first image, then go to the last
 
 //reverse logic for what we did in showNextImage
 images.forEach((img) => {
@@ -113,6 +113,29 @@ images.forEach((img) => {
 img.style.transform = `translateX(0)`; //every image back to original position
 });
 currentImageIndex = 0;
+}
+
+function enterPortFullscreen(target) {
+  var img = document.getElementById("portfolio-image");
+  var wrapper = document.getElementById("fullscreen-portfolio");
+  wrapper.className = "visible";
+  img.src = target.src;
+  
+}
+
+function exitPortFullscreen() {
+  var wrapper = document.getElementById("fullscreen-portfolio");
+  console.log("fuck");
+  wrapper.className = "invisible";
+}
+
+function toggleNav() {
+  var x = document.getElementById("topnavwrapper");
+  if (x.className === "upperdownerwrapper") {
+    x.className += " responsive";
+  } else {
+    x.className = "upperdownerwrapper";
+  }
 }
 
 // --------------------------------------- Functions and classes and shit lalalalalalalaaaa
