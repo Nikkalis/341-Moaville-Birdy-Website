@@ -122,6 +122,8 @@ a {
 
 .flex-project h3, .flex-student h3 {
     max-width: var(--hex-size);
+    margin-left: auto;
+    margin-right: auto;
 }
 
 /* Full body stuff ----------------------------------------------------------------- */
@@ -780,7 +782,7 @@ a.icon {
 
 .project-link {
     position: relative;
-    
+    justify-content: center;
     width: 100%;
     height: 100%;
 }
