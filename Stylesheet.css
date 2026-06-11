@@ -54,6 +54,7 @@
 /* Reset and Base Styles */
 body {
     margin: 0;
+    width: pixels;
     padding: 0;
     color: rgb(255, 255, 255);
     font-family: MissFutura;
@@ -151,12 +152,13 @@ section {
 /* Background textures GREEN ----------------------------------------------------------------- */
 .bggreentextures {
     position: absolute;
-    background-size: contain;
+    background-size: 100%, auto;
     background-repeat: repeat-y;
     min-height: 100%;
-    width: 100%;    
+    min-width: 100%;    
     z-index: -1;
 }
+
 #bglayer1{
     background-image: url('images/SVG/webbylong.svg');
     mix-blend-mode: multiply;
