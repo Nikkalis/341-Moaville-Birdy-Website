@@ -229,6 +229,15 @@ section {
     top: 0px;
 }
 
+.contentBIGFOOT{
+    position: absolute;
+    width:100%;
+    height: 1000px;
+    overflow:hidden;
+    z-index: -1;
+    top: 0px;
+}
+
 .rippleHORIZON{
     position: absolute;
     height: 700px;
