@@ -356,18 +356,15 @@ from {transform: rotate(360deg) scale(0.5);}
 
 .headerimgdiv{
     position: fixed;
-    height: 300px;
-    width: vw;
+    height: 180px;
     top: 0px;
-    bottom: 0px;
-    left: 0px;
-    right: 0px;
+    width: 100vw;
     overflow: hidden;  
     z-index: 3; 
 }
 
 .footerimgdiv{
-    width: vw;
+  
     height: 250px;
     top: 0px;
     bottom: 0px;
@@ -379,12 +376,13 @@ from {transform: rotate(360deg) scale(0.5);}
 
 .headerimg{
     position: absolute;
-    transform: scale(100%);
-    top: -250px;    
+    bottom: 0px;
+    width: 1200px;
+    left: 50%;
+    transform: translateX(-50%);
 }
 
 .footerimg{
-    transform: scale(100%);
     transform:  rotate(180deg);
     bottom: -250px;
     z-index: -1; 
