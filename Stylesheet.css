@@ -157,6 +157,9 @@ section {
     width: 100%;    
     z-index: -1;
 }
+#content-footer-wrapper {
+    height: 100%;
+}
 #bglayer1{
     background-image: url('images/SVG/webbylong.svg');
     mix-blend-mode: multiply;
