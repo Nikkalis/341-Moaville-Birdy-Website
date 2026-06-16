@@ -1064,15 +1064,15 @@ video {
     visibility: hidden;
 }
 .linework1 {
-    left: 0;
+    left: unset;
     right: -900px;
 }
 .linework2 {
-    right:0;
+    right:unset;
     left: -900px;
 }
 .linework3 {
-    left:0;
+    left:unset;
     right: -900px;
 }
 
