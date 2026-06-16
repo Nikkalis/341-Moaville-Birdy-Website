@@ -508,9 +508,9 @@ a.icon {
 .p5Canvas {
     position: absolute;
     top: -550px;
-    mix-blend-mode: hard-light;
     opacity: 75%;
     pointer-events: none !important; 
+    mix-blend-mode: hard-light;
 }
 .flex-student .p5Canvas {
     z-index: 1;
@@ -563,17 +563,17 @@ a.icon {
 }
 
 /* static linework */
-#staticlineworkwrapper {
+.staticlineworkwrapper {
     overflow: hidden;
     top: 0px;
     left: 0px;
     bottom: 0px;
     right: 0px;
     position: absolute;
+    mix-blend-mode: overlay;
 }
 .staticlinework {
     position:absolute;
-    mix-blend-mode: overlay;
     pointer-events: none !important; 
 }
 .staticlineworkimg {
@@ -585,26 +585,32 @@ a.icon {
     left: 50%;
     transform: translateX(-50%);
 }
-#linework1 {
-    top: 15%;
+.linework1 {
+    top: 900px;
     right: -900px;
 }
-#linework2 {
-    top: 35%;
+.linework2 {
+    top: 2500px;
     left: -900px;
 }
-#linework3 {
-    top: 66%;
+.linework3 {
+    top: 4200px;
     right: -900px;
 }
 
 /* Landing page section ----------------------------------------------------------------- */
-#herowrapper {
+#herowrapper, #herolichenwrapper {
     height: 100%;
         width: 100%;
     overflow: hidden;
     position: absolute;
+    
 }
+#herolichenwrapper {
+    mix-blend-mode: hard-light;
+    position: fixed;
+}
+
 #herodiv {
     /*top: var(--navheight);*/
     width: 100%;
@@ -630,9 +636,9 @@ a.icon {
     height: 200%;
     background-image: url(images/textureoverlay.png);
     background-size: 100% 1500px;
-    mix-blend-mode: color-dodge;
+    
     background-repeat: repeat-y;
-    opacity: 20%;
+    opacity: 10%;
   animation-name: slide;
   animation-duration: 100s;
   animation-iteration-count: infinite;
@@ -646,7 +652,7 @@ a.icon {
     height: 200%;
     background-image: url(images/textureoverlay.png);
     background-size: 100% 1500px;
-    mix-blend-mode: color-dodge;
+    
     background-repeat: repeat-y;
     opacity: 10%;
   animation-name: slide;
@@ -659,9 +665,10 @@ a.icon {
 .herooverlaywrapper {
     width: 100%;
     height: 100%;
-    mix-blend-mode: overlay;
+    mix-blend-mode:color-dodge;
     overflow: hidden;
     position: absolute;
+    opacity: 100%;
     z-index: 4;
     pointer-events: none !important; 
 }

@@ -40,6 +40,7 @@ const herolichen = (sketch) => {
   };
 
   sketch.draw = function () {
+    
     if (animationLength < sketch.frameCount) {
       sketch.noLoop();
     }
@@ -90,6 +91,7 @@ const herolichenmini = (sketch) => {
   };
 
   sketch.draw = function () {
+    
     if (animationLength < sketch.frameCount) {
       sketch.noLoop();
     }
@@ -144,6 +146,7 @@ const homelichen = (sketch) => {
   };
 
   sketch.draw = function () {
+    
     if (erasing) {
       sketch.erase();
       sketch.strokeWeight(3);
@@ -234,6 +237,7 @@ const studentslichen = (sketch) => {
   };
 
   sketch.draw = function () {
+    
     if (erasing) {
       sketch.erase();
       sketch.strokeWeight(3);
@@ -324,6 +328,7 @@ const projectslichen = (sketch) => {
   };
 
   sketch.draw = function () {
+    
     if (erasing) {
       sketch.erase();
       sketch.strokeWeight(3);
@@ -584,8 +589,8 @@ let homeActive = false;
 let heroActive = false;
 let heroInitial = false;
 
-let herolichen1 = new p5(herolichen, document.getElementById("herodiv"));
-let herolichenmini1 = new p5(herolichenmini, document.getElementById("herodivmini"));
+let herolichen1 = new p5(herolichen, document.getElementById("herolichenwrapper"));
+let herolichenmini1 = new p5(herolichenmini, document.getElementById("herolichenwrapper"));
 
 const offsetSections = 100;
 
