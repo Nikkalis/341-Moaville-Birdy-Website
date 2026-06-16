@@ -587,15 +587,15 @@ a.icon {
 }
 .linework1 {
     top: 900px;
-    right: -900px;
+    left: 40px;
 }
 .linework2 {
     top: 2500px;
-    left: -900px;
+    right: 40px;
 }
 .linework3 {
     top: 4200px;
-    right: -900px;
+    left: 40px;
 }
 
 /* Landing page section ----------------------------------------------------------------- */
@@ -1030,6 +1030,30 @@ video {
 
 /* Media queries for size responsiveness ----------------------------------------------------------------- */
 
+@media screen and (min-width: 1500px) {
+    #student-image {
+    height: 200%;
+
+    right: 18%;
+    }
+    #student-margin-decor-a {
+    visibility: hidden;
+}
+.linework1 {
+    left: 50%;
+    transform: translateX(-50%);
+}
+.linework2 {
+    right:unset ;
+    left: 50%;
+    transform: translateX(-50%);
+}
+.linework3 {
+    left: 50%;
+    transform: translateX(-50%);
+}
+}
+
 @media screen and (max-width: 1200px) {
     #student-image {
     height: 200%;
@@ -1038,6 +1062,18 @@ video {
     }
     #student-margin-decor-a {
     visibility: hidden;
+}
+.linework1 {
+    left: 0;
+    right: -900px;
+}
+.linework2 {
+    right:0;
+    left: -900px;
+}
+.linework3 {
+    left:0;
+    right: -900px;
 }
 
 
