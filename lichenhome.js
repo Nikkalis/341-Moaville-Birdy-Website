@@ -20,7 +20,7 @@ const herolichen = (sketch) => {
   let _diff_line;
 
   sketch.setup = function () {
-    let canvasobj = sketch.createCanvas(2000, 2000);
+    let canvasobj = sketch.createCanvas(2500, 2500);
 
     canvasobj.id("herolichen");
 

@@ -7,6 +7,7 @@
     --navheight: 100px;
 
     /* colours */
+    --bggreendarker: #09251c;
     --bggreen: #0e3325;
     --accent: #6abd45;
     /*
@@ -142,7 +143,7 @@ body {
 .content-container-wide {
     max-width: 80vw;
     margin: auto;
-    overflow: hidden;
+    overflow: visible;
 }
 
 section {
@@ -150,6 +151,17 @@ section {
     overflow:hidden;
     position: relative;
     /* border:#d1158d 1px solid; */
+}
+#home {
+    padding-bottom:100px;
+}
+.darkgreenbackground {
+    width: 100vw;
+    height: 100%;
+    background-color: var(--bggreendarker);
+    position:absolute;
+    top: 0;
+    z-index: -2;
 }
 /*wip page stuff ---------------*/
 #wipcontact {
@@ -227,7 +239,7 @@ section {
     height: 3000px;
     overflow:hidden;
     z-index: -1;
-    bottom: 0px;
+    top: 3000px;
 }
 
 .contentANIM-HERO{
@@ -265,6 +277,7 @@ section {
     mix-blend-mode: overlay;
     opacity: 25%;
     width: auto;
+    z-index: 1;
 }
 .hexclusterdark{
     position: absolute;
@@ -272,12 +285,14 @@ section {
     mix-blend-mode: multiply;
     opacity: 75%;
     width: auto;
+    z-index: 1;
 }
 
 .triplehex{
     position: absolute;
     height: 500px;
     width: auto;
+    z-index: 2;
 }
 
 .bonuslotus{
