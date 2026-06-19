@@ -132,11 +132,15 @@ function exitPortFullscreen() {
 function toggleNav() {
   var x = document.getElementById("topnavwrapper");
   if (x.className === "upperdownerwrapper") {
-    x.className += " responsive";
+    x.className = "upperdownerwrapper responsive";
+  }
+  else if (x.className === "upperdownerwrapper nonresponsive") {
+    x.className = "upperdownerwrapper responsive";
   } else {
-    x.className = "upperdownerwrapper";
+    x.className = "upperdownerwrapper nonresponsive";
   }
 }
+
 
 // --------------------------------------- Functions and classes and shit lalalalalalalaaaa
 

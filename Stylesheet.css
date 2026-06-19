@@ -468,6 +468,17 @@ a.icon {
     display: none;
 }
 
+@keyframes navslide{
+    from {transform: translateY(-800px);}
+    to {transform: translateY(0px);}
+}
+@keyframes navslideback{
+    from {transform: translateY(0px);}
+    to {transform: translateY(-800px);}
+}
+
+
+
 /* FOOTER RRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRR */
 #footerwrapper {
     padding-top: 100px;
@@ -1193,33 +1204,62 @@ video {
     #topnavdiv{
         display: none;
         top: 40px;
-        
     }
-    
-    #topnavwrapper {
+    #topnavdivHighlight{
+        display: block;
+        top: 40px;
+    }
+    .nonresponsive {
+        top: unset;
+    }
+    .nonresponsive #topnavdiv, .nonresponsive #topnavdivHighlight{
+        display: block;
+    }
+    #topnavwrapper, #topnavwrapperHighlight {
         position: relative;
     }
-
+     
+ 
     a.icon {
         display: block;
         position: absolute;
         right: 0;
         top: 0;
         width: 80px;
-        height:auto;
+        height: auto;
         padding-top: 40px;
     }
-    
 
-    .responsive #topnavdiv {
+    .nonresponsive #topnavdiv, .nonresponsive #topnavdivHighlight {
+        will-change: transform;
+        animation-name: navslideback;
+        animation-duration: 400ms;
+        transform: translateY(-800px);
+        
+    }
+    
+    .responsive #topnavdiv, .nonresponsive #topnavdivHighlight {
+        will-change: transform;
+        animation-name: navslide;
+        animation-duration: 400ms;
+        animation-timing-function:cubic-bezier(0.075, 0.82, 0.165, 1); 
+        
+    }
+
+    .responsive #topnavdiv, .nonresponsive #topnavdivHighlight {
         display: block;
     }
-    .responsive #topnavdiv div { 
+    #topnavdiv div { 
         height: 80px;
         justify-content: left;
         top: 0px;
     }
-    .responsive #topnavdiv div a {
+    #topnavdivHighlight div { 
+        height: 80px;
+        justify-content: left;
+
+    }
+    #topnavdiv div a, #topnavdivHighlight div a {
         justify-content: left;
         margin: 0px;
     }

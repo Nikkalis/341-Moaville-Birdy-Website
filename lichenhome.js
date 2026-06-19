@@ -644,10 +644,22 @@ for (const link of links) {
 
 function toggleNav() {
   var x = document.getElementById("topnavwrapper");
+  var y = document.getElementById("topnavwrapperHighlight");
   if (x.className === "upperdownerwrapper") {
-    x.className += " responsive";
+    x.className = "upperdownerwrapper responsive";
+  }
+  else if (x.className === "upperdownerwrapper nonresponsive") {
+    x.className = "upperdownerwrapper responsive";
   } else {
-    x.className = "upperdownerwrapper";
+    x.className = "upperdownerwrapper nonresponsive";
+  }
+  if (y.className === "upperdownerwrapper") {
+    y.className = "upperdownerwrapper responsive";
+  }
+  else if (y.className === "upperdownerwrapper nonresponsive") {
+    y.className = "upperdownerwrapper responsive";
+  } else {
+    y.className = "upperdownerwrapper nonresponsive";
   }
 }
 
