@@ -208,6 +208,8 @@ section {
     bottom: 0px;
     left: 0px;
     right: 0px;
+    pointer-events: none !important; 
+
 }
 #contentANIMwrapperProjects {
     overflow: hidden;
@@ -597,6 +599,7 @@ a.icon {
     right: 0px;
     position: absolute;
     mix-blend-mode: overlay;
+    pointer-events: none !important; 
 }
 .staticlinework {
     position:absolute;
